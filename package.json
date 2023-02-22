@@ -41,9 +41,9 @@
     "lint": "eslint src/lib",
     "dev": "vite",
     "preview": "vite preview",
-    "build": "concurrently \"npm run copy:css\" \"tsc && vite build\"",
+    "build": "concurrently \"tsc && vite build\" \"npm run copy:css\"",
     "build:css": "tailwindcss -m -i src/tailwind.css -o ./dist/reform.compiled.css",
-    "copy:css": "cp src/tailwind.css ./dist/reform.css",
+    "copy:css": "npx sass ./src/reform.scss ./dist/reform.css ",
     "build:storybook": "storybook build",
     "storybook": "storybook dev -p 6006"
   },
