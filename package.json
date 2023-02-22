@@ -1,7 +1,8 @@
 {
-  "name": "@kodakafa/reform",
+  "name": "@kodkafa/reform",
   "version": "0.0.1",
   "license": "MIT",
+  "description": "",
   "author": "KODKAFA",
   "main": "./dist/reform.umd.js",
   "module": "./dist/reform.es.js",
@@ -22,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/kodkafa/reform"
+    "url": "git+https://github.com/kodkafa/reform.git"
   },
   "bugs": {
     "url": "https://github.com/kodkafa/reform/issues"
@@ -44,8 +45,7 @@
     "build:css": "tailwindcss -m -i src/tailwind.css -o ./dist/reform.compiled.css",
     "copy:css": "cp src/tailwind.css ./dist/reform.css",
     "build:storybook": "storybook build",
-    "storybook": "storybook dev -p 6006",
-    "postinstall": "husky install && chmod ug+x .husky/* && chmod ug+x .git/hooks/*"
+    "storybook": "storybook dev -p 6006"
   },
   "dependencies": {
     "@hookform/resolvers": "^2.9.11",
