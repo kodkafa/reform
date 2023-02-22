@@ -1,0 +1,94 @@
+{
+  "name": "@kodakafa/reform",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": "KODKAFA",
+  "main": "./dist/reform.umd.js",
+  "module": "./dist/reform.es.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/reform.es.js",
+      "require": "./dist/reform.umd.js"
+    },
+    "./dist/reform.css": "./dist/reform.css"
+  },
+  "peerDependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kodkafa/reform"
+  },
+  "bugs": {
+    "url": "https://github.com/kodkafa/reform/issues"
+  },
+  "homepage": {
+    "url": "https://github.com/kodkafa/reform#readme"
+  },
+  "keywords": [
+    "react",
+    "form",
+    "reform",
+    "react-hook-form",
+    "tailwind"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "preview": "vite preview",
+    "build": "concurrently \"npm run copy:css\" \"tsc && vite build\"",
+    "build:css": "tailwindcss -m -i src/tailwind.css -o ./dist/reform.compiled.css",
+    "copy:css": "cp src/tailwind.css ./dist/reform.css",
+    "build:storybook": "storybook build",
+    "storybook": "storybook dev -p 6006",
+    "postinstall": "husky install && chmod ug+x .husky/* && chmod ug+x .git/hooks/*"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^2.9.11",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.43.1",
+    "yup": "^1.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "@storybook/addon-essentials": "^7.0.0-beta.49",
+    "@storybook/addon-interactions": "^7.0.0-beta.49",
+    "@storybook/addon-links": "^7.0.0-beta.49",
+    "@storybook/blocks": "^7.0.0-beta.49",
+    "@storybook/react": "^7.0.0-beta.49",
+    "@storybook/react-vite": "^7.0.0-beta.49",
+    "@storybook/testing-library": "^0.0.14-next.1",
+    "@types/node": "^18.13.0",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@vitejs/plugin-react": "^3.1.0",
+    "autoprefixer": "^10.4.13",
+    "babel-loader": "^9.1.2",
+    "concurrently": "^7.6.0",
+    "eslint": "^8.0.1",
+    "eslint-config-standard-with-typescript": "^34.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "husky": "^8.0.3",
+    "postcss": "^8.4.21",
+    "prettier": "^2.8.4",
+    "prop-types": "^15.8.1",
+    "sass": "^1.58.3",
+    "storybook": "^7.0.0-beta.49",
+    "tailwindcss": "^3.2.7",
+    "typescript": "*",
+    "vite": "^4.1.0",
+    "vite-plugin-dts": "^1.7.2",
+    "vite-plugin-linter": "^2.0.2",
+    "vite-tsconfig-paths": "^4.0.5"
+  }
+}

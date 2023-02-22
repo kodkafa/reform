@@ -1,0 +1,159 @@
+.reform-form {
+  @apply flex flex-col gap-2;
+
+  .reform-label {
+    @apply text-gray-500;
+  }
+
+  .reform-item {
+    @apply flex text-zinc-700 focus-within:text-zinc-800
+    border rounded-md
+    border-gray-200
+    focus-within:border-gray-400
+    bg-white
+    transition-colors;
+
+    &.right {
+      @apply flex-row-reverse;
+    }
+
+    input {
+      @apply block w-full p-2
+      text-gray-500
+      placeholder-gray-400
+      focus:outline-none
+      focus:text-gray-600
+      focus:placeholder-gray-300
+      bg-transparent;
+
+      &[type='password'] {
+        @apply block;
+      }
+    }
+  }
+
+  .reform-input-icon {
+    @apply px-2 flex items-center;
+  }
+
+  .reform-item-checkbox {
+    @apply flex;
+  }
+
+  .reform-checkbox {
+    @apply relative flex flex-row-reverse items-center;
+
+    &.right {
+      @apply flex-row;
+      input[type='checkbox'] + div {
+        @apply ml-2 mr-0;
+      }
+    }
+
+    input {
+      &[type='checkbox'] {
+        @apply h-full w-full opacity-0  absolute;
+      }
+
+      &[type='checkbox'] + div {
+        @apply mr-2 flex w-5 h-5 border rounded-md bg-zinc-300;
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiIGQ9Ik00IDhoOCIvPjwvc3ZnPg==);
+      }
+
+      &[type='checkbox']:focus + div {
+        @apply bg-zinc-400;
+      }
+
+      &[type='checkbox']:checked + div {
+        @apply bg-blue-500;
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTYgMTYiIGZpbGw9IndoaXRlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0xMi4yMDcgNC43OTNhMSAxIDAgMDEwIDEuNDE0bC01IDVhMSAxIDAgMDEtMS40MTQgMGwtMi0yYTEgMSAwIDAxMS40MTQtMS40MTRMNi41IDkuMDg2bDQuMjkzLTQuMjkzYTEgMSAwIDAxMS40MTQgMHoiLz48L3N2Zz4=);
+      }
+    }
+  }
+
+  .reform-item-error {
+    @apply pt-1 text-xs text-red-700;
+  }
+
+  > .reform-error {
+    @apply my-2 ml-6 text-xs  text-red-700;
+  }
+
+  > .reform-error li {
+    @apply list-disc;
+  }
+
+  button {
+    @apply flex items-center justify-center p-2 rounded-md
+    focus:drop-shadow
+    focus:outline-white
+    focus:outline-1
+    active:outline-0
+    active:brightness-75;
+
+    .icon {
+      @apply relative flex;
+    }
+
+    &[type='submit'] {
+      @apply flex items-center justify-center w-full
+      px-6
+      text-white
+      font-semibold shadow
+      bg-gradient-to-r
+      from-cyan-500 via-blue-500 bg-cyan-500;
+      background-size: 200% 400%;
+    }
+
+    .loader {
+      @apply animate-spin invisible;
+    }
+
+    &.loading {
+      .loader {
+        @apply visible;
+      }
+
+      .icon > :nth-child(2) {
+        @apply hidden;
+      }
+    }
+  }
+
+  &.reform-loading {
+    .reform-submit {
+      @apply bg-red-500;
+    }
+
+    .loader {
+      @apply visible;
+    }
+
+    button[type='submit'] {
+      @apply pointer-events-none
+      shadow-none
+      shadow-inner
+      text-gray-300;
+      animation: SubmitAnimation 1.3s ease infinite;
+
+      .icon > :nth-child(2) {
+        @apply hidden;
+      }
+    }
+  }
+}
+
+@keyframes SubmitAnimation {
+  0% {
+    background-size: 400% 400%;
+    background-position: 1% 50%;
+  }
+  50% {
+    background-size: 200% 400%;
+    background-position: 99% 50%;
+  }
+  100% {
+    background-size: 400% 400%;
+    background-position: 1% 50%;
+  }
+}

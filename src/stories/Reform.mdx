@@ -1,0 +1,50 @@
+import { Canvas, Meta } from "@storybook/blocks";
+import { Checkbox, Form, Input, PasswordInput, Submit } from "../lib";
+import { handleSubmit, schema } from "./helpers/Handlers";
+
+[//]: # 'import "../reform.scss";'
+
+<Meta title="reform/Get Started" />
+
+# Reform
+
+Reform, it's a react, react-hook-form, yup and tailwind simple form library.
+
+<div className="subheading">Configure</div>
+
+## LOGIN FORM EXAMPLE
+
+<Canvas>
+  <div className="max-w-sm p-6 border">
+    <h3 className="mb-4">LOGIN</h3>
+    <Form schema={schema} onSubmit={handleSubmit}>
+      <div className="flex flex-col gap-4">
+        <div>
+          <Input
+            label="E-mail"
+            name="email"
+            placeholder="jon@doe.com"
+            className="text-gray-800 "
+          />
+        </div>
+        <div>
+          <PasswordInput
+            label="Password"
+            name="password"
+            placeholder="your strong password"
+            className="text-gray-800 "
+          />
+        </div>
+        <div className="flex justify-between">
+          <Checkbox label="Remember me" name="remember" />
+          <a href="#" className="text-primary mb-1 text-sm">
+            Forgot password
+          </a>
+        </div>
+        <div>
+          <Submit>Login</Submit>
+        </div>
+      </div>
+    </Form>
+  </div>
+</Canvas>
