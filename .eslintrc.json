@@ -32,5 +32,10 @@
     "no-use-before-define": 0,
     "global-require": 0,
     "react/react-in-jsx-scope": 0
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }
