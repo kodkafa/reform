@@ -19,6 +19,7 @@ specifiers:
   autoprefixer: ^10.4.13
   concurrently: ^7.6.0
   eslint: ^8.0.1
+  eslint-config-prettier: ^8.6.0
   eslint-plugin-react: ^7.32.2
   husky: ^8.0.3
   lint-staged: ^13.1.2
@@ -62,6 +63,7 @@ devDependencies:
   autoprefixer: 10.4.13_postcss@8.4.21
   concurrently: 7.6.0
   eslint: 8.34.0
+  eslint-config-prettier: 8.6.0_eslint@8.34.0
   eslint-plugin-react: 7.32.2_eslint@8.34.0
   husky: 8.0.3
   lint-staged: 13.1.2
@@ -4661,6 +4663,15 @@ packages:
       optionator: 0.8.3
     optionalDependencies:
       source-map: 0.6.1
+    dev: true
+
+  /eslint-config-prettier/8.6.0_eslint@8.34.0:
+    resolution: {integrity: sha512-bAF0eLpLVqP5oEVUFKpMA+NnRFICwn9X8B5jrR9FcqnYBuPbqWEjTEspPWMj5ye6czoSLDweCzSo3Ko7gGrZaA==}
+    hasBin: true
+    peerDependencies:
+      eslint: '>=7.0.0'
+    dependencies:
+      eslint: 8.34.0
     dev: true
 
   /eslint-plugin-react/7.32.2_eslint@8.34.0:

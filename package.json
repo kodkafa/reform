@@ -40,7 +40,6 @@
   ],
   "packageManager": "pnpm@7.25.0+",
   "scripts": {
-    "lint": "eslint src/lib",
     "dev": "vite",
     "preview": "vite preview",
     "build": "tsc && vite build && npm run build:css && npm run copy:css && npm run copy:scss",
@@ -48,7 +47,9 @@
     "copy:css": "npx sass ./src/reform.scss ./dist/reform.tailwind.css ",
     "copy:scss": "cp ./src/reform.scss ./dist/reform.tailwind.scss ",
     "build:storybook": "storybook build",
-    "storybook": "storybook dev -p 6006"
+    "storybook": "storybook dev -p 6006",
+    "lint": "eslint --fix",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@hookform/resolvers": "^2.9.11",
@@ -75,6 +76,7 @@
     "autoprefixer": "^10.4.13",
     "concurrently": "^7.6.0",
     "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-react": "^7.32.2",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.2",
@@ -88,5 +90,9 @@
     "vite": "^4.1.0",
     "vite-plugin-dts": "^1.7.2",
     "vite-plugin-svgr": "^2.4.0"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
   }
 }
