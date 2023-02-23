@@ -15,7 +15,9 @@
       "import": "./dist/reform.es.js",
       "require": "./dist/reform.umd.js"
     },
-    "./dist/reform.css": "./dist/reform.css"
+    "./reform.css": "./dist/reform.css",
+    "./reform.tailwind.css": "./dist/reform.tailwind.css",
+    "./reform.tailwind.scss": "./dist/reform.tailwind.scss"
   },
   "peerDependencies": {
     "react": "18.2.0",
@@ -41,9 +43,10 @@
     "lint": "eslint src/lib",
     "dev": "vite",
     "preview": "vite preview",
-    "build": "tsc && vite build && npm run copy:css",
-    "build:css": "tailwindcss -m -i src/tailwind.css -o ./dist/reform.compiled.css",
-    "copy:css": "npx sass ./src/reform.scss ./dist/reform.css ",
+    "build": "tsc && vite build && npm run build:css && npm run copy:css && npm run copy:scss",
+    "build:css": "tailwindcss -m -i src/tailwind.css -o ./dist/reform.css",
+    "copy:css": "npx sass ./src/reform.scss ./dist/reform.tailwind.css ",
+    "copy:scss": "cp ./src/reform.scss ./dist/reform.tailwind.scss ",
     "build:storybook": "storybook build",
     "storybook": "storybook dev -p 6006"
   },
