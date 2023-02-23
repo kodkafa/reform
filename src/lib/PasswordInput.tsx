@@ -1,11 +1,10 @@
-import { InputHTMLAttributes, ReactNode, useState } from 'react';
+import { InputHTMLAttributes, useState } from 'react';
 import { Input } from './Input';
 
-type Props = InputHTMLAttributes<HTMLInputElement> & {
+export type Props = InputHTMLAttributes<HTMLInputElement> & {
   className?: string;
   name: string;
   label?: string;
-  icon?: ReactNode;
 };
 
 export const PasswordInput = ({ className, name, label, ...props }: Props) => {
@@ -23,11 +22,11 @@ export const PasswordInput = ({ className, name, label, ...props }: Props) => {
       label={label}
       type={type}
       icon={
-        <span onClick={toggleType} className="text-lg">
+        <span onClick={toggleType}>
           {type === 'password' ? (
-            <span className="cursor-pointer">🔒</span>
+            <i className="reform-password-show" />
           ) : (
-            <span className="cursor-pointer">🔓</span>
+            <i className="reform-password-hide" />
           )}
         </span>
       }
