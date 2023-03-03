@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { Form } from '../lib';
 
-import { Button } from '../lib/Button';
+import { Button, Props } from '../lib/Button';
+import { handleSubmit } from './helpers/Handlers';
 
 const meta = {
   title: 'reform/Button',
@@ -12,6 +14,11 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 export const Default: Story = {
+  render: (args: Props) => (
+    <Form onSubmit={handleSubmit}>
+      <Button {...args} />
+    </Form>
+  ),
   args: {
     children: 'Button',
   },

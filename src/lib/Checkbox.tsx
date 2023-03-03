@@ -25,16 +25,11 @@ export const Checkbox = ({
   const error = errors[name];
 
   return (
-    <div className="reform-item-checkbox">
-      <div className={`reform-checkbox ${labelPosition} ${className}`}>
+    <div className="item-checkbox">
+      <div className={`checkbox ${labelPosition} ${className}`}>
         {label && <Label htmlFor={name}>{label}</Label>}
-        <input
-          {...props}
-          type={type}
-          value={value}
-          {...(name ? register(name) : {})}
-        />
-        <div className="reform-input-icon" />
+        <input {...props} type={type} value={value} {...(name ? register(name) : {})} />
+        <div className="input-icon" />
       </div>
       {error && <p className="formItemError">{String(error.message)}</p>}
     </div>

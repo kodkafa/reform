@@ -41,9 +41,7 @@ export const Form = ({
     reValidateMode: 'onChange',
   });
 
-  const handleSubmit = async (data: {
-    [x: string]: string | string[] | object;
-  }) => {
+  const handleSubmit = async (data: { [x: string]: string | string[] | object }) => {
     setLoading('loading');
     if (await onSubmit(data, methods.setError)) methods.reset(defaultValues);
     setLoading('');
@@ -57,9 +55,7 @@ export const Form = ({
   return (
     <FormProvider {...methods}>
       <form
-        className={`reform-form ${
-          loading ? 'reform-loading' : ''
-        } ${className}`}
+        className={`form ${loading ? 'loading' : ''} ${className}`}
         onSubmit={methods.handleSubmit(handleSubmit)}
         onChange={handleFormChange}
       >

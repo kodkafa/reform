@@ -5,19 +5,8 @@ export type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
   reference?: Ref<HTMLButtonElement> | null;
 };
 
-export const Button = ({
-  className = '',
-  children,
-  type = 'button',
-  reference = null,
-  ...props
-}: Props) => (
-  <button
-    ref={reference}
-    {...props}
-    type={type}
-    className={`reform-button ${className}`}
-  >
+export const Button = ({ className = '', children, type = 'button', reference = null, ...props }: Props) => (
+  <button ref={reference} {...props} type={type} className={`button ${className}`}>
     {children}
   </button>
 );

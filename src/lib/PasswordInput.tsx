@@ -23,11 +23,7 @@ export const PasswordInput = ({ className, name, label, ...props }: Props) => {
       type={type}
       icon={
         <span onClick={toggleType}>
-          {type === 'password' ? (
-            <i className="reform-password-show" />
-          ) : (
-            <i className="reform-password-hide" />
-          )}
+          {type === 'password' ? <i className="password-show" /> : <i className="password-hide" />}
         </span>
       }
     />

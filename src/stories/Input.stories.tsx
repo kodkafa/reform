@@ -43,7 +43,7 @@ export const withIcon: Story = {
   },
 };
 
-export const withRightIcon: Story = {
+export const withLeftIcon: Story = {
   render: (args: Props) => (
     <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))}>
       <Input {...args} />
@@ -54,7 +54,7 @@ export const withRightIcon: Story = {
     label: 'Label',
     name: 'name',
     icon: <span>✎</span>,
-    iconPosition: 'right',
+    iconPosition: 'left',
   },
 };
 
@@ -66,10 +66,7 @@ const schema = Yup.object().shape({
 });
 export const withError: Story = {
   render: (args: Props) => (
-    <Form
-      onSubmit={(data) => alert(JSON.stringify(data, null, 2))}
-      schema={schema}
-    >
+    <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))} schema={schema}>
       <Input {...args} />
       <Submit>Submit</Submit>
     </Form>

@@ -5,14 +5,9 @@ type Props = LabelHTMLAttributes<HTMLLabelElement> & {
   className?: string;
 };
 
-export const Label = ({
-  htmlFor,
-  className = '',
-  children,
-  ...props
-}: Props) => {
+export const Label = ({ htmlFor, className = '', children, ...props }: Props) => {
   return (
-    <label {...props} htmlFor={htmlFor} className={`reform-label ${className}`}>
+    <label {...props} htmlFor={htmlFor} className={`label ${className}`}>
       {children}
     </label>
   );

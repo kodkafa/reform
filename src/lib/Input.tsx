@@ -11,15 +11,7 @@ export type Props = InputHTMLAttributes<HTMLInputElement> & {
   iconPosition?: 'left' | 'right';
 };
 
-export const Input = ({
-  className,
-  name,
-  label,
-  icon,
-  type = 'text',
-  iconPosition = 'left',
-  ...props
-}: Props) => {
+export const Input = ({ className, name, label, icon, type = 'text', iconPosition = 'right', ...props }: Props) => {
   const {
     register,
     formState: { errors },
@@ -29,16 +21,11 @@ export const Input = ({
   return (
     <>
       {label && <Label htmlFor={name}>{label}</Label>}
-      <div className={`reform-item ${iconPosition}`}>
-        <input
-          {...props}
-          type={type}
-          className={`reform-label ${className}`}
-          {...(name ? register(name) : {})}
-        />
-        <div className="reform-input-icon">{icon}</div>
+      <div className={`item ${iconPosition}`}>
+        <input {...props} type={type} className={`label ${className}`} {...(name ? register(name) : {})} />
+        <div className="input-icon">{icon}</div>
       </div>
-      {error && <p className="reform-item-error">{String(error.message)}</p>}
+      {error && <p className="item-error">{String(error.message)}</p>}
     </>
   );
 };

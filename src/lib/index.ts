@@ -7,3 +7,7 @@ export { PasswordInput } from './PasswordInput';
 export { Checkbox } from './Checkbox';
 export { Radio } from './Radio';
 export { Submit } from './Submit';
+export { Switch } from './Switch';
+export { Textbox } from './Textbox';
+export { Select } from './Select';
+export { InputGroup } from './InputGroup';

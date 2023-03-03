@@ -1,5 +1,6 @@
 import '../src/tailwind.css';
-import '../src/reform.scss';
+// import '../src/reform.scss';
+import '../src/preline.scss';
 //
 // export const parameters = {
 //   backgrounds: {
@@ -13,10 +14,7 @@ import '../src/reform.scss';
 //     },
 //   },
 // }
-import {
-  DEFAULT_THEME,
-  withTailwindTheme,
-} from './withTailwindTheme.decorator';
+import { DEFAULT_THEME, withTailwindTheme } from './withTailwindTheme.decorator';
 
 export const parameters = {
   backgrounds: {
