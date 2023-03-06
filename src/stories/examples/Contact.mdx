@@ -2,10 +2,14 @@ import {Canvas, Meta} from "@storybook/blocks";
 import {Checkbox, Form, Input, Select, Submit, Textarea} from "../../lib";
 import {handleSubmit, schema} from "../helpers/Handlers";
 
+import * as LoginStories from "./Login.stories";
+
 [//]:  # 'import "../reform.scss";'
 
 <Meta title="reform/Examples/Contact Form"/>
 
+
+<Canvas of={LoginStories.Default} sourceState='shown'/>
 
 ## CONTACT FORM EXAMPLE
 

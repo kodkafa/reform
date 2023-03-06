@@ -1,6 +1,6 @@
 import type { Meta } from '@storybook/react';
 import React from 'react';
-import { Checkbox, Form, Input, PasswordInput, Submit } from 'reform';
+import { Checkbox, Form, Input, PasswordInput, Submit } from '../../lib';
 import { handleSubmit, schema } from '../helpers/Handlers';
 import { Stories } from '@storybook/blocks';
 
