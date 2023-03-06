@@ -1,7 +1,9 @@
 # REFORM
 
 **Reform** is simplify your _form structure_, and you can style it without overwrite.
-Also, tailwind is optional.
+
+This is a **React library** that is developed with nested [React Hook For](https://react-hook-form.com/advanced-usage/#FormProviderPerformance) , [Yup](https://www.npmjs.com/package/yup) and [Tailwind]().
+By the way, Tailwind is optional.
 
 ### LOGIN SAMPLE WITH TAILWIND
 

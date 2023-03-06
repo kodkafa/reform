@@ -1,20 +1,21 @@
+import { ReactNode } from 'react';
 import { useFormContext } from 'react-hook-form';
 
 export type Props = {
-  leftOption?: string;
-  rightOption?: string;
+  off?: ReactNode;
+  on?: ReactNode;
   disabled?: boolean;
   name: string;
 };
 
-export const Switch = ({ leftOption, rightOption, disabled, name }: Props) => {
+export const Switch = ({ on, off, disabled, name }: Props) => {
   const { register } = useFormContext() || {};
 
   return (
     <div className={`switch ${disabled && 'disabled'}`}>
-      {leftOption && <label className="label">{leftOption}</label>}
+      {off && <label className="label">{off}</label>}
       <input type="checkbox" {...(name ? register(name) : {})} />
-      {rightOption && <label className="label">{rightOption}</label>}
+      {on && <label className="label">{on}</label>}
     </div>
   );
 };

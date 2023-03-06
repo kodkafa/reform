@@ -18,7 +18,9 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: (args: Props) => (
     <Form onSubmit={handleSubmit}>
-      <Input {...args} />
+      <div>
+        <Input {...args} />
+      </div>
       <Submit>Submit</Submit>
     </Form>
   ),
@@ -32,7 +34,9 @@ export const Default: Story = {
 export const withIcon: Story = {
   render: (args: Props) => (
     <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))}>
-      <Input {...args} />
+      <div>
+        <Input {...args} />
+      </div>
       <Submit>Submit</Submit>
     </Form>
   ),
@@ -46,7 +50,9 @@ export const withIcon: Story = {
 export const withLeftIcon: Story = {
   render: (args: Props) => (
     <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))}>
-      <Input {...args} />
+      <div>
+        <Input {...args} />
+      </div>
       <Submit>Submit</Submit>
     </Form>
   ),
@@ -67,7 +73,9 @@ const schema = Yup.object().shape({
 export const withError: Story = {
   render: (args: Props) => (
     <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))} schema={schema}>
-      <Input {...args} />
+      <div>
+        <Input {...args} />
+      </div>
       <Submit>Submit</Submit>
     </Form>
   ),

@@ -1,21 +1,26 @@
-import { ReactNode, SelectHTMLAttributes } from 'react';
+import { OptionHTMLAttributes, SelectHTMLAttributes } from 'react';
 import { useFormContext } from 'react-hook-form';
 
 export type Props = SelectHTMLAttributes<HTMLSelectElement> & {
   name: string;
-  title: string;
-  options: ReactNode[];
+  placeholder?: string;
+  options: OptionHTMLAttributes<HTMLOptionElement>[];
 };
 
-export const Select = ({ name, title, options, ...props }: Props) => {
+export const Select = ({ name, placeholder, options, ...props }: Props) => {
   const { register } = useFormContext() || {};
 
   return (
     <div className="item select">
       <select {...(name ? register(name) : {})} {...props}>
-        {[title, ...options].map((option, index) => (
-          <option key={index} selected={!index} disabled={!index} value={!index ? '' : option?.toString()}>
-            {option}
+        {placeholder && (
+          <option key="placeholder" value="">
+            {placeholder}
+          </option>
+        )}
+        {options.map(({ children, ...i }, k) => (
+          <option key={k} {...i}>
+            {children}
           </option>
         ))}
       </select>

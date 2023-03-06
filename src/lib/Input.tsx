@@ -22,7 +22,7 @@ export const Input = ({ className, name, label, icon, type = 'text', iconPositio
     <>
       {label && <Label htmlFor={name}>{label}</Label>}
       <div className={`item ${iconPosition}`}>
-        <input {...props} type={type} className={`label ${className}`} {...(name ? register(name) : {})} />
+        <input {...props} type={type} className={`${className}`} {...(name ? register(name) : {})} />
         <div className="input-icon">{icon}</div>
       </div>
       {error && <p className="item-error">{String(error.message)}</p>}

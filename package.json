@@ -17,7 +17,9 @@
     },
     "./reform.css": "./dist/reform.css",
     "./reform.tailwind.css": "./dist/reform.tailwind.css",
-    "./reform.tailwind.scss": "./dist/reform.tailwind.scss"
+    "./reform.tailwind.scss": "./dist/reform.tailwind.scss",
+    "./reform.preline.css": "./dist/reform.preline.css",
+    "./reform.preline.scss": "./dist/reform.preline.scss"
   },
   "peerDependencies": {
     "react": "18.2.0",
@@ -61,6 +63,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
+    "@kodkafa/eslint-config": "^0.2.5",
     "@storybook/addon-essentials": "^7.0.0-beta.49",
     "@storybook/addon-interactions": "^7.0.0-beta.49",
     "@storybook/addon-links": "^7.0.0-beta.49",
@@ -78,6 +81,7 @@
     "concurrently": "^7.6.0",
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.2",
@@ -91,9 +95,5 @@
     "vite": "^4.1.0",
     "vite-plugin-dts": "^1.7.2",
     "vite-plugin-svgr": "^2.4.0"
-  },
-  "lint-staged": {
-    "*.js": "eslint --cache --fix",
-    "*.{js,css,md}": "prettier --write"
   }
 }

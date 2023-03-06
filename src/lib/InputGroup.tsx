@@ -1,23 +1,11 @@
-import { InputHTMLAttributes, ReactNode } from 'react';
-import { useFormContext } from 'react-hook-form';
-import { Form } from './Form';
+import { HTMLAttributes } from 'react';
 
-export type Props = InputHTMLAttributes<HTMLInputElement> & {
-  name: string;
-  padStart?: ReactNode;
-  padEnd?: ReactNode;
-};
+export type Props = HTMLAttributes<HTMLDivElement>;
 
-export const InputGroup = ({ name, padStart, padEnd, ...props }: Props) => {
-  const { register } = useFormContext() || {};
-
+export const InputGroup = ({ children, className, ...props }: Props) => {
   return (
-    <div className="item flex items-center">
-      {padStart}
-
-      <input {...(name ? register(name) : {})} {...props} />
-
-      {padEnd}
+    <div {...props} className={`reform-input-group ${className}`}>
+      {children}
     </div>
   );
 };
