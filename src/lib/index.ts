@@ -8,6 +8,6 @@ export { Checkbox } from './Checkbox';
 export { Radio } from './Radio';
 export { Submit } from './Submit';
 export { Switch } from './Switch';
-export { Textbox } from './Textbox';
+export { Textarea } from './Textarea';
 export { Select } from './Select';
 export { InputGroup } from './InputGroup';

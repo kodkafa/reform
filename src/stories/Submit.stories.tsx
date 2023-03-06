@@ -2,12 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { Props } from '../lib/Button';
 import { Form, Input, Submit } from '../lib';
-import {
-  handleAsyncSubmit,
-  handleAsyncSubmitWithError,
-  handleSubmit,
-  handleSubmitWithError,
-} from './helpers/Handlers';
+import { handleAsyncSubmit, handleAsyncSubmitWithError, handleSubmit, handleSubmitWithError } from './helpers/Handlers';
 
 const meta = {
   title: 'reform/Submit',

@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Form, Submit, Textbox } from '../lib';
-import { Props } from '../lib/Textbox';
+import { Form, Submit, Textarea } from '../lib';
+import { Props } from '../lib/Textarea';
 
 import { handleSubmit } from './helpers/Handlers';
 
 const meta = {
-  title: 'reform/Textbox',
-  component: Textbox,
+  title: 'reform/Textarea',
+  component: Textarea,
   tags: ['autodocs'],
   argTypes: {},
-} satisfies Meta<typeof Textbox>;
+} satisfies Meta<typeof Textarea>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -17,7 +17,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: (args: Props) => (
     <Form onSubmit={handleSubmit}>
-      <Textbox {...args} />
+      <Textarea {...args} />
       <Submit>Submit</Submit>
     </Form>
   ),
@@ -30,7 +30,7 @@ export const Default: Story = {
 export const NoResize: Story = {
   render: (args: Props) => (
     <Form onSubmit={handleSubmit}>
-      <Textbox {...args} />
+      <Textarea {...args} />
       <Submit>Submit</Submit>
     </Form>
   ),

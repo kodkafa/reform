@@ -11,7 +11,7 @@ By the way, Tailwind is optional.
 import { Form, Input, Submit, ReformSubmitHandler} from '@kodkafa/reform';
 import '@kodkafa/reform/reform.tailwind.css';
 
-export default function Login(){
+export default function LoginStories(){
 
 const handleSubmit:ReformSubmitHandler = async (data, setError) => {
     // await your backend requesnt
@@ -43,7 +43,7 @@ return (
           </a>
         </div>
         <div>
-          <Submit>Login</Submit>
+          <Submit>LoginStories</Submit>
         </div>
       </div>
     </Form>)

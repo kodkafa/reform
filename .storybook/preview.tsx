@@ -1,6 +1,6 @@
+import '../src/preline.scss';
 import '../src/tailwind.css';
 // import '../src/reform.scss';
-import '../src/preline.scss';
 //
 // export const parameters = {
 //   backgrounds: {
@@ -17,9 +17,9 @@ import '../src/preline.scss';
 import { DEFAULT_THEME, withTailwindTheme } from './withTailwindTheme.decorator';
 
 export const parameters = {
-  backgrounds: {
-    default: 'light',
-  },
+  // backgrounds: {
+  //   default: 'light',
+  // },
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
     matchers: {

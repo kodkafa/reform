@@ -1,0 +1,61 @@
+import {Canvas, Meta} from "@storybook/blocks";
+import {Checkbox, Form, Input, Select, Submit, Textarea} from "../../lib";
+import {handleSubmit, schema} from "../helpers/Handlers";
+
+[//]:  # 'import "../reform.scss";'
+
+<Meta title="reform/Examples/Contact Form"/>
+
+
+## CONTACT FORM EXAMPLE
+
+<Canvas withToolbar={true} >
+    <div className="max-w-sm p-6 border">
+        <h3 className="mb-4 block text-2xl font-bold text-gray-800 dark:text-white">CONTACT</h3>
+        <Form schema={schema} onSubmit={handleSubmit}>
+            <div className="flex flex-col gap-4">
+                <div>
+                    <Input
+                        label="Email address"
+                        name="email"
+                        placeholder="jon@doe.com"
+                        className="text-gray-800 "
+                    />
+                </div>
+                <div>
+                    <Select
+                        label="Subject"
+                        name="subject"
+                        options={
+                            [{
+                                children: "Bug Report",
+                                value: 'bug'
+                            }, {
+                                children: "Feature",
+                                value: 'feature'
+                            }]
+                        }
+                        className="text-gray-800 "
+                    />
+                </div>
+                <div>
+                    <Textarea
+                        label="Message"
+                        name="message"
+                        placeholder="your message ..."
+                        className="text-gray-800 !bg-red-500/50 !text-red-500/50"
+                    />
+                </div>
+                <div className="flex justify-between">
+                    <Checkbox label="Remember me" name="remember" labelPosition="right"/>
+                    <a href="src/stories#" className="text-primary mb-1 text-sm">
+                        Forgot password
+                    </a>
+                </div>
+                <div>
+                    <Submit>Submit</Submit>
+                </div>
+            </div>
+        </Form>
+    </div>
+</Canvas>

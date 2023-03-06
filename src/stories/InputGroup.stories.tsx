@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Form, Submit, InputGroup, Select, Checkbox } from '../lib';
+import { Form, Submit, InputGroup, Select } from '../lib';
 import { Props } from '../lib/InputGroup';
 
 import { handleSubmit } from './helpers/Handlers';

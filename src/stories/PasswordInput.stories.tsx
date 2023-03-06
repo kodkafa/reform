@@ -37,10 +37,7 @@ const schema = Yup.object().shape({
 });
 export const withError: Story = {
   render: (args: Props) => (
-    <Form
-      onSubmit={(data) => alert(JSON.stringify(data, null, 2))}
-      schema={schema}
-    >
+    <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))} schema={schema}>
       <PasswordInput {...args} />
       <Submit>Submit</Submit>
     </Form>

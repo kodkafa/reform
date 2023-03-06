@@ -8,14 +8,14 @@ export type Props = TextareaHTMLAttributes<HTMLTextAreaElement> & {
   label?: string;
 };
 
-export const Textbox = ({ name, resize = true, label, className, ...props }: Props) => {
+export const Textarea = ({ name, resize = true, label, className, ...props }: Props) => {
   const { register } = useFormContext() || {};
 
   return (
     <>
       {label && <Label htmlFor={name}>{label}</Label>}
       <textarea
-        className={`reform-item reform-textbox ${!resize && 'resize-none'} ${className}`}
+        className={`reform-item reform-textarea ${!resize && 'resize-none'} ${className}`}
         {...(name ? register(name) : {})}
         {...props}
       />
