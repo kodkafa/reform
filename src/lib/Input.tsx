@@ -19,13 +19,13 @@ export const Input = ({ className, name, label, icon, type = 'text', iconPositio
   const error = errors[name];
 
   return (
-    <>
+    <div className="reform-input">
       {label && <Label htmlFor={name}>{label}</Label>}
-      <div className={`item ${iconPosition}`}>
+      <div className={`reform-item ${iconPosition}`}>
         <input {...props} type={type} className={`${className}`} {...(name ? register(name) : {})} />
-        <div className="input-icon">{icon}</div>
+        <div className="reform-input-icon">{icon}</div>
       </div>
-      {error && <p className="item-error">{String(error.message)}</p>}
-    </>
+      {error && <p className="reform-item-error">{String(error.message)}</p>}
+    </div>
   );
 };

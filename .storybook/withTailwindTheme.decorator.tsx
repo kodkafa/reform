@@ -2,10 +2,7 @@ import { useEffect } from 'react';
 
 export const DEFAULT_THEME = 'light';
 
-export const withTailwindTheme = (
-  Story: JSX.IntrinsicAttributes,
-  context: { globals: { theme: any } },
-) => {
+export const withTailwindTheme = (Story: JSX.IntrinsicAttributes, context: { globals: { theme: any } }) => {
   const { theme } = context.globals;
 
   useEffect(() => {

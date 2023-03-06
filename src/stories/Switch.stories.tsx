@@ -23,8 +23,9 @@ export const Default: Story = {
   ),
   args: {
     name: 'name',
-    leftOption: 'leftOption',
-    rightOption: 'rightOption',
+    off: 'off',
+    on: 'on',
+    label: 'Label',
   },
 };
 
@@ -37,8 +38,8 @@ export const Disabled: Story = {
   ),
   args: {
     name: 'name',
-    leftOption: 'leftOption',
-    rightOption: 'rightOption',
+    off: 'off',
+    on: 'on',
     disabled: true,
   },
 };

@@ -1,15 +1,15 @@
-.form {
+.reform-form {
   @apply flex flex-col gap-2;
 
-  .label {
+  .reform-label {
     @apply block text-sm mb-1 font-medium dark:text-white;
   }
 
-  .textbox {
-    @apply pt-3;
+  .reform-textbox {
+    @apply py-2 h-11;
   }
 
-  .item {
+  .reform-item {
     @apply flex text-zinc-700 focus-within:text-zinc-800
     border rounded-md
     border-gray-200
@@ -24,37 +24,33 @@
 
     &.left {
       @apply flex-row-reverse;
-
-      input {
-        //@apply pl-2 pr-0;
-      }
     }
   }
 
-  .input-icon {
+  .reform-input-icon {
     @apply flex items-center;
   }
 
-  .password-show::after {
+  .reform-password-show::after {
     @apply not-italic;
     content: '🔒';
   }
 
-  .password-hide::after {
+  .reform-password-hide::after {
     @apply not-italic;
     content: '🔓';
   }
 
-  .item-checkbox,
-  .item-radio {
+  .reform-item-checkbox,
+  .reform-item-radio {
     @apply flex;
   }
 
-  .checkbox,
-  .radio {
+  .reform-checkbox,
+  .reform-radio {
     @apply relative flex flex-row-reverse items-center;
 
-    .label {
+    .reform-label {
       @apply mb-0 text-gray-500 dark:text-gray-400;
     }
 
@@ -95,22 +91,22 @@
     }
   }
 
-  .item-error {
+  .reform-item-error {
     @apply py-1 text-xs text-red-600;
   }
 
-  > .error {
+  > .reform-error {
     @apply my-2 ml-6 text-xs text-red-600;
   }
 
-  > .error li {
+  > .reform-error li {
     @apply list-disc;
   }
 
   button {
     @apply py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800;
 
-    .icon {
+    .reform-icon {
       @apply relative flex;
     }
 
@@ -124,27 +120,27 @@
       background-size: 200% 400%;
     }
 
-    .loader {
+    .reform-loader {
       @apply animate-spin invisible;
     }
 
-    &.loading {
-      .loader {
+    &.reform-loading {
+      .reform-loader {
         @apply visible;
       }
 
-      .icon > :nth-child(2) {
+      .reform-icon > :nth-child(2) {
         @apply hidden;
       }
     }
   }
 
-  &.loading {
-    .submit {
+  &.reform-loading {
+    .reform-submit {
       @apply bg-red-500;
     }
 
-    .loader {
+    .reform-loader {
       @apply visible;
     }
 
@@ -155,35 +151,35 @@
       text-gray-300;
       animation: SubmitAnimation 1.3s ease infinite;
 
-      .icon > :nth-child(2) {
+      .reform-icon > :nth-child(2) {
         @apply hidden;
       }
     }
   }
 
-  .switch {
+  .reform-switch {
     @apply flex items-center space-x-3;
 
     input {
-      @apply flex items-center relative shrink-0 w-[3.25rem] h-7 bg-gray-100 checked:bg-none checked:bg-blue-600 rounded-full cursor-pointer transition-all ease-in-out duration-200 border-2 border-transparent ring-transparent focus:border-blue-600 ring-offset-white focus:outline-none appearance-none dark:bg-gray-700 dark:checked:bg-blue-600 dark:focus:ring-offset-gray-800
-focus:ring-2 focus:ring-blue-600 focus:ring-offset-2
+      @apply flex items-center relative shrink-0 w-[3.reform-25rem] h-7 bg-gray-100 checked:bg-none checked:bg-blue-600 rounded-full cursor-pointer transition-all ease-in-out duration-200 border-2 border-transparent ring-transparent focus:border-blue-600 ring-offset-white focus:outline-none appearance-none dark:bg-gray-700 dark:checked:bg-blue-600 dark:focus:ring-offset-gray-800
+      focus:ring-2 focus:ring-blue-600 focus:ring-offset-2
       before:inline-block before:w-6 before:h-6 before:bg-white checked:before:bg-blue-200 before:translate-x-0 checked:before:translate-x-full before:shadow before:rounded-full before:transform before:ring-0 before:transition before:ease-in-out before:duration-200 dark:before:bg-gray-400 dark:checked:before:bg-blue-200;
     }
   }
 
-  .select {
+  .reform-select {
     @apply px-3 border-gray-200 rounded-md focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 bg-white;
 
     select {
-      @apply block py-2 h-full text-sm dark:text-gray-400 outline-none;
+      @apply w-full block py-2 h-full text-sm dark:text-gray-400 outline-none;
     }
   }
 
-  .input-group {
+  .reform-input-group {
     @apply flex items-center;
   }
 
-  .disabled {
+  .reform-disabled {
     @apply opacity-50 pointer-events-none;
   }
 }

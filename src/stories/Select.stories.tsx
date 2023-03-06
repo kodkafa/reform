@@ -25,6 +25,7 @@ export const Default: Story = {
   ),
   args: {
     name: 'name',
+    label: 'Label',
     options: [
       {
         value: 1,

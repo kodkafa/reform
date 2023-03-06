@@ -55,7 +55,7 @@ export const Form = ({
   return (
     <FormProvider {...methods}>
       <form
-        className={`form ${loading ? 'loading' : ''} ${className}`}
+        className={`reform-form ${loading ? 'reform-loading' : ''} ${className}`}
         onSubmit={methods.handleSubmit(handleSubmit)}
         onChange={handleFormChange}
       >

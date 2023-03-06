@@ -23,6 +23,7 @@ export const Default: Story = {
   ),
   args: {
     name: 'name',
+    label: 'Label',
   },
 };
 

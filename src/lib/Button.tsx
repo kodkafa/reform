@@ -6,7 +6,7 @@ export type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
 };
 
 export const Button = ({ className = '', children, type = 'button', reference = null, ...props }: Props) => (
-  <button ref={reference} {...props} type={type} className={`button ${className}`}>
+  <button ref={reference} {...props} type={type} className={`reform-button ${className}`}>
     {children}
   </button>
 );

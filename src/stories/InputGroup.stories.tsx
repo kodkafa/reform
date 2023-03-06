@@ -17,22 +17,17 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: (args: Props) => (
     <Form onSubmit={handleSubmit}>
-      <InputGroup {...args} />
+      <InputGroup {...args}>
+        <Select
+          name="select"
+          placeholder="Please Select"
+          options={[{ children: '1' }, { children: '2' }, { children: '3' }]}
+        />
+      </InputGroup>
       <Submit>Submit</Submit>
     </Form>
   ),
   args: {
-    name: 'name',
     placeholder: 'Please write something..',
-    padStart: (
-      <div className="mr-2">
-        <Checkbox name="checkbox" label="Checkbox" />
-      </div>
-    ),
-    padEnd: (
-      <div className="flex items-center">
-        <Select name="select" title="Select" options={['1', '2']} />
-      </div>
-    ),
   },
 };
