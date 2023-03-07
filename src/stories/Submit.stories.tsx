@@ -28,6 +28,21 @@ export const Default: Story = {
   },
 };
 
+export const Disabled: Story = {
+  render: (args: Props) => (
+    <Form onSubmit={handleSubmit}>
+      <div>
+        <Input name="text" placeholder="write something..." />
+      </div>
+      <Submit {...args} />
+    </Form>
+  ),
+  args: {
+    children: 'Submit Text',
+    disabled: true,
+  },
+};
+
 export const Async: Story = {
   render: (args: Props) => (
     <Form onSubmit={handleAsyncSubmit}>

@@ -15,11 +15,11 @@
     transition-all px-2;
 
     &.reform-textarea {
-      @apply py-2 h-11 dark:bg-green-500/50;
+      @apply py-2 h-11;
     }
 
     input {
-      @apply py-3 px-2 block w-full border-gray-200 rounded-md text-sm outline-none;
+      @apply py-3 px-2 block w-full border-gray-200 rounded-md text-sm outline-none dark:bg-slate-900;
     }
 
     &.left {
@@ -161,7 +161,7 @@
     @apply flex items-center space-x-3;
 
     input {
-      @apply flex items-center relative shrink-0 w-[3.reform-25rem] h-7 bg-gray-100 checked:bg-none checked:bg-blue-600 rounded-full cursor-pointer transition-all ease-in-out duration-200 border-2 border-transparent ring-transparent focus:border-blue-600 ring-offset-white focus:outline-none appearance-none dark:bg-gray-700 dark:checked:bg-blue-600 dark:focus:ring-offset-gray-800
+      @apply flex items-center relative shrink-0 w-[3.25rem] h-7 bg-gray-100 checked:bg-none checked:bg-blue-600 rounded-full cursor-pointer transition-all ease-in-out duration-200 border-2 border-transparent ring-transparent focus:border-blue-600 ring-offset-white focus:outline-none appearance-none dark:bg-gray-700 dark:checked:bg-blue-600 dark:focus:ring-offset-gray-800
       focus:ring-2 focus:ring-blue-600 focus:ring-offset-2
       before:inline-block before:w-6 before:h-6 before:bg-white checked:before:bg-blue-200 before:translate-x-0 checked:before:translate-x-full before:shadow before:rounded-full before:transform before:ring-0 before:transition before:ease-in-out before:duration-200 dark:before:bg-gray-400 dark:checked:before:bg-blue-200;
     }
@@ -171,7 +171,7 @@
     @apply px-3 border-gray-200 rounded-md focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 bg-white;
 
     select {
-      @apply w-full block py-2 h-full text-sm dark:text-gray-400 outline-none;
+      @apply w-full block py-2 h-full text-sm outline-none dark:text-gray-400 dark:bg-slate-900;
     }
   }
 
@@ -184,6 +184,10 @@
       .reform-item {
         @apply border-none;
       }
+    }
+
+    .reform-item-error {
+      @apply hidden;
     }
   }
 

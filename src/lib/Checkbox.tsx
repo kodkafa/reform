@@ -16,6 +16,7 @@ export const Checkbox = ({
   type = 'checkbox',
   labelPosition = 'right',
   value = 'true',
+  disabled,
   ...props
 }: Props) => {
   const {
@@ -25,13 +26,15 @@ export const Checkbox = ({
   const error = errors[name];
 
   return (
-    <div className="reform-item-checkbox">
-      <div className={`reform-checkbox ${labelPosition} ${className}`}>
-        {label && <Label htmlFor={name}>{label}</Label>}
-        <input {...props} type={type} value={value} {...(name ? register(name) : {})} />
-        <div className="reform-input-icon" />
+    <>
+      <div className={`reform-item-checkbox ${disabled && 'reform-disabled'}`}>
+        <div className={`reform-checkbox ${labelPosition} ${className}`}>
+          {label && <Label htmlFor={name}>{label}</Label>}
+          <input {...props} type={type} value={value} {...(name ? register(name) : {})} />
+          <div className="reform-input-icon" />
+        </div>
       </div>
-      {error && <p className="formItemError">{String(error.message)}</p>}
-    </div>
+      {error && <p className="reform-item-error">{String(error.message)}</p>}
+    </>
   );
 };

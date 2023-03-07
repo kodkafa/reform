@@ -11,7 +11,16 @@ export type Props = InputHTMLAttributes<HTMLInputElement> & {
   iconPosition?: 'left' | 'right';
 };
 
-export const Input = ({ className, name, label, icon, type = 'text', iconPosition = 'right', ...props }: Props) => {
+export const Input = ({
+  className,
+  name,
+  label,
+  icon,
+  disabled,
+  type = 'text',
+  iconPosition = 'right',
+  ...props
+}: Props) => {
   const {
     register,
     formState: { errors },
@@ -19,7 +28,7 @@ export const Input = ({ className, name, label, icon, type = 'text', iconPositio
   const error = errors[name];
 
   return (
-    <div className="reform-input">
+    <div className={`reform-input ${disabled && 'reform-disabled'}`}>
       {label && <Label htmlFor={name}>{label}</Label>}
       <div className={`reform-item ${iconPosition}`}>
         <input {...props} type={type} className={`${className}`} {...(name ? register(name) : {})} />

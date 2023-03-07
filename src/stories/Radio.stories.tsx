@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import * as Yup from 'yup';
 
 import { Radio, Form, Submit } from '../lib';
 import { Props } from '../lib/Radio';
@@ -24,6 +25,41 @@ export const Default: Story = {
     label: 'Label',
     name: 'name',
     placeholder: 'Jon Doe',
+  },
+};
+
+const schema = Yup.object().shape({
+  name: Yup.string()
+    .trim()
+    .matches(/[0-9]+/)
+    .required('Required'),
+});
+export const withError: Story = {
+  render: (args: Props) => (
+    <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))} schema={schema}>
+      <Radio {...args} />
+      <Submit>Submit</Submit>
+    </Form>
+  ),
+  args: {
+    label: 'Label',
+    name: 'name',
+    placeholder: 'Jon Doe',
+  },
+};
+
+export const Disabled: Story = {
+  render: (args: Props) => (
+    <Form onSubmit={handleSubmit}>
+      <Radio {...args} />
+      <Submit>Submit</Submit>
+    </Form>
+  ),
+  args: {
+    label: 'Label',
+    name: 'name',
+    placeholder: 'Jon Doe',
+    disabled: true,
   },
 };
 

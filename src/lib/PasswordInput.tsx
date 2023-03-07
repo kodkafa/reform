@@ -7,7 +7,7 @@ export type Props = InputHTMLAttributes<HTMLInputElement> & {
   label?: string;
 };
 
-export const PasswordInput = ({ className, name, label, ...props }: Props) => {
+export const PasswordInput = ({ className, name, label, disabled, ...props }: Props) => {
   const [type, setType] = useState('password');
 
   const toggleType = () => {
@@ -17,6 +17,7 @@ export const PasswordInput = ({ className, name, label, ...props }: Props) => {
   return (
     <Input
       {...props}
+      disabled={disabled}
       className={className}
       name={name}
       label={label}

@@ -9,7 +9,11 @@ export type Props = TextareaHTMLAttributes<HTMLTextAreaElement> & {
 };
 
 export const Textarea = ({ name, resize = true, label, className, ...props }: Props) => {
-  const { register } = useFormContext() || {};
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext() || {};
+  const error = errors[name];
 
   return (
     <>
@@ -19,6 +23,7 @@ export const Textarea = ({ name, resize = true, label, className, ...props }: Pr
         {...(name ? register(name) : {})}
         {...props}
       />
+      {error && <p className="reform-item-error">{String(error.message)}</p>}
     </>
   );
 };

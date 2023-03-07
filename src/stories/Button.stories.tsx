@@ -23,3 +23,15 @@ export const Default: Story = {
     children: 'Button',
   },
 };
+
+export const Disabled: Story = {
+  render: (args: Props) => (
+    <Form onSubmit={handleSubmit}>
+      <Button {...args} />
+    </Form>
+  ),
+  args: {
+    children: 'Button',
+    disabled: true,
+  },
+};

@@ -23,9 +23,37 @@ export const Default: Story = {
     </Form>
   ),
   args: {
+    name: 'name',
+    placeholder: 'Jon Doe',
+  },
+};
+
+export const WithLabel: Story = {
+  render: (args: Props) => (
+    <Form onSubmit={handleSubmit}>
+      <PasswordInput {...args} />
+      <Submit>Submit</Submit>
+    </Form>
+  ),
+  args: {
     label: 'Label',
     name: 'name',
     placeholder: 'Jon Doe',
+  },
+};
+
+export const Disabled: Story = {
+  render: (args: Props) => (
+    <Form onSubmit={handleSubmit}>
+      <PasswordInput {...args} />
+      <Submit>Submit</Submit>
+    </Form>
+  ),
+  args: {
+    label: 'Label',
+    name: 'name',
+    placeholder: 'Jon Doe',
+    disabled: true,
   },
 };
 

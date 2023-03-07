@@ -9,11 +9,15 @@ export type Props = SelectHTMLAttributes<HTMLSelectElement> & {
   label?: string;
 };
 
-export const Select = ({ name, placeholder, label, options, ...props }: Props) => {
-  const { register } = useFormContext() || {};
+export const Select = ({ name, placeholder, label, options, disabled, ...props }: Props) => {
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext() || {};
+  const error = errors[name];
 
   return (
-    <>
+    <div className={`${disabled && 'reform-disabled'}`}>
       {label && <Label htmlFor={name}>{label}</Label>}
       <div className="reform-item reform-select">
         <select {...(name ? register(name) : {})} {...props}>
@@ -29,6 +33,7 @@ export const Select = ({ name, placeholder, label, options, ...props }: Props) =
           ))}
         </select>
       </div>
-    </>
+      {error && <p className="reform-item-error">{String(error.message)}</p>}
+    </div>
   );
 };

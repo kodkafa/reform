@@ -25,7 +25,6 @@ export const Default: Story = {
     name: 'name',
     off: 'off',
     on: 'on',
-    label: 'Label',
   },
 };
 
