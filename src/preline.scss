@@ -176,7 +176,15 @@
   }
 
   .reform-input-group {
-    @apply flex items-center;
+    @apply flex w-full items-center justify-between;
+
+    .reform-input {
+      @apply flex-1;
+
+      .reform-item {
+        @apply border-none;
+      }
+    }
   }
 
   .reform-disabled {
