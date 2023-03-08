@@ -28,6 +28,21 @@ export const Default: Story = {
   },
 };
 
+export const WithLabel: Story = {
+  render: (args: Props) => (
+    <Form onSubmit={handleSubmit}>
+      <Switch {...args} />
+      <Submit>Submit</Submit>
+    </Form>
+  ),
+  args: {
+    name: 'name',
+    off: 'off',
+    on: 'on',
+    label: 'Label',
+  },
+};
+
 export const Disabled: Story = {
   render: (args: Props) => (
     <Form onSubmit={handleSubmit}>
