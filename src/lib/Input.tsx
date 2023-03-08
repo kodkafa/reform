@@ -28,13 +28,31 @@ export const Input = ({
   const error = errors[name];
 
   return (
-    <div className={`reform-input ${disabled && 'reform-disabled'}`}>
+    <>
       {label && <Label htmlFor={name}>{label}</Label>}
-      <div className={`reform-item ${iconPosition}`}>
-        <input {...props} type={type} className={`${className}`} {...(name ? register(name) : {})} />
-        <div className="reform-input-icon">{icon}</div>
+      <div
+        className={`h-max flex items-center reform-item reform-input ${iconPosition} ${className}`}
+      >
+        <input className='h-full' {...(name ? register(name) : {})} {...props} />
+
+        {icon && <div className='reform-input-icon'>{icon}</div>}
       </div>
-      {error && <p className="reform-item-error">{String(error.message)}</p>}
-    </div>
+      {error && <p className='reform-item-error'>{String(error.message)}</p>}
+    </>
   );
 };
+
+//   <div className={`reform-input ${disabled && 'reform-disabled'}`}>
+//     {label && <Label htmlFor={name}>{label}</Label>}
+//     <div className={`reform-item ${iconPosition}`}>
+//       <input
+//         {...props}
+//         type={type}
+//         className={`${className}`}
+//         {...(name ? register(name) : {})}
+//       />
+//       <div className='reform-input-icon'>{icon}</div>
+//     </div>
+//     {error && <p className='reform-item-error'>{String(error.message)}</p>}
+//   </div>
+// );

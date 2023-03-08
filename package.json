@@ -63,7 +63,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.21.0",
-    "@kodkafa/eslint-config": "^0.2.5",
+    "@kodkafa/eslint-config": "^1.0.1",
     "@storybook/addon-essentials": "7.0.0-beta.62",
     "@storybook/addon-interactions": "7.0.0-beta.62",
     "@storybook/addon-links": "7.0.0-beta.62",

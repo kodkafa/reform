@@ -2,7 +2,12 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { Props } from '../lib/Button';
 import { Form, Input, Submit } from '../lib';
-import { handleAsyncSubmit, handleAsyncSubmitWithError, handleSubmit, handleSubmitWithError } from './helpers/Handlers';
+import {
+  handleAsyncSubmit,
+  handleAsyncSubmitWithError,
+  handleSubmit,
+  handleSubmitWithError,
+} from './helpers/Handlers';
 
 const meta = {
   title: 'reform/Submit',
@@ -18,7 +23,7 @@ export const Default: Story = {
   render: (args: Props) => (
     <Form onSubmit={handleSubmit}>
       <div>
-        <Input name="text" placeholder="write something..." />
+        <Input name='text' placeholder='write something...' />
       </div>
       <Submit {...args} />
     </Form>
@@ -32,7 +37,7 @@ export const Disabled: Story = {
   render: (args: Props) => (
     <Form onSubmit={handleSubmit}>
       <div>
-        <Input name="text" placeholder="write something..." />
+        <Input name='text' placeholder='write something...' />
       </div>
       <Submit {...args} />
     </Form>
@@ -47,7 +52,7 @@ export const Async: Story = {
   render: (args: Props) => (
     <Form onSubmit={handleAsyncSubmit}>
       <div>
-        <Input name="text" placeholder="write something..." />
+        <Input name='text' placeholder='write something...' />
       </div>
       <Submit {...args} />
     </Form>
@@ -61,7 +66,7 @@ export const WithError: Story = {
   render: (args: Props) => (
     <Form onSubmit={handleSubmitWithError}>
       <div>
-        <Input name="text" placeholder="write something..." />
+        <Input name='text' placeholder='write something...' />
       </div>
       <Submit {...args} />
     </Form>
@@ -74,7 +79,7 @@ export const AsyncWithError: Story = {
   render: (args: Props) => (
     <Form onSubmit={handleAsyncSubmitWithError}>
       <div>
-        <Input name="text" placeholder="write something..." />
+        <Input name='text' placeholder='write something...' />
       </div>
       <Submit {...args} />
     </Form>

@@ -23,7 +23,7 @@ export const Textarea = ({ name, resize = true, label, className, ...props }: Pr
         {...(name ? register(name) : {})}
         {...props}
       />
-      {error && <p className="reform-item-error">{String(error.message)}</p>}
+      {error && <p className='reform-item-error'>{String(error.message)}</p>}
     </>
   );
 };

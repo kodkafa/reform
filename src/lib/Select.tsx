@@ -9,7 +9,15 @@ export type Props = SelectHTMLAttributes<HTMLSelectElement> & {
   label?: string;
 };
 
-export const Select = ({ name, placeholder, label, options, disabled, ...props }: Props) => {
+export const Select = ({
+  name,
+  placeholder,
+  label,
+  options,
+  disabled,
+  className,
+  ...props
+}: Props) => {
   const {
     register,
     formState: { errors },
@@ -19,21 +27,23 @@ export const Select = ({ name, placeholder, label, options, disabled, ...props }
   return (
     <div className={`${disabled && 'reform-disabled'}`}>
       {label && <Label htmlFor={name}>{label}</Label>}
-      <div className="reform-item reform-select">
-        <select {...(name ? register(name) : {})} {...props}>
-          {placeholder && (
-            <option key="placeholder" value="">
-              {placeholder}
-            </option>
-          )}
-          {options.map(({ children, ...i }, k) => (
-            <option key={k} {...i}>
-              {children}
-            </option>
-          ))}
-        </select>
-      </div>
-      {error && <p className="reform-item-error">{String(error.message)}</p>}
+      <select
+        className={`reform-item reform-select ${className}`}
+        {...(name ? register(name) : {})}
+        {...props}
+      >
+        {placeholder && (
+          <option key='placeholder' value=''>
+            {placeholder}
+          </option>
+        )}
+        {options.map(({ children, ...i }, k) => (
+          <option key={k} {...i}>
+            {children}
+          </option>
+        ))}
+      </select>
+      {error && <p className='reform-item-error'>{String(error.message)}</p>}
     </div>
   );
 };

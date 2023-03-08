@@ -6,24 +6,38 @@
   }
 
   .reform-item {
-    @apply flex text-zinc-700 focus-within:text-zinc-800
+    @apply text-zinc-700 focus-within:text-zinc-800
     border rounded-md
     border-gray-200
     focus-within:border-blue-500 focus-within:ring-blue-500
     dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 
     bg-white
-    transition-all px-2;
+    transition-all;
+
+    &.reform-input {
+      @apply px-4;
+
+      input {
+        @apply py-3 block w-full border-gray-200 rounded-md text-sm outline-none dark:bg-slate-900;
+      }
+
+      &.left {
+        @apply flex-row-reverse;
+
+        .reform-input-icon {
+          @apply mr-2;
+        }
+      }
+
+      &.right {
+        .reform-input-icon {
+          @apply ml-2;
+        }
+      }
+    }
 
     &.reform-textarea {
-      @apply py-2 h-11;
-    }
-
-    input {
-      @apply py-3 px-2 block w-full border-gray-200 rounded-md text-sm outline-none dark:bg-slate-900;
-    }
-
-    &.left {
-      @apply flex-row-reverse;
+      @apply py-2 px-4 h-11;
     }
   }
 
@@ -104,7 +118,7 @@
   }
 
   button {
-    @apply py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800;
+    @apply py-3 px-4 flex-[0] justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800;
 
     .reform-icon {
       @apply relative flex;
@@ -168,25 +182,25 @@
   }
 
   .reform-select {
-    @apply px-3 border-gray-200 rounded-md focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 bg-white;
-
-    select {
-      @apply w-full block py-2 h-full text-sm outline-none dark:text-gray-400 dark:bg-slate-900;
-    }
+    @apply py-2 outline-none;
   }
 
   .reform-input-group {
-    @apply flex w-full items-center justify-between;
+    @apply flex w-full items-center justify-between px-0 h-max overflow-hidden;
+
+    .reform-item {
+      @apply border-none px-0;
+    }
 
     .reform-input {
-      @apply flex-1;
-
-      .reform-item {
-        @apply border-none;
-      }
+      @apply flex-1 border-none;
     }
 
     .reform-item-error {
+      @apply hidden;
+    }
+
+    label {
       @apply hidden;
     }
   }

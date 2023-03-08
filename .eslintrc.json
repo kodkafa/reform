@@ -1,8 +1,3 @@
 {
-  "extends": ["@kodkafa"],
-  "settings": {
-    "react": {
-      "version": "detect"
-    }
-  }
+  "extends": ["@kodkafa/eslint-config/react"]
 }

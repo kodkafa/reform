@@ -36,7 +36,7 @@ export const Default: Story = {
       },
       {
         value: 3,
-        children: <strong className="font-semibold">Three</strong>,
+        children: <strong className='font-semibold'>Three</strong>,
       },
     ],
   },
@@ -66,7 +66,7 @@ export const withError: Story = {
       },
       {
         value: 3,
-        children: <strong className="font-semibold">Three</strong>,
+        children: <strong className='font-semibold'>Three</strong>,
       },
     ],
   },
@@ -94,7 +94,7 @@ export const WithLabel: Story = {
       },
       {
         value: 3,
-        children: <strong className="font-semibold">Three</strong>,
+        children: <strong className='font-semibold'>Three</strong>,
       },
     ],
   },
@@ -125,7 +125,7 @@ export const Disabled: Story = {
       },
       {
         value: 3,
-        children: <strong className="font-semibold">Three</strong>,
+        children: <strong className='font-semibold'>Three</strong>,
       },
     ],
   },
@@ -155,7 +155,7 @@ export const withPlaceHolder: Story = {
       },
       {
         value: 3,
-        children: <strong className="font-semibold">Three</strong>,
+        children: <strong className='font-semibold'>Three</strong>,
       },
     ],
   },

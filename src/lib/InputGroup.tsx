@@ -1,31 +1,38 @@
-import { HTMLAttributes } from 'react';
+import { HTMLAttributes, useEffect, useRef, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { Label } from './Label';
 
 export type Props = HTMLAttributes<HTMLDivElement> & {
-  name: string;
   disabled?: boolean;
   label?: string;
 };
 
-export const InputGroup = ({ name, disabled, children, className, label, ...props }: Props) => {
-  const {
-    register,
-    formState: { errors },
-  } = useFormContext() || {};
-  const error = errors[name];
+export const InputGroup = ({ disabled, children, className, label, ...props }: Props) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const { formState } = useFormContext() || {};
+  const [errors, setErrors] = useState<string[]>([]);
 
-  console.log(errors);
+  useEffect(() => {
+    if (ref.current) {
+      setErrors(
+        Array.from(ref.current?.querySelectorAll('.reform-item-error')).map((i) => i.innerHTML),
+      );
+    }
+  }, [formState.errors]);
 
   return (
     <div className={`${disabled && 'reform-disabled'}`}>
-      {label && <Label htmlFor={name}>{label}</Label>}
+      {label && <Label>{label}</Label>}
 
-      <div {...props} className={`reform-input-group reform-item ${className}`} {...(name ? register(name) : {})}>
+      <div ref={ref} {...props} className={`reform-item reform-input-group ${className}`}>
         {children}
       </div>
 
-      {error && <p className="reform-item-error">{String(error.message)}</p>}
+      {errors?.map((i, k) => (
+        <p key={k} className='reform-item-error'>
+          {i}
+        </p>
+      ))}
     </div>
   );
 };
