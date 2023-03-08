@@ -21,11 +21,15 @@ export const InputGroup = ({ name, disabled, children, className, label, ...prop
     <div className={`${disabled && 'reform-disabled'}`}>
       {label && <Label htmlFor={name}>{label}</Label>}
 
-      <div {...props} className={`reform-input-group reform-item ${className}`} {...(name ? register(name) : {})}>
+      <div
+        {...props}
+        className={`reform-input-group reform-item ${className}`}
+        {...(name ? register(name) : {})}
+      >
         {children}
       </div>
 
-      {error && <p className="reform-item-error">{String(error.message)}</p>}
+      {error && <p className='reform-item-error'>{String(error.message)}</p>}
     </div>
   );
 };

@@ -19,10 +19,10 @@ export const Select = ({ name, placeholder, label, options, disabled, ...props }
   return (
     <div className={`${disabled && 'reform-disabled'}`}>
       {label && <Label htmlFor={name}>{label}</Label>}
-      <div className="reform-item reform-select">
+      <div className='reform-item reform-select'>
         <select {...(name ? register(name) : {})} {...props}>
           {placeholder && (
-            <option key="placeholder" value="">
+            <option key='placeholder' value=''>
               {placeholder}
             </option>
           )}
@@ -33,7 +33,7 @@ export const Select = ({ name, placeholder, label, options, disabled, ...props }
           ))}
         </select>
       </div>
-      {error && <p className="reform-item-error">{String(error.message)}</p>}
+      {error && <p className='reform-item-error'>{String(error.message)}</p>}
     </div>
   );
 };

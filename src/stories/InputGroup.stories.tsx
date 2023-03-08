@@ -18,8 +18,8 @@ export const Default = {
     <div>
       <Form onSubmit={handleSubmit}>
         <InputGroup {...args}>
-          <Checkbox name="checkbox" />
-          <Input name="input" />
+          <Checkbox name='checkbox' />
+          <Input name='input' />
         </InputGroup>
         <Submit>Submit</Submit>
       </Form>
@@ -35,8 +35,8 @@ export const WithLabel = {
     <div>
       <Form onSubmit={handleSubmit}>
         <InputGroup {...args}>
-          <Checkbox name="checkbox" />
-          <Input name="input" />
+          <Checkbox name='checkbox' />
+          <Input name='input' />
         </InputGroup>
         <Submit>Submit</Submit>
       </Form>
@@ -61,8 +61,8 @@ export const WithError = {
       <div>
         <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))} schema={schema}>
           <InputGroup {...args}>
-            <Checkbox name="checkbox" />
-            <Input name="input" />
+            <Checkbox name='checkbox' />
+            <Input name='input' />
           </InputGroup>
           <Submit>Submit</Submit>
         </Form>

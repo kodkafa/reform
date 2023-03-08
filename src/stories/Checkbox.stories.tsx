@@ -66,7 +66,7 @@ export const withError: Story = {
 export const Group: Story = {
   render: (args: Props) => (
     <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))}>
-      <div className="flex flex-col gap-2">
+      <div className='flex flex-col gap-2'>
         <Checkbox {...args} value={1} />
         <Checkbox {...args} value={2} />
         <Checkbox {...args} value={3} />
@@ -84,7 +84,7 @@ export const Group: Story = {
 export const GroupRow: Story = {
   render: (args: Props) => (
     <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))}>
-      <div className="flex flex-row gap-4">
+      <div className='flex flex-row gap-4'>
         <Checkbox {...args} value={1} />
         <Checkbox {...args} value={2} />
         <Checkbox {...args} value={3} />
@@ -101,10 +101,10 @@ export const GroupRow: Story = {
 export const asOrderedArray: Story = {
   render: (args: Props) => (
     <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))}>
-      <div className="flex flex-row gap-4">
-        <Checkbox {...args} name="name[0]" value={1} />
-        <Checkbox {...args} name="name[1]" value={2} />
-        <Checkbox {...args} name="name[2]" value={3} />
+      <div className='flex flex-row gap-4'>
+        <Checkbox {...args} name='name[0]' value={1} />
+        <Checkbox {...args} name='name[1]' value={2} />
+        <Checkbox {...args} name='name[2]' value={3} />
       </div>
       <Submit>Submit</Submit>
     </Form>
@@ -118,10 +118,10 @@ export const asOrderedArray: Story = {
 export const asObjectMap: Story = {
   render: (args: Props) => (
     <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))}>
-      <div className="flex flex-row gap-4">
-        <Checkbox {...args} name="name[a]" value={1} />
-        <Checkbox {...args} name="name[b]" value={2} />
-        <Checkbox {...args} name="name[c]" value={3} />
+      <div className='flex flex-row gap-4'>
+        <Checkbox {...args} name='name[a]' value={1} />
+        <Checkbox {...args} name='name[b]' value={2} />
+        <Checkbox {...args} name='name[c]' value={3} />
       </div>
       <Submit>Submit</Submit>
     </Form>

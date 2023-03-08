@@ -31,10 +31,10 @@ export const Radio = ({
         <div className={`reform-radio ${labelPosition} ${className}`}>
           {label && <Label htmlFor={name}>{label}</Label>}
           <input {...props} type={type} value={value} {...(name ? register(name) : {})} />
-          <div className="reform-input-icon" />
+          <div className='reform-input-icon' />
         </div>
       </div>
-      {error && <p className="reform-item-error">{String(error.message)}</p>}
+      {error && <p className='reform-item-error'>{String(error.message)}</p>}
     </>
   );
 };

@@ -22,7 +22,7 @@ export const Default: Story = {
     onSubmit: handleSubmit,
     children: (
       <>
-        <Input name="name" />
+        <Input name='name' />
         <Submit>Submit </Submit>
       </>
     ),

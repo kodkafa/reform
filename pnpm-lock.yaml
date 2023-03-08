@@ -3,7 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@babel/core': ^7.21.0
   '@hookform/resolvers': ^2.9.11
-  '@kodkafa/eslint-config': ^0.2.5
+  '@kodkafa/eslint-config': ^1.0.1
   '@storybook/addon-essentials': 7.0.0-beta.62
   '@storybook/addon-interactions': 7.0.0-beta.62
   '@storybook/addon-links': 7.0.0-beta.62
@@ -52,7 +52,7 @@ dependencies:
 
 devDependencies:
   '@babel/core': 7.21.0
-  '@kodkafa/eslint-config': 0.2.5_typescript@4.9.5
+  '@kodkafa/eslint-config': 1.0.1_typescript@4.9.5
   '@storybook/addon-essentials': 7.0.0-beta.62_biqbaboplfbrettd7655fr4n2y
   '@storybook/addon-interactions': 7.0.0-beta.62_biqbaboplfbrettd7655fr4n2y
   '@storybook/addon-links': 7.0.0-beta.62_biqbaboplfbrettd7655fr4n2y
@@ -1786,8 +1786,8 @@ packages:
     resolution: {integrity: sha512-dfLbk+PwWvFzSxwk3n5ySL0hfBog779o8h68wK/7/APo/7cgyWp5jcXockbxdk5kFRkbeXWm4Fbi9FrdN381sA==}
     dev: true
 
-  /@kodkafa/eslint-config/0.2.5_typescript@4.9.5:
-    resolution: {integrity: sha512-uj1nI+aXyOQE3vWU4csSFZIMmbhJtrHsVYj5MuLTeht4U8MwihHOaOEUPmEgp/V/PJmbsuk8kyfTiN5XThCoRg==}
+  /@kodkafa/eslint-config/1.0.1_typescript@4.9.5:
+    resolution: {integrity: sha512-W7TkiqoD7LEOjMgJPj6jGD2r88Tq/F1Hek7x/MJ8przxBV09U9X99qpP/A5jKJQUiZezOJE/6BjkYYVttEEmiQ==}
     dependencies:
       '@typescript-eslint/eslint-plugin': 5.54.1_mlk7dnz565t663n4razh6a6v6i
       '@typescript-eslint/parser': 5.54.1_ycpbpc6yetojsgtrx3mwntkhsu

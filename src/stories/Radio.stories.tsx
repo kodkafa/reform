@@ -66,7 +66,7 @@ export const Disabled: Story = {
 export const Group: Story = {
   render: (args: Props) => (
     <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))}>
-      <div className="flex flex-col gap-2">
+      <div className='flex flex-col gap-2'>
         <Radio {...args} value={1} />
         <Radio {...args} value={2} />
         <Radio {...args} value={3} />
@@ -84,7 +84,7 @@ export const Group: Story = {
 export const GroupRow: Story = {
   render: (args: Props) => (
     <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))}>
-      <div className="flex flex-row gap-4">
+      <div className='flex flex-row gap-4'>
         <Radio {...args} value={1} />
         <Radio {...args} value={2} />
         <Radio {...args} value={3} />

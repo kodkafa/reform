@@ -18,9 +18,9 @@ export const Switch = ({ on, off, disabled, name, label }: Props) => {
       {label && <Label htmlFor={name}>{label}</Label>}
 
       <div className={`reform-switch ${disabled && 'reform-disabled'}`}>
-        {off && <label className="reform-label">{off}</label>}
-        <input type="checkbox" {...(name ? register(name) : {})} />
-        {on && <label className="reform-label">{on}</label>}
+        {off && <label className='reform-label'>{off}</label>}
+        <input type='checkbox' {...(name ? register(name) : {})} />
+        {on && <label className='reform-label'>{on}</label>}
       </div>
     </>
   );
