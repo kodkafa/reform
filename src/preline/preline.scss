@@ -22,18 +22,3 @@
     @apply py-2 outline-none;
   }
 }
-
-@keyframes SubmitAnimation {
-  0% {
-    background-size: 400% 400%;
-    background-position: 1% 50%;
-  }
-  50% {
-    background-size: 200% 400%;
-    background-position: 99% 50%;
-  }
-  100% {
-    background-size: 400% 400%;
-    background-position: 1% 50%;
-  }
-}

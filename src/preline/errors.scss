@@ -2,10 +2,10 @@
   @apply py-1 text-xs text-red-600;
 }
 
-> .reform-error {
+.reform-form > .reform-error {
   @apply my-2 ml-6 text-xs text-red-600;
 }
 
-> .reform-error li {
+.reform-form > .reform-error li {
   @apply list-disc;
 }
