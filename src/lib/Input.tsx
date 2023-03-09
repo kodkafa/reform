@@ -6,19 +6,19 @@ export type Props = InputHTMLAttributes<HTMLInputElement> & {
   className?: string;
   name: string;
   label?: string;
-  icon?: ReactNode;
-  type?: string;
-  iconPosition?: 'left' | 'right';
+  // icon?: ReactNode;
+  // type?: string;
+  // iconPosition?: 'left' | 'right';
 };
 
 export const Input = ({
   className,
   name,
   label,
-  icon,
-  disabled,
+  // icon,
+  // disabled,
   type = 'text',
-  iconPosition = 'right',
+  // iconPosition = 'right',
   ...props
 }: Props) => {
   const {
@@ -27,16 +27,16 @@ export const Input = ({
   } = useFormContext() || {};
   const error = errors[name];
 
+  console.log({ type });
+
   return (
     <>
       {label && <Label htmlFor={name}>{label}</Label>}
-      <div
-        className={`h-max flex items-center reform-item reform-input ${iconPosition} ${className}`}
-      >
-        <input className='h-full' {...(name ? register(name) : {})} {...props} />
-
-        {icon && <div className='reform-input-icon'>{icon}</div>}
-      </div>
+      {/*<div*/}
+      {/*  className={`h-max flex items-center reform-item reform-input ${iconPosition} ${className}`}*/}
+      {/*>*/}
+      <input className='reform-element' {...(name ? register(name) : {})} type={type} {...props} />
+      {/*</div>*/}
       {error && <p className='reform-item-error'>{String(error.message)}</p>}
     </>
   );

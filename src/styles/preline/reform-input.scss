@@ -1,0 +1,48 @@
+//.reform-input {
+//  @apply px-4;
+//
+//  input {
+//    @apply py-3 block w-full border-gray-200 rounded-md text-sm outline-none dark:bg-slate-900;
+//  }
+//
+//  .reform-input-icon {
+//    @apply flex items-center;
+//  }
+//
+//  &.left {
+//    @apply flex-row-reverse;
+//
+//    .reform-input-icon {
+//      @apply mr-2;
+//    }
+//  }
+//
+//  &.right {
+//    .reform-input-icon {
+//      @apply ml-2;
+//    }
+//  }
+//
+//  .reform-password-show::after {
+//    @apply not-italic;
+//    content: '🔒';
+//  }
+//
+//  .reform-password-hide::after {
+//    @apply not-italic;
+//    content: '🔓';
+//  }
+//}
+
+.reform-element {
+  @apply py-3 block w-full border border-gray-200 rounded-md text-sm outline-none dark:bg-slate-900;
+}
+.reform-password-show::after {
+  @apply not-italic;
+  content: '🔒';
+}
+
+.reform-password-hide::after {
+  @apply not-italic;
+  content: '🔓';
+}

@@ -63,38 +63,38 @@ export const Disabled: Story = {
   },
 };
 
-export const withIcon: Story = {
-  render: (args: Props) => (
-    <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))}>
-      <div>
-        <Input {...args} />
-      </div>
-      <Submit>Submit</Submit>
-    </Form>
-  ),
-  args: {
-    label: 'Label',
-    name: 'name',
-    icon: <span>🦁</span>,
-  },
-};
-
-export const withLeftIcon: Story = {
-  render: (args: Props) => (
-    <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))}>
-      <div>
-        <Input {...args} />
-      </div>
-      <Submit>Submit</Submit>
-    </Form>
-  ),
-  args: {
-    label: 'Label',
-    name: 'name',
-    icon: <span>✎</span>,
-    iconPosition: 'left',
-  },
-};
+// export const withIcon: Story = {
+//   render: (args: Props) => (
+//     <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))}>
+//       <Input>
+//         <Input {...args} />
+//       </Input>
+//       <Submit>Submit</Submit>
+//     </Form>
+//   ),
+//   args: {
+//     label: 'Label',
+//     name: 'name',
+//     icon: <span>🦁</span>,
+//   },
+// };
+//
+// export const withLeftIcon: Story = {
+//   render: (args: Props) => (
+//     <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))}>
+//       <div>
+//         <Input {...args} />
+//       </div>
+//       <Submit>Submit</Submit>
+//     </Form>
+//   ),
+//   args: {
+//     label: 'Label',
+//     name: 'name',
+//     icon: <span>✎</span>,
+//     iconPosition: 'left',
+//   },
+// };
 
 const schema = Yup.object().shape({
   name: Yup.string()
@@ -114,6 +114,5 @@ export const withError: Story = {
   args: {
     label: 'Label',
     name: 'name',
-    icon: <span>🦁</span>,
   },
 };

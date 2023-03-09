@@ -5,24 +5,39 @@ import { Label } from './Label';
 export type Props = InputHTMLAttributes<HTMLInputElement> & {
   off?: ReactNode;
   on?: ReactNode;
-  disabled?: boolean;
   name: string;
   label?: string;
 };
 
-export const Switch = ({ on, off, disabled, name, label, checked = false, ...props }: Props) => {
+export const Switch = ({
+  id = `reform-switch-${Math.random()}`,
+  on,
+  off,
+  name,
+  label,
+  ...props
+}: Props) => {
   const { register } = useFormContext() || {};
-  const [value, setValue] = useState(checked);
 
   return (
-    <div className={`${disabled && 'reform-disabled'}`}>
-      {label && <Label htmlFor={name}>{label}</Label>}
+    <>
+      {/*< className={`${disabled && 'reform-disabled'}`}>*/}
+      {label && <Label htmlFor={id}>{label}</Label>}
 
-      <div className={`reform-switch ${disabled && 'reform-disabled'}`}>
-        {off && <label className='reform-label'>{off}</label>}
-        <input type='checkbox' {...(name ? register(name) : {})} />
-        {on && <label className='reform-label'>{on}</label>}
+      <div className={'reform-switch '}>
+        {off && (
+          <label htmlFor={id} className='reform-label'>
+            {off}
+          </label>
+        )}
+        <input {...props} id={id} type='checkbox' {...(name ? register(name) : {})} />
+        {on && (
+          <label htmlFor={id} className='reform-label'>
+            {on}
+          </label>
+        )}
       </div>
-    </div>
+      {/*</div>*/}
+    </>
   );
 };

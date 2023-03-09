@@ -121,13 +121,7 @@ export const WithInputIcon = {
     <div>
       <Form onSubmit={handleSubmit}>
         <InputGroup {...args}>
-          <Input
-            icon='$'
-            iconPosition='left'
-            className='ml-4'
-            name='input'
-            placeholder='Please write something..'
-          />
+          <Input className='ml-4' name='input' placeholder='Please write something..' />
           <p className='text-gray-500 mr-4'>USD</p>
         </InputGroup>
         <Submit>Submit</Submit>

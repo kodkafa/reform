@@ -1,6 +1,6 @@
 import type { Meta } from '@storybook/react';
 import React from 'react';
-import { Checkbox, Form, Input, PasswordInput, Submit } from '../../lib';
+import { Checkbox, Form, Input, InputGroup, PasswordInput, Submit } from '../../lib';
 import { handleSubmit, schema } from '../helpers/Handlers';
 import { Stories } from '@storybook/blocks';
 
@@ -26,22 +26,16 @@ export const Default = {
       <h3 className='mb-4 block text-2xl font-bold text-gray-800 dark:text-white'>LOGIN</h3>
       <Form schema={schema} onSubmit={handleSubmit}>
         <div className='flex flex-col gap-4'>
-          <div>
-            <Input
-              label='Email adress'
-              name='email'
-              placeholder='jon@doe.com'
-              className='text-gray-800 '
-            />
-          </div>
-          <div>
-            <PasswordInput
-              label='Password'
-              name='password'
-              placeholder='your strong password'
-              className='text-gray-800 '
-            />
-          </div>
+          <InputGroup label='Email adress'>
+            <Input name='email' placeholder='jon@doe.com' className='text-gray-800 ' />
+            <span>✉</span>
+          </InputGroup>
+          <PasswordInput
+            label='Password'
+            name='password'
+            placeholder='your strong password'
+            className='text-gray-800 '
+          />
           <div className='flex justify-between'>
             <Checkbox label='Remember me' name='remember' labelPosition='right' />
             <a href='src/stories#' className='text-primary mb-1 text-sm'>

@@ -21,10 +21,10 @@ export const InputGroup = ({ disabled, children, className, label, ...props }: P
   }, [formState.errors]);
 
   return (
-    <div className={`${disabled && 'reform-disabled'}`}>
+    <div className={'reform-elemen'}>
       {label && <Label>{label}</Label>}
 
-      <div ref={ref} {...props} className={`reform-item reform-input-group ${className}`}>
+      <div ref={ref} {...props} className={`reform-input-group group ${className}`}>
         {children}
       </div>
 

@@ -10,13 +10,13 @@ export type Props = InputHTMLAttributes<HTMLInputElement> & {
 };
 
 export const Checkbox = ({
+  id = `reform-checkbox-${Math.random()}`,
   className = '',
   name,
   label,
   type = 'checkbox',
-  labelPosition = 'right',
+  // labelPosition = 'right',
   value = 'true',
-  disabled,
   ...props
 }: Props) => {
   const {
@@ -27,13 +27,13 @@ export const Checkbox = ({
 
   return (
     <>
-      <div className={`reform-item-checkbox ${disabled && 'reform-disabled'}`}>
-        <div className={`reform-checkbox ${labelPosition} ${className}`}>
-          {label && <Label htmlFor={name}>{label}</Label>}
-          <input {...props} type={type} value={value} {...(name ? register(name) : {})} />
-          <div className='reform-input-icon' />
-        </div>
+      {/*<div className={`reform-item-checkbox ${disabled && 'reform-disabled'}`}>*/}
+      <div className={`reform-checkbox ${className}`}>
+        <input {...props} id={id} type={type} value={value} {...(name ? register(name) : {})} />
+        {/*<div className='reform-element' />*/}
+        {label && <Label htmlFor={id}>{label}</Label>}
       </div>
+      {/*</div>*/}
       {error && <p className='reform-item-error'>{String(error.message)}</p>}
     </>
   );

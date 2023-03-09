@@ -1,5 +1,5 @@
 import '../src/tailwind.css';
-import '../src/preline/preline.scss';
+import '../src/styles/preline/preline.scss';
 // import '../src/reform.scss';
 //
 // export const parameters = {

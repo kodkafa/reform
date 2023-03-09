@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import * as Yup from 'yup';
 
-import { Checkbox, Form, Submit } from '../lib';
+import { Checkbox, Form, InputGroup, Submit } from '../lib';
 import { Props } from '../lib/Checkbox';
 import { handleSubmit } from './helpers/Handlers';
 
@@ -66,11 +66,29 @@ export const withError: Story = {
 export const Group: Story = {
   render: (args: Props) => (
     <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))}>
-      <div className='flex flex-col gap-2'>
+      <InputGroup className='flex flex-col gap-2'>
         <Checkbox {...args} value={1} />
         <Checkbox {...args} value={2} />
         <Checkbox {...args} value={3} />
-      </div>
+      </InputGroup>
+      <Submit>Submit</Submit>
+    </Form>
+  ),
+  args: {
+    label: 'Label',
+    name: 'name',
+    labelPosition: 'left',
+  },
+};
+
+export const GroupWithError: Story = {
+  render: (args: Props) => (
+    <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))} schema={schema}>
+      <InputGroup className='flex flex-col gap-2'>
+        <Checkbox {...args} value={'1'} />
+        <Checkbox {...args} value={'2'} />
+        <Checkbox {...args} value={'3'} />
+      </InputGroup>
       <Submit>Submit</Submit>
     </Form>
   ),
@@ -84,11 +102,11 @@ export const Group: Story = {
 export const GroupRow: Story = {
   render: (args: Props) => (
     <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))}>
-      <div className='flex flex-row gap-4'>
+      <InputGroup className='flex flex-row gap-4'>
         <Checkbox {...args} value={1} />
         <Checkbox {...args} value={2} />
         <Checkbox {...args} value={3} />
-      </div>
+      </InputGroup>
       <Submit>Submit</Submit>
     </Form>
   ),
@@ -101,11 +119,11 @@ export const GroupRow: Story = {
 export const asOrderedArray: Story = {
   render: (args: Props) => (
     <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))}>
-      <div className='flex flex-row gap-4'>
+      <InputGroup className='flex flex-row gap-4'>
         <Checkbox {...args} name='name[0]' value={1} />
         <Checkbox {...args} name='name[1]' value={2} />
         <Checkbox {...args} name='name[2]' value={3} />
-      </div>
+      </InputGroup>
       <Submit>Submit</Submit>
     </Form>
   ),
@@ -118,11 +136,11 @@ export const asOrderedArray: Story = {
 export const asObjectMap: Story = {
   render: (args: Props) => (
     <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))}>
-      <div className='flex flex-row gap-4'>
+      <InputGroup className='flex flex-row gap-4'>
         <Checkbox {...args} name='name[a]' value={1} />
         <Checkbox {...args} name='name[b]' value={2} />
         <Checkbox {...args} name='name[c]' value={3} />
-      </div>
+      </InputGroup>
       <Submit>Submit</Submit>
     </Form>
   ),

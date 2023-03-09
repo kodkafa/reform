@@ -28,7 +28,7 @@ export const Select = ({
     <div className={`${disabled && 'reform-disabled'}`}>
       {label && <Label htmlFor={name}>{label}</Label>}
       <select
-        className={`reform-item reform-select ${className}`}
+        className={`reform-element ${className}`}
         {...(name ? register(name) : {})}
         {...props}
       >
