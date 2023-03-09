@@ -1,0 +1,9 @@
+.reform-item {
+  @apply text-zinc-700 focus-within:text-zinc-800
+    border rounded-md
+    border-gray-200
+    focus-within:border-blue-500 focus-within:ring-blue-500
+    dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 
+    bg-white
+    transition-all;
+}

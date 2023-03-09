@@ -1,0 +1,25 @@
+.reform-loading {
+  .reform-submit {
+    @apply bg-red-500;
+  }
+
+  .reform-loader {
+    @apply visible;
+  }
+
+  button[type='submit'] {
+    @apply pointer-events-none
+      shadow-none
+      shadow-inner
+      text-gray-300;
+    animation: SubmitAnimation 1.3s ease infinite;
+
+    .reform-icon > :nth-child(2) {
+      @apply hidden;
+    }
+  }
+}
+
+.reform-disabled {
+  @apply opacity-50 pointer-events-none;
+}
