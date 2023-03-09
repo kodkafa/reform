@@ -1,4 +1,4 @@
-import '../src/preline.scss';
+import '../src/preline/preline.scss';
 import '../src/tailwind.css';
 // import '../src/reform.scss';
 //
