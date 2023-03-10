@@ -1,15 +1,15 @@
 .reform-input-group {
-  @apply flex py-3 block w-full border border-gray-200 rounded-md text-sm outline-none dark:bg-slate-900;
+  @apply flex items-center w-full border border-gray-200 rounded-md text-sm outline-none dark:bg-slate-900;
 
   .reform-item-error {
     @apply hidden;
   }
 
   .reform-element {
-    @apply border-0 focus:ring-0;
+    @apply border-0 rounded-none focus:ring-0;
   }
 
   &:has(.reform-element:focus) {
-    @apply border-2;
+    @apply border-transparent outline-none ring-2 ring-blue-500 transition-all dark:ring-offset-gray-800;
   }
 }

@@ -1,5 +1,9 @@
 .reform-element {
-  @apply py-3 block w-full border border-gray-200 rounded-md text-sm outline-none dark:bg-slate-900;
+  @apply py-3 block flex-1 border border-gray-200 rounded-md text-sm outline-none dark:bg-slate-900;
+
+  &:disabled {
+    @apply opacity-50 pointer-events-none;
+  }
 }
 .reform-password-show::after {
   @apply not-italic;

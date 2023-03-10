@@ -20,10 +20,6 @@
   }
 }
 
-.reform-disabled {
-  @apply opacity-50 pointer-events-none;
-}
-
 @keyframes SubmitAnimation {
   0% {
     background-size: 400% 400%;

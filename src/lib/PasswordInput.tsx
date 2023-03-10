@@ -15,7 +15,7 @@ export const PasswordInput = ({ className, label, ...props }: Props) => {
   return (
     <InputGroup label={label}>
       <Input {...props} className={className} type={type} />
-      <span onClick={toggleType}>
+      <span className='mr-2' onClick={toggleType}>
         {type === 'password' ? (
           <i className='reform-password-show' />
         ) : (

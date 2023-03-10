@@ -38,21 +38,21 @@ export const Sizes = {
           <p className='h-8 px-4 mr-2 border-r border-gray-200 inline-flex items-center  w-max rounded-l-md bg-gray-50 text-sm text-gray-500 dark:bg-gray-700 dark:text-gray-400'>
             Small
           </p>
-          <Input name='input' placeholder='Please write something..' />
+          <Input className='h-8' name='small-input' placeholder='Please write something..' />
         </InputGroup>
 
         <InputGroup>
           <p className='h-10 px-4 mr-2 border-r border-gray-200 inline-flex items-center  w-max rounded-l-md bg-gray-50 text-sm text-gray-500 dark:bg-gray-700 dark:text-gray-400'>
             Medium
           </p>
-          <Input name='input' placeholder='Please write something..' />
+          <Input className='h-10' name='medium-input' placeholder='Please write something..' />
         </InputGroup>
 
         <InputGroup>
           <p className='h-12 px-4 mr-2 border-r border-gray-200 inline-flex items-center  w-max rounded-l-md bg-gray-50 text-sm text-gray-500 dark:bg-gray-700 dark:text-gray-400'>
             Large
           </p>
-          <Input name='input' placeholder='Please write something..' />
+          <Input name='large-input-input' placeholder='Please write something..' />
         </InputGroup>
         <Submit>Submit</Submit>
       </Form>
@@ -65,9 +65,27 @@ export const MultipleInputs = {
     <div>
       <Form onSubmit={handleSubmit}>
         <InputGroup {...args}>
-          <Input className='ml-4' name='input' placeholder='Please write something..' />
-          <Checkbox name='checkbox' />
-          <Input className='ml-4' name='input' placeholder='Please write something..' />
+          <p className='h-10 px-4 border-r border-gray-200 inline-flex items-center bg-gray-50 text-sm text-gray-500 dark:bg-gray-700 dark:text-gray-400'>
+            First and last name
+          </p>
+          <Input className='h-10' name='first-name-input-1' />
+          <Input className='h-10 !border-l border-l-gray-200' name='last-name-input-1' />
+        </InputGroup>
+
+        <InputGroup {...args}>
+          <Input className='h-10' name='first-name-input-2' />
+          <Input className='h-10 !border-l border-l-gray-200' name='last-name-input-2' />
+          <p className='h-10 px-4 border-l border-gray-200 inline-flex items-center bg-gray-50 text-sm text-gray-500 dark:bg-gray-700 dark:text-gray-400'>
+            First and last name
+          </p>
+        </InputGroup>
+
+        <InputGroup {...args}>
+          <Input className='h-10' name='left-input-1' />
+          <p className='h-10 px-4 border-l border-r border-gray-200 inline-flex items-center bg-gray-50 text-sm text-gray-500 dark:bg-gray-700 dark:text-gray-400'>
+            Cool
+          </p>
+          <Input className='h-10' name='right-input-1' />
         </InputGroup>
         <Submit>Submit</Submit>
       </Form>
@@ -83,10 +101,10 @@ export const Addon = {
     <div>
       <Form onSubmit={handleSubmit}>
         <InputGroup {...args}>
-          <p className='h-12 px-4 mr-2 border-r border-gray-200 inline-flex items-center  w-max rounded-l-md bg-gray-50 text-sm text-gray-500 dark:bg-gray-700 dark:text-gray-400'>
+          <p className='h-10 px-4 mr-2 border-r border-gray-200 inline-flex items-center  w-max rounded-l-md bg-gray-50 text-sm text-gray-500 dark:bg-gray-700 dark:text-gray-400'>
             https://
           </p>
-          <Input name='input' placeholder='Please write something..' />
+          <Input className='h-10' name='input' placeholder='Please write something..' />
         </InputGroup>
         <Submit>Submit</Submit>
       </Form>
@@ -165,7 +183,7 @@ export const WithError = {
       <div>
         <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))} schema={schema}>
           <InputGroup {...args}>
-            <Checkbox className='ml-2' name='checkbox' />
+            <Checkbox className='ml-2 mr-1' name='checkbox' />
             <Input name='input' placeholder='Please write something..' />
           </InputGroup>
           <Submit>Submit</Submit>
@@ -200,13 +218,10 @@ export const WithSearchButton = {
             className='mx-2'
             placeholder='search in'
           />
-          <Input name='q' placeholder='search ...' />
+          <Input className='!border-l' name='q' placeholder='search ...' />
           <Submit className='!rounded-l-none'>SEARCH</Submit>
         </InputGroup>
       </Form>
     </div>
   ),
-  args: {
-    className: 'divide-x',
-  },
 };

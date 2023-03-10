@@ -23,7 +23,7 @@ export const InputGroup = ({ children, className, label, ...props }: Props) => {
   }, [formState.errors]);
 
   return (
-    <div className={'reform-elemen'}>
+    <div>
       {label && <Label>{label}</Label>}
 
       <div ref={ref} {...props} className={`reform-input-group group ${className}`}>

@@ -12,9 +12,9 @@
     }
 
     &:disabled {
-      @apply border-red-500;
+      @apply opacity-50 pointer-events-none;
       & + label {
-        @apply text-red-500;
+        @apply opacity-50 pointer-events-none text-gray-700;
       }
     }
   }

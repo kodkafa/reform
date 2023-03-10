@@ -9,16 +9,10 @@ export const Button = ({
   className = '',
   children,
   type = 'button',
-  disabled,
   reference = null,
   ...props
 }: Props) => (
-  <button
-    ref={reference}
-    {...props}
-    type={type}
-    className={`reform-button ${className} ${disabled && 'reform-disabled'}`}
-  >
+  <button ref={reference} {...props} type={type} className={`reform-button ${className}`}>
     {children}
   </button>
 );
