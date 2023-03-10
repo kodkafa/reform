@@ -6,15 +6,16 @@ export type Props = InputHTMLAttributes<HTMLInputElement> & {
   className?: string;
   name: string;
   label?: string;
-  labelPosition?: 'right' | 'left';
+  // labelPosition?: 'right' | 'left';
 };
 
 export const Radio = ({
+  id = `reform-checkbox-${Math.random()}`,
   className = '',
   name,
   label,
   type = 'radio',
-  labelPosition = 'right',
+  // labelPosition = 'right',
   value = 'true',
   disabled,
   ...props
@@ -27,13 +28,20 @@ export const Radio = ({
 
   return (
     <>
-      <div className={`reform-item-radio ${disabled && 'reform-disabled'}`}>
-        <div className={`reform-radio ${labelPosition} ${className}`}>
-          {label && <Label htmlFor={name}>{label}</Label>}
-          <input {...props} type={type} value={value} {...(name ? register(name) : {})} />
-          <div className='reform-input-icon' />
-        </div>
+      {/*<div className={`reform-item-radio ${disabled && 'reform-disabled'}`}>*/}
+      <div className={`reform-radio ${disabled && 'reform-disabled'} ${className}`}>
+        <input
+          {...props}
+          id={id}
+          disabled={disabled}
+          type={type}
+          value={value}
+          {...(name ? register(name) : {})}
+        />
+        {label && <Label htmlFor={id}>{label}</Label>}
+        {/*<div className='reform-input-icon' />*/}
       </div>
+      {/*</div>*/}
       {error && <p className='reform-item-error'>{String(error.message)}</p>}
     </>
   );

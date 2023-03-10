@@ -17,6 +17,7 @@ export const Checkbox = ({
   type = 'checkbox',
   // labelPosition = 'right',
   value = 'true',
+  disabled,
   ...props
 }: Props) => {
   const {
@@ -28,8 +29,15 @@ export const Checkbox = ({
   return (
     <>
       {/*<div className={`reform-item-checkbox ${disabled && 'reform-disabled'}`}>*/}
-      <div className={`reform-checkbox ${className}`}>
-        <input {...props} id={id} type={type} value={value} {...(name ? register(name) : {})} />
+      <div className={`reform-checkbox ${disabled && 'reform-disabled'} ${className}`}>
+        <input
+          {...props}
+          disabled={disabled}
+          id={id}
+          type={type}
+          value={value}
+          {...(name ? register(name) : {})}
+        />
         {/*<div className='reform-element' />*/}
         {label && <Label htmlFor={id}>{label}</Label>}
       </div>
