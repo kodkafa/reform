@@ -9,15 +9,7 @@ export type Props = SelectHTMLAttributes<HTMLSelectElement> & {
   label?: string;
 };
 
-export const Select = ({
-  name,
-  placeholder,
-  label,
-  options,
-  disabled,
-  className,
-  ...props
-}: Props) => {
+export const Select = ({ name, placeholder, label, options, className, ...props }: Props) => {
   const {
     register,
     formState: { errors },
@@ -25,7 +17,7 @@ export const Select = ({
   const error = errors[name];
 
   return (
-    <div className={`${disabled && 'reform-disabled'}`}>
+    <>
       {label && <Label htmlFor={name}>{label}</Label>}
       <select
         className={`reform-element ${className}`}
@@ -44,6 +36,6 @@ export const Select = ({
         ))}
       </select>
       {error && <p className='reform-item-error'>{String(error.message)}</p>}
-    </div>
+    </>
   );
 };

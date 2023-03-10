@@ -19,7 +19,7 @@ export const Textarea = ({ name, resize = true, label, className, ...props }: Pr
     <>
       {label && <Label htmlFor={name}>{label}</Label>}
       <textarea
-        className={`reform-item reform-textarea ${!resize && 'resize-none'} ${className}`}
+        className={`reform-element reform-textarea ${!resize && 'resize-none'} ${className}`}
         {...(name ? register(name) : {})}
         {...props}
       />

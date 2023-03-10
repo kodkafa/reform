@@ -1,22 +1,4 @@
 .reform-input-group {
-  //@apply flex w-full items-center justify-between px-0 h-max overflow-hidden;
-  //
-  //.reform-item {
-  //  @apply border-none px-0;
-  //}
-  //
-  //.reform-input {
-  //  @apply flex-1 border-none;
-  //}
-  //
-  //.reform-item-error {
-  //  @apply hidden;
-  //}
-  //
-  //label {
-  //  @apply hidden;
-  //}
-
   @apply flex py-3 block w-full border border-gray-200 rounded-md text-sm outline-none dark:bg-slate-900;
 
   .reform-item-error {

@@ -7,16 +7,18 @@ export type Props = HTMLAttributes<HTMLDivElement> & {
   label?: string;
 };
 
-export const InputGroup = ({ disabled, children, className, label, ...props }: Props) => {
+export const InputGroup = ({ children, className, label, ...props }: Props) => {
   const ref = useRef<HTMLDivElement>(null);
   const { formState } = useFormContext() || {};
   const [errors, setErrors] = useState<string[]>([]);
 
   useEffect(() => {
     if (ref.current) {
-      setErrors(
-        Array.from(ref.current?.querySelectorAll('.reform-item-error')).map((i) => i.innerHTML),
-      );
+      setErrors([
+        ...new Set(
+          Array.from(ref.current?.querySelectorAll('.reform-item-error')).map((i) => i.innerHTML),
+        ),
+      ]);
     }
   }, [formState.errors]);
 

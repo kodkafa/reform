@@ -37,9 +37,41 @@ export const WithLabel: Story = {
   ),
   args: {
     name: 'name',
+    label: 'Label',
+  },
+};
+
+export const WithLabelReverse: Story = {
+  render: (args: Props) => (
+    <Form onSubmit={handleSubmit}>
+      <div>
+        <Switch {...args} />
+      </div>
+      <Submit>Submit</Submit>
+    </Form>
+  ),
+  args: {
+    name: 'name',
+    label: 'Label',
+    className: 'flex-row-reverse justify-end',
+  },
+};
+
+export const WithLabelReverseAndOnOff: Story = {
+  render: (args: Props) => (
+    <Form onSubmit={handleSubmit}>
+      <div>
+        <Switch {...args} />
+      </div>
+      <Submit>Submit</Submit>
+    </Form>
+  ),
+  args: {
+    name: 'name',
+    label: 'Label',
+    className: 'flex-row-reverse justify-end',
     off: 'off',
     on: 'on',
-    label: 'Label',
   },
 };
 

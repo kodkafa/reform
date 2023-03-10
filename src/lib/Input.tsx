@@ -1,4 +1,4 @@
-import { InputHTMLAttributes, ReactNode } from 'react';
+import { InputHTMLAttributes } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { Label } from './Label';
 
@@ -6,21 +6,9 @@ export type Props = InputHTMLAttributes<HTMLInputElement> & {
   className?: string;
   name: string;
   label?: string;
-  // icon?: ReactNode;
-  // type?: string;
-  // iconPosition?: 'left' | 'right';
 };
 
-export const Input = ({
-  className,
-  name,
-  label,
-  // icon,
-  // disabled,
-  type = 'text',
-  // iconPosition = 'right',
-  ...props
-}: Props) => {
+export const Input = ({ className, name, label, type = 'text', ...props }: Props) => {
   const {
     register,
     formState: { errors },
@@ -32,27 +20,17 @@ export const Input = ({
   return (
     <>
       {label && <Label htmlFor={name}>{label}</Label>}
-      {/*<div*/}
-      {/*  className={`h-max flex items-center reform-item reform-input ${iconPosition} ${className}`}*/}
-      {/*>*/}
-      <input className='reform-element' {...(name ? register(name) : {})} type={type} {...props} />
-      {/*</div>*/}
-      {error && <p className='reform-item-error'>{String(error.message)}</p>}
+      <input
+        {...props}
+        type={type}
+        className={`reform-element ${className}`}
+        {...(name ? register(name) : {})}
+      />
+      {error && (
+        <p className='reform-item-error' data-name={name}>
+          {String(error.message)}
+        </p>
+      )}
     </>
   );
 };
-
-//   <div className={`reform-input ${disabled && 'reform-disabled'}`}>
-//     {label && <Label htmlFor={name}>{label}</Label>}
-//     <div className={`reform-item ${iconPosition}`}>
-//       <input
-//         {...props}
-//         type={type}
-//         className={`${className}`}
-//         {...(name ? register(name) : {})}
-//       />
-//       <div className='reform-input-icon'>{icon}</div>
-//     </div>
-//     {error && <p className='reform-item-error'>{String(error.message)}</p>}
-//   </div>
-// );

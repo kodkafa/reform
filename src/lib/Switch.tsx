@@ -1,6 +1,5 @@
-import { InputHTMLAttributes, ReactNode, useState } from 'react';
+import { InputHTMLAttributes, ReactNode } from 'react';
 import { useFormContext } from 'react-hook-form';
-import { Label } from './Label';
 
 export type Props = InputHTMLAttributes<HTMLInputElement> & {
   off?: ReactNode;
@@ -11,33 +10,40 @@ export type Props = InputHTMLAttributes<HTMLInputElement> & {
 
 export const Switch = ({
   id = `reform-switch-${Math.random()}`,
-  on,
-  off,
+  className = '',
   name,
   label,
+  type = 'checkbox',
+  on,
+  off,
   ...props
 }: Props) => {
-  const { register } = useFormContext() || {};
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext() || {};
+  const error = errors[name];
 
   return (
     <>
-      {/*< className={`${disabled && 'reform-disabled'}`}>*/}
-      {label && <Label htmlFor={id}>{label}</Label>}
-
-      <div className={'reform-switch '}>
-        {off && (
-          <label htmlFor={id} className='reform-label'>
-            {off}
-          </label>
-        )}
-        <input {...props} id={id} type='checkbox' {...(name ? register(name) : {})} />
-        {on && (
-          <label htmlFor={id} className='reform-label'>
-            {on}
-          </label>
-        )}
+      <div className={`reform-switch ${className}`}>
+        <div>
+          {off && (
+            <label htmlFor={id} className='reform-label'>
+              {off}
+            </label>
+          )}
+          <input {...props} id={id} type={type} {...(name ? register(name) : {})} />
+          {on && (
+            <label htmlFor={id} className='reform-label'>
+              {on}
+            </label>
+          )}
+        </div>
+        {label && <label htmlFor={id}>{label}</label>}
       </div>
-      {/*</div>*/}
+
+      {error && <p className='reform-item-error'>{String(error.message)}</p>}
     </>
   );
 };

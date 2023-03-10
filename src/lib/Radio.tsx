@@ -1,12 +1,10 @@
 import { InputHTMLAttributes } from 'react';
 import { useFormContext } from 'react-hook-form';
-import { Label } from './Label';
 
 export type Props = InputHTMLAttributes<HTMLInputElement> & {
   className?: string;
   name: string;
   label?: string;
-  // labelPosition?: 'right' | 'left';
 };
 
 export const Radio = ({
@@ -15,9 +13,7 @@ export const Radio = ({
   name,
   label,
   type = 'radio',
-  // labelPosition = 'right',
   value = 'true',
-  disabled,
   ...props
 }: Props) => {
   const {
@@ -28,20 +24,10 @@ export const Radio = ({
 
   return (
     <>
-      {/*<div className={`reform-item-radio ${disabled && 'reform-disabled'}`}>*/}
-      <div className={`reform-radio ${disabled && 'reform-disabled'} ${className}`}>
-        <input
-          {...props}
-          id={id}
-          disabled={disabled}
-          type={type}
-          value={value}
-          {...(name ? register(name) : {})}
-        />
-        {label && <Label htmlFor={id}>{label}</Label>}
-        {/*<div className='reform-input-icon' />*/}
+      <div className={`reform-radio ${className}`}>
+        <input {...props} id={id} type={type} value={value} {...(name ? register(name) : {})} />
+        {label && <label htmlFor={id}>{label}</label>}
       </div>
-      {/*</div>*/}
       {error && <p className='reform-item-error'>{String(error.message)}</p>}
     </>
   );

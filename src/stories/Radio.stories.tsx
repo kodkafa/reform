@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import * as Yup from 'yup';
 
-import { Radio, Form, Submit } from '../lib';
+import { Radio, Form, Submit, InputGroup } from '../lib';
 import { Props } from '../lib/Radio';
 import { handleSubmit } from './helpers/Handlers';
 
@@ -31,23 +31,9 @@ export const Default: Story = {
 const schema = Yup.object().shape({
   name: Yup.string()
     .trim()
-    .matches(/[0-9]+/)
+    .matches(/[a-z]+/)
     .required('Required'),
 });
-export const withError: Story = {
-  render: (args: Props) => (
-    <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))} schema={schema}>
-      <Radio {...args} />
-      <Submit>Submit</Submit>
-    </Form>
-  ),
-  args: {
-    label: 'Label',
-    name: 'name',
-    placeholder: 'Jon Doe',
-  },
-};
-
 export const Disabled: Story = {
   render: (args: Props) => (
     <Form onSubmit={handleSubmit}>
@@ -63,38 +49,66 @@ export const Disabled: Story = {
   },
 };
 
-export const Group: Story = {
+export const withError: Story = {
   render: (args: Props) => (
-    <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))}>
-      <div className='flex flex-col gap-2'>
-        <Radio {...args} value={1} />
-        <Radio {...args} value={2} />
-        <Radio {...args} value={3} />
-      </div>
+    <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))} schema={schema}>
+      <Radio {...args} />
       <Submit>Submit</Submit>
     </Form>
   ),
   args: {
     label: 'Label',
     name: 'name',
-    labelPosition: 'left',
+    placeholder: 'Jon Doe',
   },
 };
 
-export const GroupRow: Story = {
+export const Group: Story = {
   render: (args: Props) => (
     <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))}>
-      <div className='flex flex-row gap-4'>
+      <InputGroup className='flex flex-col gap-2 !border-transparent'>
         <Radio {...args} value={1} />
         <Radio {...args} value={2} />
         <Radio {...args} value={3} />
-      </div>
+      </InputGroup>
       <Submit>Submit</Submit>
     </Form>
   ),
   args: {
     label: 'Label',
     name: 'name',
-    labelPosition: 'left',
+  },
+};
+
+export const GroupWithError: Story = {
+  render: (args: Props) => (
+    <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))} schema={schema}>
+      <InputGroup className='flex flex-col gap-2 !border-transparent'>
+        <Radio {...args} value={'1'} />
+        <Radio {...args} value={'2'} />
+        <Radio {...args} value={'3'} />
+      </InputGroup>
+      <Submit>Submit</Submit>
+    </Form>
+  ),
+  args: {
+    label: 'Label',
+    name: 'name',
+  },
+};
+export const GroupRow: Story = {
+  render: (args: Props) => (
+    <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))}>
+      <InputGroup className='flex flex-col gap-2 !border-transparent'>
+        <Radio {...args} value={1} />
+        <Radio {...args} value={2} />
+        <Radio {...args} value={3} />
+      </InputGroup>
+      <Submit>Submit</Submit>
+    </Form>
+  ),
+  args: {
+    label: 'Label',
+    name: 'name',
   },
 };
