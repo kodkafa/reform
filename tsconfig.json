@@ -18,11 +18,16 @@
     "declarationMap": true,
     "declaration": true,
     "baseUrl": ".",
+    "types": ["vitest/globals"],
     "paths": {
       "reform": ["src/lib/index.ts"]
     },
     "typeRoots": ["node_modules/@types", "src/lib/index.d.ts"]
   },
   "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
 }
