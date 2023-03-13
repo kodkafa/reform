@@ -6,6 +6,7 @@
 @use 'reform-item';
 @use 'reform-switch';
 @use 'states';
+@use 'reform-alert.scss';
 
 .reform-form {
   @apply flex flex-col gap-2;

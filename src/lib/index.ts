@@ -11,3 +11,4 @@ export { Switch } from './Switch';
 export { Textarea } from './Textarea';
 export { Select } from './Select';
 export { InputGroup } from './InputGroup';
+export { Alert } from './Alert';

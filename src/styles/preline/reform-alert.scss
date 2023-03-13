@@ -1,0 +1,21 @@
+.reform-alert {
+  @apply flex
+   text-sm rounded-md p-4;
+  //bg-gray-50 border-gray-200 text-gray-600;
+
+  .reform-alert-content {
+    @apply w-full;
+
+    .reform-alert-top {
+      @apply w-full md:flex md:justify-between;
+
+      .reform-alert-text {
+        @apply flex-1;
+      }
+    }
+
+    .reform-actions {
+      @apply flex;
+    }
+  }
+}

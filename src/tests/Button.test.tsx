@@ -1,14 +1,17 @@
 import { render, screen } from '@testing-library/react';
-// import matchers from '@testing-library/jest-dom';
-//
-// expect.extend(matchers);
+import { Button, Form } from '../lib';
 
-function Comp() {
-  return <div>asd</div>;
+function RenderElement() {
+  return (
+    <Form>
+      <Button disabled />
+    </Form>
+  );
 }
 
-it('should have hellow world', () => {
-  render(<Comp />);
-  const message = screen.queryByText(/asd/i);
-  expect(message).toBeVisible();
+describe('#button tests', () => {
+  it('should be disabled', () => {
+    render(<RenderElement />);
+    expect(screen.getByRole('button')).toHaveAttribute('disabled');
+  });
 });
