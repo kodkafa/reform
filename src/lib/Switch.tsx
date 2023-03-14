@@ -6,6 +6,7 @@ export type Props = InputHTMLAttributes<HTMLInputElement> & {
   on?: ReactNode;
   name: string;
   label?: string;
+  labelPosition?: 'left' | 'right';
 };
 
 export const Switch = ({
@@ -13,6 +14,7 @@ export const Switch = ({
   className = '',
   name,
   label,
+  labelPosition = 'left',
   type = 'checkbox',
   on,
   off,
@@ -26,7 +28,7 @@ export const Switch = ({
 
   return (
     <>
-      <div className={`reform-switch ${className}`}>
+      <div className={`reform-switch reform-switch-label-position-${labelPosition} ${className}`}>
         <div>
           {off && (
             <label htmlFor={id} className='reform-label'>

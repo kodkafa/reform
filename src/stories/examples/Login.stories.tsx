@@ -28,7 +28,7 @@ export const Default = {
         <div className='flex flex-col gap-4'>
           <InputGroup label='Email adress'>
             <Input name='email' placeholder='jon@doe.com' className='text-gray-800 ' />
-            <span>✉</span>
+            <span className='mr-2 text-xl'>✉</span>
           </InputGroup>
           <PasswordInput
             label='Password'
@@ -37,8 +37,8 @@ export const Default = {
             className='text-gray-800 '
           />
           <div className='flex justify-between'>
-            <Checkbox label='Remember me' name='remember' labelPosition='right' />
-            <a href='src/stories#' className='text-primary mb-1 text-sm'>
+            <Checkbox label='Remember me' name='remember' />
+            <a href='src/stories#' className='text-primary text-sm flex items-center'>
               Forgot password
             </a>
           </div>

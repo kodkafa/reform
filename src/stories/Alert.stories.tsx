@@ -1,8 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Form } from '../lib';
 
 import { Alert, Props } from '../lib/Alert';
-import { handleSubmit } from './helpers/Handlers';
 
 const meta = {
   title: 'reform/Alert',
