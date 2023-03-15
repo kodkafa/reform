@@ -1,11 +1,11 @@
-import { InputHTMLAttributes } from 'react';
+import { InputHTMLAttributes, ReactNode } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { Label } from './Label';
 
 export type Props = InputHTMLAttributes<HTMLInputElement> & {
   className?: string;
   name: string;
-  label?: string;
+  label?: ReactNode;
 };
 
 export const Input = ({ className, name, label, type = 'text', ...props }: Props) => {
