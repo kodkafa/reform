@@ -28,8 +28,10 @@ export const Checkbox = ({
     <>
       <div
         className={`
-        reform-checkbox ${className} 
-        ${description && 'reform-checkbox-with-description'}`}
+        reform-checkbox 
+        ${description && 'reform-checkbox-with-description'}
+        ${className}
+        `}
       >
         <input {...props} id={id} type={type} value={value} {...(name ? register(name) : {})} />
         <div>

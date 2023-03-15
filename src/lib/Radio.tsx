@@ -1,10 +1,11 @@
-import { InputHTMLAttributes } from 'react';
+import { InputHTMLAttributes, ReactNode } from 'react';
 import { useFormContext } from 'react-hook-form';
 
 export type Props = InputHTMLAttributes<HTMLInputElement> & {
   className?: string;
   name: string;
   label?: string;
+  description?: ReactNode;
 };
 
 export const Radio = ({
@@ -14,6 +15,7 @@ export const Radio = ({
   label,
   type = 'radio',
   value = 'true',
+  description,
   ...props
 }: Props) => {
   const {
@@ -24,9 +26,18 @@ export const Radio = ({
 
   return (
     <>
-      <div className={`reform-radio ${className}`}>
+      <div
+        className={`
+        reform-radio 
+        ${description && 'reform-checkbox-with-description'}
+        ${className}
+        `}
+      >
         <input {...props} id={id} type={type} value={value} {...(name ? register(name) : {})} />
-        {label && <label htmlFor={id}>{label}</label>}
+        <div>
+          {label && <label htmlFor={id}>{label}</label>}
+          {description}
+        </div>
       </div>
       {error && <p className='reform-item-error'>{String(error.message)}</p>}
     </>

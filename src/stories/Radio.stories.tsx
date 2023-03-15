@@ -49,6 +49,96 @@ export const Disabled: Story = {
   },
 };
 
+export const ListWithDescription: Story = {
+  render: (args: Props) => (
+    <Form onSubmit={handleSubmit}>
+      <InputGroup className='!border-transparent'>
+        <Radio {...args} />
+        <Radio {...args} />
+        <Radio {...args} />
+      </InputGroup>
+
+      <InputGroup className='!flex-col !items-start !border-transparent space-y-4 mt-10'>
+        <Radio {...args} />
+        <Radio {...args} />
+        <Radio {...args} />
+      </InputGroup>
+      <Submit>Submit</Submit>
+    </Form>
+  ),
+  args: {
+    label: 'Label',
+    name: 'name',
+    placeholder: 'Jon Doe',
+    description: (
+      <span
+        id='hs-checkbox-delete-description'
+        className='block text-sm text-gray-600 dark:text-gray-500'
+      >
+        Notify me when this action happens.
+      </span>
+    ),
+  },
+};
+
+export const WithinInputGroup: Story = {
+  render: (args: Props) => (
+    <Form onSubmit={handleSubmit}>
+      <div className='flex w-full space-x-2'>
+        <InputGroup className='!flex-1'>
+          <Radio {...args} />
+        </InputGroup>
+        <InputGroup className='flex-1'>
+          <Radio {...args} />
+        </InputGroup>
+      </div>
+
+      <div className='flex flex-col space-y-2 mt-10 w-1/2'>
+        <InputGroup className='!flex-1'>
+          <Radio {...args} />
+        </InputGroup>
+        <InputGroup className='flex-1'>
+          <Radio {...args} />
+        </InputGroup>
+      </div>
+    </Form>
+  ),
+  args: {
+    label: 'Label',
+    name: 'name',
+    className: 'w-full p-3',
+  },
+};
+
+export const WithinInputGroupRowReverse: Story = {
+  render: (args: Props) => (
+    <Form onSubmit={handleSubmit}>
+      <div className='flex w-full space-x-2'>
+        <InputGroup className='!flex-1'>
+          <Radio {...args} />
+        </InputGroup>
+        <InputGroup className='flex-1'>
+          <Radio {...args} />
+        </InputGroup>
+      </div>
+
+      <div className='flex flex-col space-y-2 mt-10 w-1/2'>
+        <InputGroup className='!flex-1'>
+          <Radio {...args} />
+        </InputGroup>
+        <InputGroup className='flex-1'>
+          <Radio {...args} />
+        </InputGroup>
+      </div>
+    </Form>
+  ),
+  args: {
+    label: 'Label',
+    name: 'name',
+    className: 'w-full justify-between p-3 flex-row-reverse',
+  },
+};
+
 export const withError: Story = {
   render: (args: Props) => (
     <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))} schema={schema}>
