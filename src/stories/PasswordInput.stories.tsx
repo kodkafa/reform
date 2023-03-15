@@ -1,9 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import * as Yup from 'yup';
 
 import { Form, PasswordInput, Submit } from '../lib';
 import { Props } from '../lib/PasswordInput';
-import { handleSubmit } from './helpers/Handlers';
+import { handleAsyncSubmit, handleSubmit, handleSubmitWithError } from './helpers/Handlers';
 
 const meta = {
   title: 'reform/PasswordInput',
@@ -57,21 +56,34 @@ export const Disabled: Story = {
   },
 };
 
-const schema = Yup.object().shape({
-  name: Yup.string()
-    .trim()
-    .matches(/[0-9]+/)
-    .required('Required'),
-});
 export const withError: Story = {
   render: (args: Props) => (
-    <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))} schema={schema}>
-      <PasswordInput {...args} />
+    <Form onSubmit={handleSubmitWithError}>
+      <div>
+        <PasswordInput {...args} />
+      </div>
       <Submit>Submit</Submit>
     </Form>
   ),
   args: {
     label: 'Label',
-    name: 'name',
+    name: 'password',
+  },
+};
+
+export const withCustomIcon: Story = {
+  render: (args: Props) => (
+    <Form onSubmit={handleAsyncSubmit}>
+      <div>
+        <PasswordInput {...args} />
+      </div>
+      <Submit>Submit</Submit>
+    </Form>
+  ),
+  args: {
+    label: 'Label',
+    name: 'password',
+    show: <i className='text-xs cursor-pointer bg-gray-200 rounded p-1'>show</i>,
+    hide: <i className='text-xs cursor-pointer bg-gray-200 rounded p-1'>hide</i>,
   },
 };

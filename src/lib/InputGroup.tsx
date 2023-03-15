@@ -9,18 +9,18 @@ export type Props = HTMLAttributes<HTMLDivElement> & {
 
 export const InputGroup = ({ children, className, label, ...props }: Props) => {
   const ref = useRef<HTMLDivElement>(null);
-  const { formState } = useFormContext() || {};
+  const { formState } = useFormContext();
   const [errors, setErrors] = useState<string[]>([]);
 
   useEffect(() => {
-    if (ref.current) {
+    if (ref.current && Object.keys(formState.errors).length) {
       setErrors([
         ...new Set(
           Array.from(ref.current?.querySelectorAll('.reform-item-error')).map((i) => i.innerHTML),
         ),
       ]);
     }
-  }, [formState.errors]);
+  }, [ref.current, formState]);
 
   return (
     <div>

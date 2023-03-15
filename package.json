@@ -44,10 +44,11 @@
   "scripts": {
     "dev": "vite",
     "preview": "vite preview",
-    "build": "tsc && vite build && npm run build:css && npm run copy:css && npm run copy:scss",
+    "build": "tsc && vite build && npm run build:css && npm run copy:css && npm run copy:scss && npm run copy:preline",
     "build:css": "tailwindcss -m -i src/tailwind.css -o ./dist/reform.css",
     "copy:css": "npx sass src/styles/reform.scss ./dist/reform.tailwind.css ",
     "copy:scss": "cp src/styles/reform.scss ./dist/reform.tailwind.scss ",
+    "copy:preline": "npx sass  src/styles/preline/preline.scss ./dist/reform.preline.css ",
     "build:storybook": "storybook build",
     "storybook": "storybook dev -p 6006",
     "lint": "eslint --fix",

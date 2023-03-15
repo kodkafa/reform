@@ -61,7 +61,7 @@ export const Default = {
         </InputGroup>
 
         <div className='flex justify-between'>
-          <Checkbox label='Remember me' name='remember' labelPosition='right' />
+          <Checkbox label='Remember me' name='remember' />
           <a href='src/stories#' className='text-primary mb-1 text-sm'>
             Forgot password
           </a>

@@ -88,3 +88,44 @@ export const AsyncWithError: Story = {
     children: 'Submit Text',
   },
 };
+
+export const AsyncWithCustomIcon: Story = {
+  render: (args: Props) => (
+    <Form onSubmit={handleAsyncSubmitWithError}>
+      <div>
+        <Input name='text' placeholder='write something...' />
+      </div>
+      <Submit {...args} />
+    </Form>
+  ),
+  args: {
+    className: 'reform-submit-icon',
+    children: (
+      <>
+        <b className='reform-icon'>⛺</b>
+        <b className='reform-loader'>⛵</b>
+        Submit Text
+      </>
+    ),
+  },
+};
+
+export const AsyncWithCustomText: Story = {
+  render: (args: Props) => (
+    <Form onSubmit={handleAsyncSubmitWithError}>
+      <div>
+        <Input name='text' placeholder='write something...' />
+      </div>
+      <Submit {...args} />
+    </Form>
+  ),
+  args: {
+    className: 'reform-submit-icon',
+    children: (
+      <>
+        <span className='reform-icon'>Submit Text</span>
+        <span className='reform-loader !animate-none'>Submitting...</span>
+      </>
+    ),
+  },
+};

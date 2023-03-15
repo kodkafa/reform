@@ -4,14 +4,12 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { ObjectSchema } from 'yup';
 
-export type ReformSetError = (
-  name: string,
-  error: {
-    type?: string;
-    message: string;
-    details?: string | string[] | object;
-  },
-) => void;
+export type ReformError = {
+  type?: string;
+  message: string;
+  details?: string | string[] | object;
+};
+export type ReformSetError = (name: string, error: ReformError) => void;
 export type ReformSubmitHandler = (
   data: { [x: string]: string | string[] | object },
   setError: ReformSetError,
