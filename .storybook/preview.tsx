@@ -1,6 +1,7 @@
 import '../src/tailwind.css';
 import '../src/styles/preline/preline.scss';
-// import '../src/reform.scss';
+// import '../src/styles/tailwind/tailwind.scss';
+// import '../src/styles/reform/reform.scss';
 //
 // export const parameters = {
 //   backgrounds: {
