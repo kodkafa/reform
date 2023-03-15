@@ -53,7 +53,7 @@ export const WithLabelReverse: Story = {
   args: {
     name: 'name',
     label: 'Label',
-    className: 'flex-row-reverse justify-end',
+    labelPosition: 'right',
   },
 };
 
@@ -69,7 +69,7 @@ export const WithLabelReverseAndOnOff: Story = {
   args: {
     name: 'name',
     label: 'Label',
-    className: 'flex-row-reverse justify-end',
+    labelPosition: 'right',
     off: 'off',
     on: 'on',
   },

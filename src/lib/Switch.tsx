@@ -28,7 +28,13 @@ export const Switch = ({
 
   return (
     <>
-      <div className={`reform-switch reform-switch-label-position-${labelPosition} ${className}`}>
+      <div
+        className={`
+        reform-switch
+        ${label && `reform-switch-label-position-${labelPosition}`}
+        ${className}
+        `}
+      >
         <div>
           {off && (
             <label htmlFor={id} className='reform-label'>

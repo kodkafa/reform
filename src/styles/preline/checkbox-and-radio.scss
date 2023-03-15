@@ -19,3 +19,19 @@
     }
   }
 }
+
+.reform-checkbox-with-description,
+.reform-checkbox-with-description {
+  @apply items-start;
+
+  input {
+    &[type='checkbox'],
+    &[type='radio'] {
+      @apply mt-[4.5px];
+    }
+  }
+
+  label {
+    @apply font-semibold;
+  }
+}

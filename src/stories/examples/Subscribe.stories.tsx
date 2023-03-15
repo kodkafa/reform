@@ -1,5 +1,5 @@
 import type { Meta } from '@storybook/react';
-import { Button, Form, Input, Submit, Textarea } from '../../lib';
+import { Form, Input, Submit } from '../../lib';
 import { Stories } from '@storybook/blocks';
 import { handleSubmit } from '../helpers/Handlers';
 
