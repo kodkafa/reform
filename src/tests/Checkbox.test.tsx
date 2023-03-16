@@ -1,26 +1,35 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { Checkbox, Form } from '../lib';
+import { Checkbox, Form, Submit } from '../lib';
+import * as Yup from 'yup';
 
-function RenderElement() {
-  return (
-    <Form>
-      <div>asd</div>
-      <Checkbox name='name' disabled />
-    </Form>
-  );
-}
+const errorMessage = 'errorMessage';
+const schema = Yup.object().shape({
+  name: Yup.string().trim().matches(/asd/, errorMessage).required(errorMessage),
+});
 
 describe('#checkbox tests', () => {
   it('should be disabled', () => {
-    render(<RenderElement />);
+    render(
+      <Form>
+        <Checkbox name='name' disabled />
+      </Form>,
+    );
+    // expect(screen.getByRole('checkbox')).toHaveAttribute('disabled');
     expect(screen.getByRole('checkbox')).toHaveAttribute('disabled');
   });
 
-  it('should give an error', () => {
-    // render(<div>asd</div>);
-    render(<RenderElement />);
-    expect(screen.getByRole('form')).toBeVisible();
-    // fireEvent.submit();
-    // expect(screen.getByRole('p')).toBeVisible();
+  it('should give an error', async () => {
+    render(
+      <Form schema={schema}>
+        <div>asd</div>
+        <Checkbox name='name' />
+        <Submit role='submit'>Submit</Submit>
+      </Form>,
+    );
+
+    fireEvent.click(screen.getByRole('submit'));
+
+    await screen.findByText(errorMessage);
+    expect(screen.getByRole('error')).toBeVisible();
   });
 });

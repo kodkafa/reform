@@ -16,6 +16,7 @@ export type ReformSubmitHandler = (
   data: { [x: string]: string | string[] | object },
   setError: ReformSetError,
 ) => Promise<boolean | void> | boolean | void;
+
 export type Props = {
   schema?: ObjectSchema<object>;
   onSubmit?: ReformSubmitHandler;
@@ -58,6 +59,7 @@ export const Form = ({
         className={`reform-form ${loading ? 'reform-loading' : ''} ${className}`}
         onSubmit={methods.handleSubmit(handleSubmit)}
         onChange={handleFormChange}
+        role='form'
       >
         {children}
       </form>
