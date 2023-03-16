@@ -39,11 +39,7 @@ export const Checkbox = ({
           {description}
         </div>
       </div>
-      {error && (
-        <p role='error' className='reform-item-error'>
-          {String(error.message)}
-        </p>
-      )}
+      {error && <p className='reform-item-error'>{String(error.message)}</p>}
     </>
   );
 };

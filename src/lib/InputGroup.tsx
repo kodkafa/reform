@@ -1,10 +1,9 @@
-import { HTMLAttributes, useEffect, useRef, useState } from 'react';
+import { HTMLAttributes, ReactNode, useEffect, useRef, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { Label } from './Label';
 
 export type Props = HTMLAttributes<HTMLDivElement> & {
-  disabled?: boolean;
-  label?: string;
+  label?: ReactNode;
 };
 
 export const InputGroup = ({ children, className, label, ...props }: Props) => {

@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { Checkbox, Form, Submit } from '../lib';
+import { Input, Form, Submit } from '../lib';
 import * as Yup from 'yup';
 
 const errorMessage = 'errorMessage';
@@ -8,21 +8,21 @@ const schema = Yup.object().shape({
   name: Yup.string().trim().matches(/asd/, errorMessage).required(errorMessage),
 });
 
-describe('#checkbox tests', () => {
+describe('#input tests', () => {
   it('should be disabled', () => {
     render(
       <Form>
-        <Checkbox name='name' disabled />
+        <Input role='input' name='name' disabled />
       </Form>,
     );
-
-    expect(screen.getByRole('checkbox')).toHaveAttribute('disabled');
+    // expect(screen.getByRole('checkbox')).toHaveAttribute('disabled');
+    expect(screen.getByRole('input')).toHaveAttribute('disabled');
   });
 
   it('should give an error', async () => {
     render(
       <Form schema={schema}>
-        <Checkbox name='name' />
+        <Input name='name' />
         <Submit role='submit'>Submit</Submit>
       </Form>,
     );
