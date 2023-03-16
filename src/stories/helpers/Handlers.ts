@@ -17,6 +17,17 @@ export const handleSubmitWithError: ReformSubmitHandler = (data, setError) => {
 export const handleAsyncSubmitWithError: ReformSubmitHandler = async (data, setError) => {
   await new Promise((resolve) => setTimeout(resolve, 1000));
   setError(Object.keys(data)[0], { message: 'An error ...' });
+  setError('generic', { message: 'A generic error ...' });
+  return false;
+};
+
+export const handleAsyncSubmitWithErrorDetails: ReformSubmitHandler = async (data, setError) => {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+  setError(Object.keys(data)[0], { message: 'An error ...' });
+  setError('generic', {
+    message: 'A generic  error...',
+    details: ['A generic error detail ...', 'Another generic error detail ...'],
+  });
   return false;
 };
 

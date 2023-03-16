@@ -1,0 +1,24 @@
+.reform-checkbox,
+.reform-radio {
+  @apply flex items-center gap-2;
+  input {
+    &[type='checkbox'],
+    &[type='radio'] {
+      @apply shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800 transition-all;
+    }
+
+    &[type='radio'] {
+      @apply rounded-full;
+    }
+
+    &:disabled {
+      @apply opacity-50 pointer-events-none;
+      & + label {
+        @apply opacity-50 pointer-events-none text-gray-700;
+      }
+    }
+  }
+  label {
+    @apply text-sm;
+  }
+}

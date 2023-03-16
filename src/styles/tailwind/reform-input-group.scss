@@ -1,0 +1,20 @@
+.reform-input-group {
+  @apply flex items-center w-full border border-gray-200 rounded-md text-sm outline-none dark:bg-slate-900 overflow-hidden;
+
+  .reform-item-error {
+    @apply hidden;
+  }
+
+  .reform-element {
+    @apply border-0 rounded-none focus:ring-0;
+  }
+
+  input[type='text'],
+  input[type='password'] {
+    @apply flex-1;
+  }
+
+  &:has(.reform-element:focus) {
+    @apply border-transparent outline-none ring-2 ring-blue-500 transition-all dark:ring-offset-gray-800;
+  }
+}

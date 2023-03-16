@@ -13,3 +13,4 @@ export { Select } from './Select';
 export { InputGroup } from './InputGroup';
 export { Alert } from './Alert';
 export { File } from './File';
+export { ErrorArea } from './ErrorArea';

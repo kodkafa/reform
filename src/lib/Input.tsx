@@ -15,8 +15,6 @@ export const Input = ({ className, name, label, type = 'text', ...props }: Props
   } = useFormContext() || {};
   const error = errors[name];
 
-  console.log({ type });
-
   return (
     <>
       {label && <Label htmlFor={name}>{label}</Label>}
