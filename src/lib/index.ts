@@ -1,4 +1,4 @@
-export type { ReformSubmitHandler } from './Form';
+export type { ReformSubmitHandler, ReformData, ReformError, ReformSetError } from './Form';
 export { default as Button } from './Button';
 export { Label } from './Label';
 export { Form } from './Form';
