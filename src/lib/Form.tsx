@@ -9,10 +9,9 @@ export type ReformError = {
   message: string;
   details?: string | string[] | object;
 };
-export type ReformData<T> = T | { [k: string]: string | string[] | object };
 export type ReformSetError = (name: string, error: ReformError) => void;
 export type ReformSubmitHandler<T> = (
-  data: T,
+  data: T | { [k: string]: string | string[] | object },
   setError: ReformSetError,
 ) => Promise<boolean | void> | boolean | void;
 export type Props<T> = {
@@ -33,7 +32,7 @@ export const Form = ({
   onChange,
   defaultValues,
   ...props
-}: Props<ReformData<never>>) => {
+}: Props<never>) => {
   const [loading, setLoading] = useState('');
 
   const methods = useForm({
@@ -44,13 +43,13 @@ export const Form = ({
 
   const handleSubmit = async (data: { [x: string]: string | string[] | object }) => {
     setLoading('loading');
-    if (await onSubmit(data, methods.setError)) methods.reset(defaultValues);
+    if (await onSubmit(data, methods.setError as ReformSetError)) methods.reset(defaultValues);
     setLoading('');
   };
 
   const handleFormChange = () => {
     const watch = { ...methods.watch() };
-    if (onChange) onChange(watch, methods.setError);
+    if (onChange) onChange(watch, methods.setError as ReformSetError);
   };
 
   return (

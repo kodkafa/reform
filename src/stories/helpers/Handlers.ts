@@ -1,6 +1,5 @@
 import * as Yup from 'yup';
 import { ReformSubmitHandler } from 'reform';
-import { ReformData } from '../../lib/Form';
 
 export const handleSubmit: ReformSubmitHandler<{ [k: string]: string | string[] | object }> = (
   data,
@@ -42,10 +41,8 @@ export const handleAsyncSubmitWithErrorDetails: ReformSubmitHandler<{
   return false;
 };
 
-export const handleLogin: ReformSubmitHandler<ReformData<{ email: string; password: string }>> = (
-  data,
-) => {
-  alert(JSON.stringify(data, null, 1));
+export const handleLogin: ReformSubmitHandler<{ email: string; password: string }> = (data) => {
+  alert(JSON.stringify({ email: data.email, password: data.password }, null, 1));
 };
 
 export const schema = Yup.object().shape({});
