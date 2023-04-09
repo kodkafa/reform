@@ -9,6 +9,7 @@ export type ReformError = {
   message: string;
   details?: string | string[] | object;
 };
+export type ReformData<T> = T | { [k: string]: string | string[] | object };
 export type ReformSetError = (name: string, error: ReformError) => void;
 export type ReformSubmitHandler<T> = (
   data: T,
@@ -30,14 +31,14 @@ export const Form = ({
   schema = Yup.object().shape({}),
   onSubmit = () => true,
   onChange,
-  defaultValues = {},
+  defaultValues,
   ...props
-}: Props<{ [k: string]: string | string[] | object }>) => {
+}: Props<ReformData<never>>) => {
   const [loading, setLoading] = useState('');
 
   const methods = useForm({
     resolver: yupResolver(schema),
-    defaultValues,
+    defaultValues: defaultValues || {},
     reValidateMode: 'onChange',
   });
 
