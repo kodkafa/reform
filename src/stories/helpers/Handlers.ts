@@ -41,7 +41,7 @@ export const handleAsyncSubmitWithErrorDetails: ReformSubmitHandler<{
   return false;
 };
 
-export const handleLogin: ReformSubmitHandler<{ email: string; password: string }> = (data) => {
+export const handleLogin: ReformSubmitHandler<{ email: string; password?: string }> = (data) => {
   alert(JSON.stringify({ email: data.email, password: data.password }, null, 1));
 };
 
