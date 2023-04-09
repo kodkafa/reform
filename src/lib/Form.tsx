@@ -4,6 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { ObjectSchema } from 'yup';
 
+type ReformData = { [p: string]: string | string[] | object | null | undefined };
 export type ReformError = {
   type?: string;
   message: string;
@@ -11,14 +12,14 @@ export type ReformError = {
 };
 export type ReformSetError = (name: string, error: ReformError) => void;
 export type ReformSubmitHandler<T> = (
-  data: T | { [k: string]: string | string[] | object },
+  data: T,
   setError: ReformSetError,
 ) => Promise<boolean | void> | boolean | void;
-export type Props<T> = {
+export type Props = {
   schema?: ObjectSchema<object>;
-  onSubmit?: ReformSubmitHandler<T>;
-  onChange?: ReformSubmitHandler<T>;
-  defaultValues?: T;
+  onSubmit?: ReformSubmitHandler<any>;
+  onChange?: ReformSubmitHandler<any>;
+  defaultValues?: ReformData;
   className?: string;
   children?: ReactNode | ReactNode[];
   autoComplete?: 'on' | 'off';
@@ -32,7 +33,7 @@ export const Form = ({
   onChange,
   defaultValues,
   ...props
-}: Props<never>) => {
+}: Props) => {
   const [loading, setLoading] = useState('');
 
   const methods = useForm({
@@ -41,7 +42,7 @@ export const Form = ({
     reValidateMode: 'onChange',
   });
 
-  const handleSubmit = async (data: { [x: string]: string | string[] | object }) => {
+  const handleSubmit = async (data: ReformData) => {
     setLoading('loading');
     if (await onSubmit(data, methods.setError as ReformSetError)) methods.reset(defaultValues);
     setLoading('');
