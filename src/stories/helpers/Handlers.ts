@@ -1,27 +1,37 @@
 import * as Yup from 'yup';
 import { ReformSubmitHandler } from 'reform';
 
-export const handleSubmit: ReformSubmitHandler = (data) => {
+export const handleSubmit: ReformSubmitHandler<{ [k: string]: string | string[] | object }> = (
+  data,
+) => {
   alert((data || {}).nativeEvent ? 'Button Event' : JSON.stringify(data || {}, null, 1));
 };
 export { handleSubmit as handleClick };
-export const handleAsyncSubmit: ReformSubmitHandler = async (data) => {
+export const handleAsyncSubmit: ReformSubmitHandler<{
+  [k: string]: string | string[] | object;
+}> = async (data) => {
   await new Promise((resolve) => setTimeout(resolve, 1000));
   alert((data || {}).nativeEvent ? 'Button Event' : JSON.stringify(data || {}, null, 1));
 };
 
-export const handleSubmitWithError: ReformSubmitHandler = (data, setError) => {
+export const handleSubmitWithError: ReformSubmitHandler<{
+  [k: string]: string | string[] | object;
+}> = (data, setError) => {
   setError(Object.keys(data)[0], { message: 'An error ...' });
   return false;
 };
-export const handleAsyncSubmitWithError: ReformSubmitHandler = async (data, setError) => {
+export const handleAsyncSubmitWithError: ReformSubmitHandler<{
+  [k: string]: string | string[] | object;
+}> = async (data, setError) => {
   await new Promise((resolve) => setTimeout(resolve, 1000));
   setError(Object.keys(data)[0], { message: 'An error ...' });
   setError('generic', { message: 'A generic error ...' });
   return false;
 };
 
-export const handleAsyncSubmitWithErrorDetails: ReformSubmitHandler = async (data, setError) => {
+export const handleAsyncSubmitWithErrorDetails: ReformSubmitHandler<{
+  [k: string]: string | string[] | object;
+}> = async (data, setError) => {
   await new Promise((resolve) => setTimeout(resolve, 1000));
   setError(Object.keys(data)[0], { message: 'An error ...' });
   setError('generic', {

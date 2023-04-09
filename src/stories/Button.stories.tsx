@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Form } from '../lib';
 
 import { Button, Props } from '../lib/Button';
-import { handleSubmit } from './helpers/Handlers';
+// import { handleSubmit } from './helpers/Handlers';
 
 const meta = {
   title: 'reform/Button',
@@ -15,7 +15,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: (args: Props) => (
-    <Form onSubmit={handleSubmit}>
+    <Form>
       <Button {...args} />
     </Form>
   ),
@@ -26,7 +26,7 @@ export const Default: Story = {
 
 export const Disabled: Story = {
   render: (args: Props) => (
-    <Form onSubmit={handleSubmit}>
+    <Form>
       <Button {...args} />
     </Form>
   ),

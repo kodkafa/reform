@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react';
+import { FormHTMLAttributes, ReactNode, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
@@ -10,17 +10,19 @@ export type ReformError = {
   details?: string | string[] | object;
 };
 export type ReformSetError = (name: string, error: ReformError) => void;
-export type ReformSubmitHandler = (
-  data: { [x: string]: string | string[] | object },
+export type ReformSubmitHandler<T> = (
+  data: T,
   setError: ReformSetError,
 ) => Promise<boolean | void> | boolean | void;
-export type Props = {
+export type Props<T> = {
   schema?: ObjectSchema<object>;
-  onSubmit?: ReformSubmitHandler;
-  onChange?: ReformSubmitHandler;
-  defaultValues?: { [x: string]: string | string[] | object };
+  onSubmit?: ReformSubmitHandler<T>;
+  onChange?: ReformSubmitHandler<T>;
+  defaultValues?: T;
   className?: string;
-  children: ReactNode | ReactNode[];
+  children?: ReactNode | ReactNode[];
+  autoComplete?: 'on' | 'off';
+  novalidate?: string;
 };
 
 export const Form = ({
@@ -29,8 +31,8 @@ export const Form = ({
   onSubmit = () => true,
   onChange,
   defaultValues = {},
-  children,
-}: Props) => {
+  ...props
+}: Props<{ [k: string]: string | string[] | object }>) => {
   const [loading, setLoading] = useState('');
 
   const methods = useForm({
@@ -56,9 +58,8 @@ export const Form = ({
         className={`reform-form ${loading ? 'reform-loading' : ''} ${className}`}
         onSubmit={methods.handleSubmit(handleSubmit)}
         onChange={handleFormChange}
-      >
-        {children}
-      </form>
+        {...props}
+      />
     </FormProvider>
   );
 };
