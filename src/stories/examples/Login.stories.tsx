@@ -27,15 +27,10 @@ export const Default = {
       <Form schema={schema} onSubmit={handleLogin}>
         <div className='flex flex-col gap-4'>
           <InputGroup label='Email adress'>
-            <Input name='email' placeholder='jon@doe.com' className='text-gray-800 ' />
-            <span>✉</span>
+            <Input name='email' placeholder='jon@doe.com' />
+            <span className='p-2'>👤</span>
           </InputGroup>
-          <PasswordInput
-            label='Password'
-            name='password'
-            placeholder='your strong password'
-            className='text-gray-800 '
-          />
+          <PasswordInput label='Password' name='password' placeholder='your strong password' />
           <div className='flex justify-between'>
             <Checkbox label='Remember me' name='remember' />
             <a href='src/stories#' className='text-primary mb-1 text-sm'>

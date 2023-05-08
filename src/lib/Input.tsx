@@ -4,7 +4,7 @@ import { Label } from './Label';
 
 export type Props = InputHTMLAttributes<HTMLInputElement> & {
   className?: string;
-  name: string;
+  name?: string;
   label?: string;
 };
 
@@ -13,7 +13,6 @@ export const Input = ({ className, name, label, type = 'text', ...props }: Props
     register,
     formState: { errors },
   } = useFormContext() || {};
-  const error = errors[name];
 
   return (
     <>
@@ -24,9 +23,9 @@ export const Input = ({ className, name, label, type = 'text', ...props }: Props
         className={`reform-element ${className}`}
         {...(name ? register(name) : {})}
       />
-      {error && (
+      {name && errors[name] && (
         <p className='reform-item-error' data-name={name}>
-          {String(error.message)}
+          {String(errors[name]?.message)}
         </p>
       )}
     </>

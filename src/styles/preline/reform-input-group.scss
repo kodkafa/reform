@@ -1,5 +1,6 @@
 .reform-input-group {
-  @apply flex items-center w-full border border-gray-200 rounded-md text-sm outline-none dark:bg-slate-900 overflow-hidden;
+  @apply flex items-center w-full border border-gray-200 rounded-md text-sm outline-none
+  dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 overflow-hidden;
 
   .reform-item-error {
     @apply hidden;

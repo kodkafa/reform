@@ -3,7 +3,7 @@ import { useFormContext } from 'react-hook-form';
 
 export type Props = InputHTMLAttributes<HTMLInputElement> & {
   className?: string;
-  name: string;
+  name?: string;
   label?: string;
 };
 
@@ -20,7 +20,6 @@ export const Checkbox = ({
     register,
     formState: { errors },
   } = useFormContext() || {};
-  const error = errors[name];
 
   return (
     <>
@@ -28,7 +27,11 @@ export const Checkbox = ({
         <input {...props} id={id} type={type} value={value} {...(name ? register(name) : {})} />
         {label && <label htmlFor={id}>{label}</label>}
       </div>
-      {error && <p className='reform-item-error'>{String(error.message)}</p>}
+      {name && errors[name] && (
+        <p className='reform-item-error' data-name={name}>
+          {String(errors[name]?.message)}
+        </p>
+      )}
     </>
   );
 };

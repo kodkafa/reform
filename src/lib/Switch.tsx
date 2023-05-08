@@ -4,7 +4,7 @@ import { useFormContext } from 'react-hook-form';
 export type Props = InputHTMLAttributes<HTMLInputElement> & {
   off?: ReactNode;
   on?: ReactNode;
-  name: string;
+  name?: string;
   label?: string;
 };
 
@@ -22,7 +22,6 @@ export const Switch = ({
     register,
     formState: { errors },
   } = useFormContext() || {};
-  const error = errors[name];
 
   return (
     <>
@@ -43,7 +42,11 @@ export const Switch = ({
         {label && <label htmlFor={id}>{label}</label>}
       </div>
 
-      {error && <p className='reform-item-error'>{String(error.message)}</p>}
+      {name && errors[name] && (
+        <p className='reform-item-error' data-name={name}>
+          {String(errors[name]?.message)}
+        </p>
+      )}
     </>
   );
 };

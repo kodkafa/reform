@@ -3,7 +3,7 @@ import { useFormContext } from 'react-hook-form';
 import { Label } from './Label';
 
 export type Props = SelectHTMLAttributes<HTMLSelectElement> & {
-  name: string;
+  name?: string;
   placeholder?: string;
   options: OptionHTMLAttributes<HTMLOptionElement>[];
   label?: string;
@@ -14,13 +14,12 @@ export const Select = ({ name, placeholder, label, options, className, ...props 
     register,
     formState: { errors },
   } = useFormContext() || {};
-  const error = errors[name];
 
   return (
     <>
       {label && <Label htmlFor={name}>{label}</Label>}
       <select
-        className={`reform-element ${className}`}
+        className={`reform-element reform-select ${className}`}
         {...(name ? register(name) : {})}
         {...props}
       >
@@ -35,7 +34,11 @@ export const Select = ({ name, placeholder, label, options, className, ...props 
           </option>
         ))}
       </select>
-      {error && <p className='reform-item-error'>{String(error.message)}</p>}
+      {name && errors[name] && (
+        <p className='reform-item-error' data-name={name}>
+          {String(errors[name]?.message)}
+        </p>
+      )}
     </>
   );
 };

@@ -3,7 +3,7 @@ import { useFormContext } from 'react-hook-form';
 import { Label } from './Label';
 
 export type Props = TextareaHTMLAttributes<HTMLTextAreaElement> & {
-  name: string;
+  name?: string;
   resize?: boolean;
   label?: string;
 };
@@ -13,7 +13,6 @@ export const Textarea = ({ name, resize = true, label, className, ...props }: Pr
     register,
     formState: { errors },
   } = useFormContext() || {};
-  const error = errors[name];
 
   return (
     <>
@@ -23,7 +22,11 @@ export const Textarea = ({ name, resize = true, label, className, ...props }: Pr
         {...(name ? register(name) : {})}
         {...props}
       />
-      {error && <p className='reform-item-error'>{String(error.message)}</p>}
+      {name && errors[name] && (
+        <p className='reform-item-error' data-name={name}>
+          {String(errors[name]?.message)}
+        </p>
+      )}
     </>
   );
 };

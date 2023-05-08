@@ -16,7 +16,7 @@
   }
 
   &[disabled] {
-    @apply opacity-50 pointer-events-none;
+    @apply opacity-50 pointer-events-none dark:opacity-70;
   }
 
   .reform-loader {

@@ -40,7 +40,7 @@ export const Default = {
           </div>
         </div>
         <InputGroup label='Email address'>
-          <span>✉</span>
+          <span className='p-2'>📧</span>
           <Input name='email' placeholder='jon@doe.com' className='text-gray-800 ' />
         </InputGroup>
         <PasswordInput
@@ -50,24 +50,11 @@ export const Default = {
           className='text-gray-800 '
         />
 
-        <InputGroup label='Confirmation'>
-          <Switch
-            name='receiveEmail'
-            defaultChecked={true}
-            on={'ac'}
-            off={'kapa'}
-            label='Receive email'
-          />
+        <InputGroup className='!border-0 !bg-transparent p-1'>
+          <Switch name='receiveEmail' defaultChecked={true} label='Receive email' />
         </InputGroup>
-
-        <div className='flex justify-between'>
-          <Checkbox label='Remember me' name='remember' />
-          <a href='src/stories#' className='text-primary mb-1 text-sm'>
-            Forgot password
-          </a>
-        </div>
         <div>
-          <Submit>Login</Submit>
+          <Submit>Register</Submit>
         </div>
       </Form>
     </div>

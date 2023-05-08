@@ -1,3 +1,6 @@
 .reform-select {
   @apply py-2 outline-none;
+  &:disabled {
+    @apply opacity-50 pointer-events-none text-gray-700 dark:opacity-70 dark:text-gray-500;
+  }
 }

@@ -12,9 +12,9 @@
     }
 
     &:disabled {
-      @apply opacity-50 pointer-events-none;
+      @apply opacity-50 pointer-events-none dark:opacity-60;
       & + label {
-        @apply opacity-50 pointer-events-none text-gray-700;
+        @apply opacity-50 pointer-events-none text-gray-700 dark:opacity-70 dark:text-gray-500;
       }
     }
   }
