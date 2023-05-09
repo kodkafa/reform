@@ -16,37 +16,18 @@
   }
 
   &[disabled] {
-    @apply opacity-50 pointer-events-none;
+    @apply opacity-50 pointer-events-none dark:opacity-70;
   }
 
   .reform-loader {
     @apply animate-spin hidden;
   }
-
-  //&.reform-loading {
-  //  .reform-loader {
-  //    @apply visible;
-  //  }
-  //
-  //  .reform-icon > :nth-child(2) {
-  //    @apply hidden;
-  //  }
-  //}
 }
 
 .reform-loading {
-  .reform-submit {
-    @apply bg-red-500;
-  }
-
-  //.reform-loader {
-  //  @apply visible;
-  //}
-
   button[type='submit'] {
     @apply pointer-events-none
     shadow-none
-    shadow-inner
     text-gray-300;
 
     &.reform-submit-animation {
@@ -62,10 +43,6 @@
         @apply inline-block;
       }
     }
-
-    //.reform-icon > :nth-child(2) {
-    //  @apply hidden;
-    //}
   }
 }
 

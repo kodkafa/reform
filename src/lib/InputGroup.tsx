@@ -7,7 +7,7 @@ export type Props = HTMLAttributes<HTMLDivElement> & {
   label?: string;
 };
 
-export const InputGroup = ({ children, className, label, ...props }: Props) => {
+export const InputGroup = ({ children, className, label, disabled, ...props }: Props) => {
   const ref = useRef<HTMLDivElement>(null);
   const { formState } = useFormContext();
   const [errors, setErrors] = useState<string[]>([]);
@@ -26,7 +26,11 @@ export const InputGroup = ({ children, className, label, ...props }: Props) => {
     <div>
       {label && <Label>{label}</Label>}
 
-      <div ref={ref} {...props} className={`reform-input-group group ${className}`}>
+      <div
+        ref={ref}
+        {...props}
+        className={`reform-input-group group ${className} ${disabled ? 'disabled' : ''}`}
+      >
         {children}
       </div>
 

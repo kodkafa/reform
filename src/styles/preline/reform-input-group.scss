@@ -16,6 +16,6 @@
   }
 
   &:has(.reform-element:focus) {
-    @apply border-transparent outline-none ring-2 ring-blue-500 transition-all dark:ring-offset-gray-800;
+    @apply border-transparent  border border-blue-600 ring-2 ring-blue-600 transition-all dark:ring-offset-gray-800;
   }
 }

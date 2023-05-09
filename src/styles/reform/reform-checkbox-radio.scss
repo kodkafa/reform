@@ -4,21 +4,45 @@
   input {
     &[type='checkbox'],
     &[type='radio'] {
-      @apply shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800 transition-all;
+      @apply before:flex before:w-5 before:h-5  rounded-md before:rounded-md
+      before:bg-zinc-400
+      before:transition-all before:cursor-pointer
+      before:bg-[url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiIGQ9Ik00IDhoOCIvPjwvc3ZnPg==)];
+    }
+
+    &[type='checkbox'],
+    &[type='radio'] {
+      @apply shrink-0 w-auto h-auto
+      outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-1
+      ring-offset-gray-200 dark:ring-offset-zinc-800
+      focus:border-transparent
+      appearance-none
+      border-0 bg-transparent
+      transition-all;
+      &::before {
+        @apply border border-gray-200 dark:bg-zinc-800 dark:border-zinc-600 dark:text-gray-400;
+      }
+    }
+
+    &[type='checkbox']:checked,
+    &[type='radio']:checked {
+      @apply before:bg-blue-600
+      before:bg-[url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTYgMTYiIGZpbGw9IndoaXRlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0xMi4yMDcgNC43OTNhMSAxIDAgMDEwIDEuNDE0bC01IDVhMSAxIDAgMDEtMS40MTQgMGwtMi0yYTEgMSAwIDAxMS40MTQtMS40MTRMNi41IDkuMDg2bDQuMjkzLTQuMjkzYTEgMSAwIDAxMS40MTQgMHoiLz48L3N2Zz4=)];
     }
 
     &[type='radio'] {
-      @apply rounded-full;
+      @apply rounded-full before:rounded-full;
     }
 
     &:disabled {
-      @apply opacity-50 pointer-events-none;
+      @apply opacity-50 pointer-events-none dark:opacity-60;
       & + label {
-        @apply opacity-50 pointer-events-none text-gray-700;
+        @apply opacity-50 pointer-events-none text-gray-700 dark:opacity-70 dark:text-gray-500;
       }
     }
   }
+
   label {
-    @apply text-sm;
+    @apply text-sm cursor-pointer;
   }
 }

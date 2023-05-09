@@ -1,8 +1,14 @@
 .reform-element {
-  @apply py-3 block border border-gray-200 rounded-md text-sm outline-none dark:bg-slate-900
+  @apply p-3  block border rounded-md text-sm outline-none
+  border-gray-200 dark:bg-zinc-800 dark:border-zinc-600 dark:text-gray-400
+  focus:ring-2 focus:ring-blue-600
   w-full;
 
   &:disabled {
-    @apply opacity-50 pointer-events-none;
+    @apply pointer-events-none
+    placeholder-zinc-300 dark:placeholder-zinc-400
+    text-gray-500 dark:text-gray-300
+    border-zinc-100 dark:border-zinc-700
+    bg-zinc-100 dark:bg-zinc-600;
   }
 }

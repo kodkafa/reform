@@ -8,7 +8,7 @@ export type Props = InputHTMLAttributes<HTMLInputElement> & {
 };
 
 export const Radio = ({
-  id = `reform-checkbox-${Math.random()}`,
+  id = `reform-radio-${Math.random()}`,
   className = '',
   name,
   label,

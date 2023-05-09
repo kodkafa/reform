@@ -1,5 +1,6 @@
 .reform-input-group {
-  @apply flex items-center w-full border border-gray-200 rounded-md text-sm outline-none dark:bg-slate-900 overflow-hidden;
+  @apply flex items-center w-full border border-gray-200 rounded-md text-sm outline-none
+  dark:bg-zinc-800 dark:border-zinc-600 dark:text-gray-400 overflow-hidden;
 
   .reform-item-error {
     @apply hidden;
@@ -15,6 +16,13 @@
   }
 
   &:has(.reform-element:focus) {
-    @apply border-transparent outline-none ring-2 ring-blue-500 transition-all dark:ring-offset-gray-800;
+    @apply border-transparent outline-none ring-2 ring-blue-600 transition-all dark:ring-offset-gray-800;
+  }
+
+  &.disabled {
+    @apply pointer-events-none
+    text-gray-300 dark:text-gray-500
+    border-zinc-100 dark:border-zinc-700
+    bg-zinc-100 dark:bg-zinc-600;
   }
 }
