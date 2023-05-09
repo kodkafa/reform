@@ -1,3 +1,30 @@
 .reform-form {
   @apply flex flex-col gap-2;
 }
+
+/*Change text in autofill textbox*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #fff inset !important;
+}
+
+.dark input:-webkit-autofill,
+.dark input:-webkit-autofill:hover,
+.dark input:-webkit-autofill:focus,
+.dark input:-webkit-autofill:active,
+[data-mode='dark'] input:-webkit-autofill,
+[data-mode='dark'] input:-webkit-autofill:hover,
+[data-mode='dark'] input:-webkit-autofill:focus,
+[data-mode='dark'] input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #0f172a inset !important;
+}
+
+.dark input:-webkit-autofill,
+[data-mode='dark'] input:-webkit-autofill {
+  -webkit-text-fill-color: #fffbeb !important;
+}
+.reform-password:has(.reform-element:-webkit-autofill) {
+  @apply bg-white dark:bg-slate-900;
+}

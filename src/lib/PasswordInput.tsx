@@ -21,7 +21,7 @@ export const PasswordInput = ({
   };
 
   return (
-    <InputGroup label={label} disabled={props.disabled}>
+    <InputGroup label={label} className='reform-password' disabled={props.disabled}>
       <Input {...props} className={className} type={type} />
       <span className='mr-2' onClick={toggleType}>
         {type === 'password' ? show : hide}

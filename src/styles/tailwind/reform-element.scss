@@ -1,8 +1,0 @@
-.reform-element {
-  @apply py-3 block border border-gray-200 rounded-md text-sm outline-none dark:bg-slate-900
-  w-full;
-
-  &:disabled {
-    @apply opacity-50 pointer-events-none;
-  }
-}

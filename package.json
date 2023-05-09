@@ -16,6 +16,7 @@
       "require": "./dist/reform.umd.js"
     },
     "./reform.css": "./dist/reform.css",
+    "./reform.scss": "./dist/reform.scss",
     "./reform.tailwind.css": "./dist/reform.tailwind.css",
     "./reform.tailwind.scss": "./dist/reform.tailwind.scss",
     "./reform.preline.css": "./dist/reform.preline.css",
@@ -44,10 +45,9 @@
   "scripts": {
     "dev": "vite",
     "preview": "vite preview",
-    "build": "tsc && vite build && npm run build:css && npm run copy:css && npm run copy:scss && npm run copy:preline",
+    "build": "tsc && vite build && npm run build:css && npm run copy:css && npm run copy:preline",
     "build:css": "tailwindcss -m -i src/tailwind.css -o ./dist/reform.css",
-    "copy:css": "npx sass src/styles/reform.scss ./dist/reform.tailwind.css ",
-    "copy:scss": "cp src/styles/reform.scss ./dist/reform.tailwind.scss ",
+    "copy:css": "npx sass src/styles/reform/reform.scss ./dist/reform.tailwind.css ",
     "copy:preline": "npx sass  src/styles/preline/preline.scss ./dist/reform.preline.css ",
     "build:storybook": "storybook build",
     "storybook": "storybook dev -p 6006",
