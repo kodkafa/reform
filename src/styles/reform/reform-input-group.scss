@@ -1,6 +1,11 @@
 .reform-input-group {
-  @apply flex items-center w-full border border-gray-200 rounded-md text-sm outline-none
-  dark:bg-zinc-800 dark:border-zinc-600 dark:text-gray-400 overflow-hidden;
+  @apply flex items-center rounded-md text-sm w-full
+  outline-none
+  dark:text-gray-400
+  border border-gray-200 dark:border-zinc-600
+  bg-white dark:bg-zinc-800
+  focus:ring-2 focus:ring-blue-600
+  overflow-hidden;
 
   .reform-item-error {
     @apply hidden;
@@ -16,7 +21,7 @@
   }
 
   &:has(.reform-element:focus) {
-    @apply border-transparent outline-none ring-2 ring-blue-600 transition-all dark:ring-offset-gray-800;
+    @apply outline-none ring-2 ring-blue-600 transition-all dark:ring-offset-gray-800;
   }
 
   &.disabled {

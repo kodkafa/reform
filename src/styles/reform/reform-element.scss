@@ -1,8 +1,11 @@
 .reform-element {
-  @apply p-3  block border rounded-md text-sm outline-none
-  border-gray-200 dark:bg-zinc-800 dark:border-zinc-600 dark:text-gray-400
+  @apply p-3 block rounded-md text-sm w-full
+  outline-none
+  dark:text-gray-400
+  border border-gray-200 dark:border-zinc-600 focus:border-gray-200
+  bg-white dark:bg-zinc-800
   focus:ring-2 focus:ring-blue-600
-  w-full;
+  transition-all;
 
   &:disabled {
     @apply pointer-events-none
