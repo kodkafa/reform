@@ -4,7 +4,18 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { ObjectSchema } from 'yup';
 
-type ReformData = { [p: string]: string | string[] | object | null | undefined };
+type ReformData = {
+  [p: string]:
+    | string
+    | string[]
+    | number
+    | number[]
+    | boolean
+    | boolean[]
+    | object
+    | null
+    | undefined;
+};
 export type ReformError = {
   type?: string;
   message: string;
