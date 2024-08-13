@@ -13,7 +13,7 @@ export const Select = ({ name, placeholder, label, options, className, ...props 
   const {
     register,
     formState: { errors },
-  } = useFormContext() || {};
+  } = useFormContext() || { formState: {} };
 
   return (
     <>

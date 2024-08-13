@@ -1,4 +1,5 @@
 export type { ReformSubmitHandler, ReformError, ReformSetError } from './Form';
+export { useFormContext } from 'react-hook-form';
 export { default as Button } from './Button';
 export { Label } from './Label';
 export { Form } from './Form';
