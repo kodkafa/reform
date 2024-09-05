@@ -1,6 +1,6 @@
-import { ReactNode, useEffect, useState } from 'react';
-import { FormProvider, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { ReactNode, useState } from 'react';
+import { FormProvider, useForm } from 'react-hook-form';
 import * as Yup from 'yup';
 import { ObjectSchema } from 'yup';
 
@@ -53,7 +53,7 @@ export const Form = ({
     resolver: yupResolver(schema),
     defaultValues: defaultValues || {},
     reValidateMode: 'onChange',
-    // disabled,
+    disabled,
   });
   //
   // useEffect(() => {
@@ -70,13 +70,11 @@ export const Form = ({
     const watch = { ...methods.watch() };
     if (onChange) onChange(watch, methods.setError as ReformSetError);
   };
-
+  // ${disabled ? 'reform-disabled' : ''}
   return (
     <FormProvider {...methods}>
       <form
-        className={`reform-form ${disabled ? 'reform-disabled' : ''} ${
-          loading ? 'reform-loading' : ''
-        } ${className}`}
+        className={`reform-form ${loading ? 'reform-loading' : ''} ${className}`}
         onSubmit={methods.handleSubmit(handleSubmit)}
         onChange={handleFormChange}
         {...props}
