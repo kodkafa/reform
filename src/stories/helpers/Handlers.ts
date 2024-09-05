@@ -4,6 +4,7 @@ import { ReformSubmitHandler } from 'reform';
 export const handleSubmit: ReformSubmitHandler<{ [k: string]: string | string[] | object }> = (
   data,
 ) => {
+  console.log({ data });
   alert((data || {}).nativeEvent ? 'Button Event' : JSON.stringify(data || {}, null, 1));
 };
 export { handleSubmit as handleClick };

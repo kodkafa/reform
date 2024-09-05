@@ -12,12 +12,11 @@ export function CustomInput({
   name = 'customInput',
   className = '',
 }: Props) {
-  const { setValue } = useFormContext();
+  const { setValue, getValues } = useFormContext();
 
   const handleClick = (e: MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
-    const value = e.currentTarget.dataset?.value;
-    setValue(name, value);
+    setValue(name, e.currentTarget.dataset?.value);
   };
 
   const handleReset = () => {
@@ -30,14 +29,20 @@ export function CustomInput({
       <div
         style={{
           display: 'flex',
+          padding: '10px 0 20px',
           color: 'white',
-          gap: '3px',
+          gap: '10px',
         }}
       >
         <div
           data-value='red'
           onClick={handleClick}
-          style={{ background: 'red', padding: '2px 10px', cursor: 'pointer', borderRadius: '8px' }}
+          style={{
+            background: '#dc2626',
+            padding: '2px 10px',
+            cursor: 'pointer',
+            borderRadius: '50px',
+          }}
         >
           RED
         </div>
@@ -45,10 +50,10 @@ export function CustomInput({
           data-value='blue'
           onClick={handleClick}
           style={{
-            background: 'blue',
+            background: '#0284c7',
             padding: '2px 10px',
             cursor: 'pointer',
-            borderRadius: '8px',
+            borderRadius: '50px',
           }}
         >
           BLUE
@@ -56,7 +61,7 @@ export function CustomInput({
       </div>
       <Input type='hidden' name={name} />
       <ErrorArea name={name} />
-      <p className='text-xs' onClick={handleReset}>
+      <p className='text-xs pb-4' onClick={handleReset}>
         RESET
       </p>
     </div>

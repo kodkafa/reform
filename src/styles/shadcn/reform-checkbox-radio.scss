@@ -1,0 +1,52 @@
+.reform-checkbox,
+.reform-radio {
+  @apply flex items-center gap-2;
+  input {
+    &[type='checkbox'],
+    &[type='radio'] {
+      @apply shrink-0 w-auto h-auto
+      focus:border-transparent
+      appearance-none
+      border-0 bg-transparent
+      transition-all duration-100
+      rounded-sm
+      ring-offset-background focus-visible:outline-none focus-visible:ring-2
+      focus-visible:ring-ring focus-visible:ring-offset-2
+      before:border before:border-primary before:bg-background;
+      &::before {
+        @apply flex w-4 h-4 rounded-sm transition-all;
+      }
+    }
+
+    &[type='checkbox']:checked,
+    &[type='radio']:checked {
+      &::before {
+        @apply bg-primary
+        bg-[url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTYgMTYiIGZpbGw9IndoaXRlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0xMi4yMDcgNC43OTNhMSAxIDAgMDEwIDEuNDE0bC01IDVhMSAxIDAgMDEtMS40MTQgMGwtMi0yYTEgMSAwIDAxMS40MTQtMS40MTRMNi41IDkuMDg2bDQuMjkzLTQuMjkzYTEgMSAwIDAxMS40MTQgMHoiLz48L3N2Zz4=)];
+      }
+    }
+
+    &[type='radio'] {
+      @apply rounded-full before:rounded-full;
+    }
+
+    &:disabled {
+      @apply opacity-50 pointer-events-none cursor-not-allowed;
+      & + label {
+        @apply opacity-50 pointer-events-none cursor-not-allowed;
+      }
+    }
+  }
+
+  label {
+    @apply text-sm cursor-pointer;
+  }
+}
+
+.reform-disabled .reform-checkbox,
+.reform-disabled .reform-radio {
+  @apply opacity-50 pointer-events-none cursor-not-allowed;
+  input + label {
+    @apply opacity-50 pointer-events-none cursor-not-allowed;
+  }
+}

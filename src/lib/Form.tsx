@@ -1,5 +1,5 @@
-import { ReactNode, useState } from 'react';
-import { FormProvider, useForm, useFormContext } from 'react-hook-form';
+import { ReactNode, useEffect, useState } from 'react';
+import { FormProvider, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { ObjectSchema } from 'yup';
@@ -35,6 +35,7 @@ export type Props = {
   children?: ReactNode | ReactNode[];
   autoComplete?: 'on' | 'off';
   novalidate?: string;
+  disabled?: boolean;
 };
 
 export const Form = ({
@@ -43,6 +44,7 @@ export const Form = ({
   onSubmit = () => true,
   onChange,
   defaultValues,
+  disabled = false,
   ...props
 }: Props) => {
   const [loading, setLoading] = useState('');
@@ -51,7 +53,12 @@ export const Form = ({
     resolver: yupResolver(schema),
     defaultValues: defaultValues || {},
     reValidateMode: 'onChange',
+    // disabled,
   });
+  //
+  // useEffect(() => {
+  //   if (!disabled) methods.reset(defaultValues);
+  // }, [disabled]);
 
   const handleSubmit = async (data: ReformData) => {
     setLoading('loading');
@@ -67,7 +74,9 @@ export const Form = ({
   return (
     <FormProvider {...methods}>
       <form
-        className={`reform-form ${loading ? 'reform-loading' : ''} ${className}`}
+        className={`reform-form ${disabled ? 'reform-disabled' : ''} ${
+          loading ? 'reform-loading' : ''
+        } ${className}`}
         onSubmit={methods.handleSubmit(handleSubmit)}
         onChange={handleFormChange}
         {...props}

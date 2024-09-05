@@ -1,0 +1,36 @@
+.reform-input-group {
+  @apply flex items-center rounded-md text-sm w-full
+  outline-none
+  border  border-input
+  ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium
+  placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2
+  focus-visible:ring-ring focus-visible:ring-offset-2
+  bg-background
+  transition-all duration-100
+  overflow-hidden;
+
+  .reform-item-error {
+    @apply hidden;
+  }
+
+  .reform-element {
+    @apply border-0 rounded-none focus:ring-0;
+  }
+
+  input[type='text'],
+  input[type='password'] {
+    @apply flex-1;
+  }
+
+  &:has(.reform-element:focus) {
+    @apply outline-none ring-offset-background ring-2 ring-ring ring-offset-2;
+  }
+
+  &.disabled {
+    @apply pointer-events-none opacity-50 cursor-not-allowed;
+  }
+}
+
+.reform-disabled .reform-input-group {
+  @apply pointer-events-none opacity-50 cursor-not-allowed;
+}

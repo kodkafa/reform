@@ -60,3 +60,7 @@
     background-position: 1% 50%;
   }
 }
+
+.reform-disabled .reform-button {
+  @apply opacity-50 pointer-events-none dark:opacity-70;
+}

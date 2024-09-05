@@ -31,3 +31,10 @@
     bg-zinc-100 dark:bg-zinc-600;
   }
 }
+
+.reform-disabled .reform-input-group {
+  @apply pointer-events-none
+  text-gray-300 dark:text-gray-500
+  border-zinc-100 dark:border-zinc-700
+  bg-zinc-100 dark:bg-zinc-600;
+}

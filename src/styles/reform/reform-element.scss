@@ -15,3 +15,11 @@
     bg-zinc-100 dark:bg-zinc-600;
   }
 }
+
+.reform-disabled .reform-element {
+  @apply pointer-events-none
+    placeholder-zinc-300 dark:placeholder-zinc-400
+    text-gray-500 dark:text-gray-300
+    border-zinc-100 dark:border-zinc-700
+    bg-zinc-100 dark:bg-zinc-600;
+}

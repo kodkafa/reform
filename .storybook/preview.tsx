@@ -1,7 +1,8 @@
 import '../src/tailwind.css';
+import '../src/styles/shadcn/reform.scss';
 // import '../src/styles/preline/preline.scss';
 // import '../src/styles/tailwind/tailwind.scss';
-import '../src/styles/reform/reform.scss';
+// import '../src/styles/reform/reform.scss';
 //
 // export const parameters = {
 //   backgrounds: {
@@ -21,7 +22,7 @@ export const parameters = {
   // backgrounds: {
   //   default: 'light',
   // },
-  actions: { argTypesRegex: '^on[A-Z].*' },
+  // actions: { argTypesRegex: '^on.*' },
   controls: {
     matchers: {
       color: /(background|color)$/i,

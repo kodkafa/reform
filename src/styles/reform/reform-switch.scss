@@ -2,7 +2,7 @@
   @apply flex items-center gap-2;
 
   > div {
-    @apply flex items-center gap-2;
+    @apply flex items-center gap-2 rounded-full;
     &:has(input:disabled) + label {
       @apply opacity-50 pointer-events-none text-gray-700 dark:opacity-70 dark:text-gray-500;
     }
@@ -20,5 +20,15 @@
 
   label {
     @apply text-sm mb-0.5;
+  }
+}
+
+.reform-disabled .reform-switch {
+  @apply pointer-events-none;
+  div > label {
+    @apply opacity-50 pointer-events-none text-gray-700 dark:opacity-70 dark:text-gray-500;
+  }
+  input {
+    @apply opacity-50 pointer-events-none dark:opacity-60;
   }
 }

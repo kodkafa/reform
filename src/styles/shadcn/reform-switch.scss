@@ -1,0 +1,40 @@
+.reform-switch {
+  @apply flex items-center gap-2;
+
+  > div {
+    @apply flex items-center gap-2 rounded-full;
+    &:has(input:disabled) + label {
+      @apply pointer-events-none opacity-50 cursor-not-allowed;
+    }
+  }
+
+  input {
+    @apply flex items-center relative shrink-0 w-11 h-6
+    bg-input checked:bg-primary
+    rounded-full border-2 border-transparent transition-colors
+    appearance-none
+    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring
+    focus-visible:ring-offset-2 focus-visible:ring-offset-background
+    before:inline-block before:w-5 before:h-5 before:bg-background
+    before:translate-x-0 checked:before:translate-x-full before:shadow
+    before:rounded-full  before:ring-0 before:transition-transform;
+
+    &:disabled {
+      @apply pointer-events-none opacity-50 cursor-not-allowed;
+    }
+  }
+
+  label {
+    @apply text-sm mb-0.5;
+  }
+}
+
+.reform-disabled .reform-switch {
+  @apply pointer-events-none;
+  div > label {
+    @apply pointer-events-none opacity-50 cursor-not-allowed;
+  }
+  input {
+    @apply pointer-events-none opacity-50 cursor-not-allowed;
+  }
+}

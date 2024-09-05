@@ -1,3 +1,5 @@
+import 'preline';
+import { Stories } from '@storybook/blocks';
 import type { Meta } from '@storybook/react';
 import React, { useState } from 'react';
 import {
@@ -14,7 +16,7 @@ import {
   Textarea,
 } from '../../lib';
 import { handleSubmit, schema } from '../helpers/Handlers';
-import { Stories } from '@storybook/blocks';
+
 const options = [
   { label: 'Option 1', value: 'value-1' },
 
@@ -26,7 +28,7 @@ const options = [
 ];
 
 const meta = {
-  title: 'reform/Examples/All Elements',
+  title: 'reform/Examples/Preline',
   component: Form,
   tags: ['autodocs'],
   parameters: {

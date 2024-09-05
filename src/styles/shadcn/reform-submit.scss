@@ -1,0 +1,100 @@
+.reform-button {
+  @apply flex-[0] justify-center items-center gap-2
+  rounded-md border border-transparent font-semibold
+  bg-primary text-primary-foreground hover:bg-primary/90
+  transition-all
+  text-sm
+
+  ring-offset-background focus-visible:outline-none
+  focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2
+  disabled:pointer-events-none disabled:opacity-50
+
+  h-10 px-4 py-2;
+
+  &.reform-destructive {
+    @apply bg-destructive text-destructive-foreground hover:bg-destructive/90;
+  }
+  &.reform-outline {
+    @apply border border-input bg-background hover:bg-accent hover:text-accent-foreground;
+  }
+  &.reform-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80;
+  }
+  &.reform-ghost {
+    @apply hover:bg-accent hover:text-accent-foreground;
+  }
+  &.reform-link {
+    @apply text-primary underline-offset-4 hover:underline;
+  }
+
+  &.reform-sm {
+    @apply h-9 rounded-md px-3;
+  }
+  &.reform-lg {
+    @apply h-11 rounded-md px-8;
+  }
+
+  .reform-icon {
+    @apply relative flex;
+  }
+
+  &[type='submit'] {
+    @apply flex items-center justify-center w-full
+    px-6
+    text-white
+    font-semibold shadow
+     bg-primary;
+    background-size: 200% 400%;
+  }
+
+  &[disabled] {
+    @apply opacity-50 pointer-events-none cursor-not-allowed;
+  }
+
+  .reform-loader {
+    @apply animate-spin hidden;
+  }
+}
+
+.reform-loading {
+  button[type='submit'] {
+    @apply pointer-events-none
+    shadow-none
+    bg-gradient-to-r
+    from-primary via-primary-foreground/15
+    text-primary-foreground/50;
+
+    &.reform-submit-animation {
+      animation: SubmitAnimation 1.3s ease infinite;
+    }
+
+    &.reform-submit-icon {
+      .reform-icon {
+        @apply hidden;
+      }
+
+      .reform-loader {
+        @apply inline-block;
+      }
+    }
+  }
+}
+
+@keyframes SubmitAnimation {
+  0% {
+    background-size: 400% 400%;
+    background-position: 1% 50%;
+  }
+  50% {
+    background-size: 200% 400%;
+    background-position: 99% 50%;
+  }
+  100% {
+    background-size: 400% 400%;
+    background-position: 1% 50%;
+  }
+}
+
+.reform-disabled .reform-button {
+  @apply opacity-50 pointer-events-none dark:opacity-70;
+}
