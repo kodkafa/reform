@@ -52,7 +52,7 @@
     "copy:css": "npx sass src/styles/reform/reform.scss ./dist/reform.tailwind.css ",
     "copy:preline": "npx sass  src/styles/preline/preline.scss ./dist/reform.preline.css ",
     "copy:shadcn": "npx sass  src/styles/shadcn/reform.scss ./dist/reform.shadcn.css ",
-    "build:storybook": "pnpm run build && storybook build",
+    "build:storybook": "storybook build",
     "storybook": "storybook dev -p 6006",
     "lint": "eslint --fix",
     "prepare": "husky install"
