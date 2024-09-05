@@ -1,3 +1,4 @@
 {
-  "extends": ["@kodkafa/eslint-config/react", "plugin:storybook/recommended"]
+  "extends": ["@kodkafa/eslint-config/react", "plugin:storybook/recommended"],
+  "ignorePatterns": ["dist/"]
 }
