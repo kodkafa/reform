@@ -54,7 +54,7 @@
     "copy:shadcn": "npx sass  src/styles/shadcn/reform.scss ./dist/reform.shadcn.css ",
     "build:storybook": "storybook build",
     "storybook": "storybook dev -p 6006",
-    "lint": "eslint --fix",
+    "lint": "eslint . --ext ts,tsx --fix",
     "prepare": "husky install"
   },
   "dependencies": {

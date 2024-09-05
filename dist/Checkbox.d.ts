@@ -1,16 +1,8 @@
 import { InputHTMLAttributes } from 'react';
 export type Props = InputHTMLAttributes<HTMLInputElement> & {
-  className?: string;
-  name?: string;
-  label?: string;
+    className?: string;
+    name?: string;
+    label?: string;
 };
-export declare const Checkbox: ({
-  id,
-  className,
-  name,
-  label,
-  type,
-  value,
-  ...props
-}: Props) => import('react/jsx-runtime').JSX.Element;
+export declare const Checkbox: ({ id, className, name, label, type, value, ...props }: Props) => import("react/jsx-runtime").JSX.Element;
 //# sourceMappingURL=Checkbox.d.ts.map
