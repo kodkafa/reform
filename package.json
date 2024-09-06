@@ -26,7 +26,8 @@
   },
   "peerDependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.50.0"
   },
   "repository": {
     "type": "git",
@@ -41,13 +42,16 @@
     "form",
     "reform",
     "react-hook-form",
-    "tailwind"
+    "tailwind",
+    "shadcn",
+    "preline",
+    "simple form"
   ],
   "packageManager": "pnpm@7.25.0+",
   "scripts": {
     "dev": "vite",
     "preview": "vite preview",
-    "build": "tsc && vite build && npm run build:css && npm run copy:css && npm run copy:preline",
+    "build": "tsc && vite build && npm run build:css && npm run copy:css && npm run copy:preline && npm run copy:shadcn",
     "build:css": "tailwindcss -m -i src/tailwind.css -o ./dist/reform.css",
     "copy:css": "npx sass src/styles/reform/reform.scss ./dist/reform.tailwind.css ",
     "copy:preline": "npx sass  src/styles/preline/preline.scss ./dist/reform.preline.css ",
@@ -58,12 +62,9 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@hookform/resolvers": "^2.9.11",
-    "preline": "^1.9.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-hook-form": "^7.53.0",
-    "yup": "^1.4.0"
+    "react-hook-form": "^7.53.0"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
@@ -103,6 +104,9 @@
     "typescript": "^4.9.5",
     "vite": "^4.5.3",
     "vite-plugin-dts": "^1.7.3",
-    "vite-plugin-svgr": "^2.4.0"
+    "vite-plugin-svgr": "^2.4.0",
+    "@hookform/resolvers": "^2.9.11",
+    "preline": "^1.9.0",
+    "yup": "^1.4.0"
   }
 }

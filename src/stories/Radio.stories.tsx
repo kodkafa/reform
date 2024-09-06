@@ -1,7 +1,8 @@
+import { yupResolver } from '@hookform/resolvers/yup';
 import type { Meta, StoryObj } from '@storybook/react';
 import * as Yup from 'yup';
 
-import { Radio, Form, Submit, InputGroup } from '../lib';
+import { Form, InputGroup, Radio, Submit } from '../lib';
 import { Props } from '../lib/Radio';
 import { handleSubmit } from './helpers/Handlers';
 
@@ -34,6 +35,7 @@ const schema = Yup.object().shape({
     .matches(/[a-z]+/)
     .required('Required'),
 });
+const resolver = yupResolver(schema);
 export const Disabled: Story = {
   render: (args: Props) => (
     <Form onSubmit={handleSubmit}>
@@ -51,7 +53,7 @@ export const Disabled: Story = {
 
 export const withError: Story = {
   render: (args: Props) => (
-    <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))} schema={schema}>
+    <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))} resolver={resolver}>
       <Radio {...args} />
       <Submit>Submit</Submit>
     </Form>
@@ -82,7 +84,7 @@ export const Group: Story = {
 
 export const GroupWithError: Story = {
   render: (args: Props) => (
-    <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))} schema={schema}>
+    <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))} resolver={resolver}>
       <InputGroup className='flex flex-col gap-2 !border-transparent'>
         <Radio {...args} value={'1'} />
         <Radio {...args} value={'2'} />

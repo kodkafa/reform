@@ -1,5 +1,6 @@
-import * as Yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { ReformSubmitHandler } from 'reform';
+import * as Yup from 'yup';
 
 export const handleSubmit: ReformSubmitHandler<{ [k: string]: string | string[] | object }> = (
   data,
@@ -46,9 +47,12 @@ export const handleLogin: ReformSubmitHandler<{ email: string; password?: string
   alert(JSON.stringify({ email: data.email, password: data.password }, null, 1));
 };
 
-export const schema = Yup.object().shape({});
+// -------------------- VALIDATIONS -------------------------
 
-export const schemaLogin = Yup.object().shape({
+const schema = Yup.object().shape({});
+export const resolver = yupResolver(schema);
+
+const schemaLogin = Yup.object().shape({
   email: Yup.string().required('Required').email('Must be a valid email'),
   password: Yup.string()
     .required('Required')
@@ -57,6 +61,7 @@ export const schemaLogin = Yup.object().shape({
         'Password should be minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character.',
     }),
 });
+export const resolverLogin = yupResolver(schemaLogin);
 
 export const schemaRegister = Yup.object().shape({
   name: Yup.string()
@@ -72,3 +77,4 @@ export const schemaRegister = Yup.object().shape({
         'Password should be minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character.',
     }),
 });
+export const resolverRegister = yupResolver(schemaRegister);

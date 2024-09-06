@@ -2,7 +2,7 @@ import { Stories } from '@storybook/blocks';
 import type { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
 import { Button, Form, Input, Select, Submit, Switch, Textarea } from '../../lib';
-import { handleSubmit, schema } from '../helpers/Handlers';
+import { handleSubmit, resolver } from '../helpers/Handlers';
 
 const meta: Meta<typeof Form> = {
   title: 'reform/Examples/Disabled Form',
@@ -31,7 +31,7 @@ const DisabledForm = () => {
         CONTACT (Disabled)
       </h3>
       <Form
-        schema={schema}
+        resolver={resolver}
         onSubmit={handleSubmit}
         disabled={disabled}
         defaultValues={{ email: 'jon@doe.com' }}

@@ -1,8 +1,9 @@
+import { yupResolver } from '@hookform/resolvers/yup';
 import type { Meta } from '@storybook/react';
+import { Props } from 'src/lib/InputGroup';
+import * as Yup from 'yup';
 import { Checkbox, Form, Input, InputGroup, Select, Submit } from '../lib';
 import { handleAsyncSubmitWithError, handleSubmit } from './helpers/Handlers';
-import * as Yup from 'yup';
-import { Props } from 'src/lib/InputGroup';
 
 const meta = {
   title: 'reform/InputGroup',
@@ -266,10 +267,11 @@ const searchSchema = Yup.object().shape({
     .matches(/[A-z 0-9]+/)
     .required('Required'),
 });
+const searchResolver = yupResolver(searchSchema);
 export const TrailingButtonAddon = {
   render: (args: Props) => (
     <div>
-      <Form onSubmit={handleAsyncSubmitWithError} schema={searchSchema}>
+      <Form onSubmit={handleAsyncSubmitWithError} resolver={searchResolver}>
         <InputGroup {...args}>
           <Select
             name='type'
@@ -329,12 +331,12 @@ const schema = Yup.object().shape({
     .matches(/[0-9]+/)
     .required('Required'),
 });
-
+const resolver = yupResolver(schema);
 export const WithError = {
   render: (args: Props) => {
     return (
       <div>
-        <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))} schema={schema}>
+        <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))} resolver={resolver}>
           <InputGroup {...args}>
             <Checkbox className='ml-2 mr-1' name='checkbox' />
             <Input name='input' placeholder='Please write something..' />

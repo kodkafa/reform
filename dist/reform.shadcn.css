@@ -1,0 +1,277 @@
+@charset "UTF-8";
+.reform-form {
+  @apply flex flex-col gap-2;
+}
+
+/*Change text in autofill textbox*/
+.reform-password:has(.reform-element:-webkit-autofill) {
+  @apply bg-[#E7F0FE];
+}
+
+.reform-label {
+  @apply block text-sm mb-1 font-medium;
+}
+
+.reform-item-error {
+  @apply my-2 text-xs text-red-600;
+}
+
+.reform-item-error li {
+  @apply ml-4 list-disc;
+}
+
+.reform-element {
+  @apply px-3 py-2 flex h-10 w-full
+  rounded-md text-sm
+  border border-input
+  ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium
+  placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2
+  focus-visible:ring-ring focus-visible:ring-offset-2
+  bg-background
+  transition-all duration-100;
+}
+.reform-element:disabled {
+  @apply pointer-events-none cursor-not-allowed opacity-50;
+}
+
+.reform-disabled .reform-element {
+  @apply pointer-events-none cursor-not-allowed opacity-50;
+}
+
+.reform-password-show::after {
+  @apply not-italic;
+  content: '🔒';
+}
+
+.reform-password-hide::after {
+  @apply not-italic;
+  content: '🔓';
+}
+
+.reform-button {
+  @apply flex-[0] justify-center items-center gap-2
+  rounded-md border border-transparent font-semibold
+  bg-primary text-primary-foreground hover:bg-primary/90
+  transition-all
+  text-sm
+  ring-offset-background focus-visible:outline-none
+  focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2
+  disabled:pointer-events-none disabled:opacity-50
+  h-10 px-4 py-2;
+}
+.reform-button.reform-destructive {
+  @apply bg-destructive text-destructive-foreground hover:bg-destructive/90;
+}
+.reform-button.reform-outline {
+  @apply border border-input bg-background hover:bg-accent hover:text-accent-foreground;
+}
+.reform-button.reform-secondary {
+  @apply bg-secondary text-secondary-foreground hover:bg-secondary/80;
+}
+.reform-button.reform-ghost {
+  @apply hover:bg-accent hover:text-accent-foreground;
+}
+.reform-button.reform-link {
+  @apply text-primary underline-offset-4 hover:underline;
+}
+.reform-button.reform-sm {
+  @apply h-9 rounded-md px-3;
+}
+.reform-button.reform-lg {
+  @apply h-11 rounded-md px-8;
+}
+.reform-button .reform-icon {
+  @apply relative flex;
+}
+.reform-button[type='submit'] {
+  @apply flex items-center justify-center w-full
+    px-6
+    text-white
+    font-semibold shadow
+     bg-primary;
+  background-size: 200% 400%;
+}
+.reform-button[disabled] {
+  @apply opacity-50 pointer-events-none cursor-not-allowed;
+}
+.reform-button .reform-loader {
+  @apply animate-spin hidden;
+}
+
+.reform-loading button[type='submit'] {
+  @apply pointer-events-none
+    shadow-none
+    bg-gradient-to-r
+    from-primary via-primary-foreground/15
+    text-primary-foreground/50;
+}
+.reform-loading button[type='submit'].reform-submit-animation {
+  animation: SubmitAnimation 1.3s ease infinite;
+}
+.reform-loading button[type='submit'].reform-submit-icon .reform-icon {
+  @apply hidden;
+}
+.reform-loading button[type='submit'].reform-submit-icon .reform-loader {
+  @apply inline-block;
+}
+
+@keyframes SubmitAnimation {
+  0% {
+    background-size: 400% 400%;
+    background-position: 1% 50%;
+  }
+  50% {
+    background-size: 200% 400%;
+    background-position: 99% 50%;
+  }
+  100% {
+    background-size: 400% 400%;
+    background-position: 1% 50%;
+  }
+}
+.reform-disabled .reform-button {
+  @apply opacity-50 pointer-events-none dark:opacity-70;
+}
+
+.reform-checkbox,
+.reform-radio {
+  @apply flex items-center gap-2;
+}
+.reform-checkbox input[type='checkbox'],
+.reform-checkbox input[type='radio'],
+.reform-radio input[type='checkbox'],
+.reform-radio input[type='radio'] {
+  @apply shrink-0 w-auto h-auto
+      focus:border-transparent
+      appearance-none
+      border-0 bg-transparent
+      transition-all duration-100
+      rounded-sm
+      ring-offset-background focus-visible:outline-none focus-visible:ring-2
+      focus-visible:ring-ring focus-visible:ring-offset-2
+      before:border before:border-primary before:bg-background;
+}
+.reform-checkbox input[type='checkbox']::before,
+.reform-checkbox input[type='radio']::before,
+.reform-radio input[type='checkbox']::before,
+.reform-radio input[type='radio']::before {
+  @apply flex w-4 h-4 rounded-sm transition-all;
+}
+.reform-checkbox input[type='checkbox']:checked::before,
+.reform-checkbox input[type='radio']:checked::before,
+.reform-radio input[type='checkbox']:checked::before,
+.reform-radio input[type='radio']:checked::before {
+  @apply bg-primary
+        bg-[url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTYgMTYiIGZpbGw9IndoaXRlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0xMi4yMDcgNC43OTNhMSAxIDAgMDEwIDEuNDE0bC01IDVhMSAxIDAgMDEtMS40MTQgMGwtMi0yYTEgMSAwIDAxMS40MTQtMS40MTRMNi41IDkuMDg2bDQuMjkzLTQuMjkzYTEgMSAwIDAxMS40MTQgMHoiLz48L3N2Zz4=)];
+}
+.reform-checkbox input[type='radio'],
+.reform-radio input[type='radio'] {
+  @apply rounded-full before:rounded-full;
+}
+.reform-checkbox input:disabled,
+.reform-radio input:disabled {
+  @apply opacity-50 pointer-events-none cursor-not-allowed;
+}
+.reform-checkbox input:disabled + label,
+.reform-radio input:disabled + label {
+  @apply opacity-50 pointer-events-none cursor-not-allowed;
+}
+.reform-checkbox label,
+.reform-radio label {
+  @apply text-sm cursor-pointer;
+}
+
+.reform-disabled .reform-checkbox,
+.reform-disabled .reform-radio {
+  @apply opacity-50 pointer-events-none cursor-not-allowed;
+}
+.reform-disabled .reform-checkbox input + label,
+.reform-disabled .reform-radio input + label {
+  @apply opacity-50 pointer-events-none cursor-not-allowed;
+}
+
+.reform-switch {
+  @apply flex items-center gap-2;
+}
+.reform-switch > div {
+  @apply flex items-center gap-2 rounded-full;
+}
+.reform-switch > div:has(input:disabled) + label {
+  @apply pointer-events-none opacity-50 cursor-not-allowed;
+}
+.reform-switch input {
+  @apply flex items-center relative shrink-0 w-11 h-6
+    bg-input checked:bg-primary
+    rounded-full border-2 border-transparent transition-colors
+    appearance-none
+    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring
+    focus-visible:ring-offset-2 focus-visible:ring-offset-background
+    before:inline-block before:w-5 before:h-5 before:bg-background
+    before:translate-x-0 checked:before:translate-x-full before:shadow
+    before:rounded-full before:ring-0 before:transition-transform;
+}
+.reform-switch input:disabled {
+  @apply pointer-events-none opacity-50 cursor-not-allowed;
+}
+.reform-switch label {
+  @apply text-sm mb-0.5;
+}
+
+.reform-disabled .reform-switch {
+  @apply pointer-events-none;
+}
+.reform-disabled .reform-switch div > label {
+  @apply pointer-events-none opacity-50 cursor-not-allowed;
+}
+.reform-disabled .reform-switch input {
+  @apply pointer-events-none opacity-50 cursor-not-allowed;
+}
+
+.reform-input-group {
+  @apply flex items-center rounded-md text-sm w-full
+  outline-none
+  border border-input
+  ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium
+  placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2
+  focus-visible:ring-ring focus-visible:ring-offset-2
+  bg-background
+  transition-all duration-100
+  overflow-hidden;
+}
+.reform-input-group .reform-item-error {
+  @apply hidden;
+}
+.reform-input-group .reform-element {
+  @apply border-0 rounded-none focus:ring-0;
+}
+.reform-input-group input[type='text'],
+.reform-input-group input[type='password'] {
+  @apply flex-1;
+}
+.reform-input-group:has(.reform-element:focus) {
+  @apply outline-none ring-offset-background ring-2 ring-ring ring-offset-2;
+}
+.reform-input-group.disabled {
+  @apply pointer-events-none opacity-50 cursor-not-allowed;
+}
+
+.reform-disabled .reform-input-group {
+  @apply pointer-events-none opacity-50 cursor-not-allowed;
+}
+
+.reform-select {
+  @apply py-2 px-3 pr-8 appearance-none
+  bg-[url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIGZpbGw9J25vbmUnIHZpZXdCb3g9JzAgMCAyMCAyMCc+PHBhdGggc3Ryb2tlPScjNmI3MjgwJyBzdHJva2UtbGluZWNhcD0ncm91bmQnIHN0cm9rZS1saW5lam9pbj0ncm91bmQnIHN0cm9rZS13aWR0aD0nMS41JyBkPSdNNiA4bDQgNCA0LTQnLz48L3N2Zz4=")];
+  background-position: right 0.3rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+}
+.reform-select:disabled {
+  @apply opacity-50;
+}
+
+.reform-textarea {
+  @apply flex min-h-[80px] w-full px-3 py-2 text-sm;
+}
+
+/*# sourceMappingURL=reform.shadcn.css.map */

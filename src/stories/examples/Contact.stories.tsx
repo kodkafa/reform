@@ -1,19 +1,8 @@
+import { Stories } from '@storybook/blocks';
 import type { Meta } from '@storybook/react';
 import React from 'react';
-import {
-  Checkbox,
-  ErrorArea,
-  Form,
-  Input,
-  InputGroup,
-  PasswordInput,
-  Select,
-  Submit,
-  Switch,
-  Textarea,
-} from '../../lib';
-import { handleLogin, handleSubmit, schema } from '../helpers/Handlers';
-import { Stories } from '@storybook/blocks';
+import { Form, Input, Select, Submit, Switch, Textarea } from '../../lib';
+import { handleSubmit, resolver } from '../helpers/Handlers';
 
 const meta = {
   title: 'reform/Examples/Contact Form',
@@ -35,7 +24,7 @@ export const Default = {
   render: () => (
     <div className='max-w-lg p-6 border'>
       <h3 className='mb-4 block text-2xl font-bold text-gray-800 dark:text-white'>CONTACT</h3>
-      <Form schema={schema} onSubmit={handleSubmit}>
+      <Form resolver={resolver} onSubmit={handleSubmit}>
         <div className='flex flex-col gap-4'>
           <div>
             <Input

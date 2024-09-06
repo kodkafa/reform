@@ -1,3 +1,4 @@
+import { yupResolver } from '@hookform/resolvers/yup';
 import type { Meta, StoryObj } from '@storybook/react';
 import * as Yup from 'yup';
 
@@ -49,9 +50,10 @@ const schema = Yup.object().shape({
     .matches(/[0-9]+/)
     .required('Required'),
 });
+const resolver = yupResolver(schema);
 export const withError: Story = {
   render: (args: Props) => (
-    <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))} schema={schema}>
+    <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))} resolver={resolver}>
       <Checkbox {...args} />
       <Submit>Submit</Submit>
     </Form>
@@ -82,7 +84,7 @@ export const Group: Story = {
 
 export const GroupWithError: Story = {
   render: (args: Props) => (
-    <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))} schema={schema}>
+    <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))} resolver={resolver}>
       <InputGroup className='flex flex-col gap-2 !border-transparent'>
         <Checkbox {...args} value={'1'} />
         <Checkbox {...args} value={'2'} />

@@ -1,8 +1,8 @@
+import { Stories } from '@storybook/blocks';
 import type { Meta } from '@storybook/react';
 import React from 'react';
 import { Checkbox, ErrorArea, Form, Input, InputGroup, PasswordInput, Submit } from '../../lib';
-import { handleLogin, schema } from '../helpers/Handlers';
-import { Stories } from '@storybook/blocks';
+import { handleLogin, resolverLogin } from '../helpers/Handlers';
 
 const meta = {
   title: 'reform/Examples/Login Form',
@@ -24,7 +24,7 @@ export const Default = {
   render: () => (
     <div className='max-w-sm p-6 border'>
       <h3 className='mb-4 block text-2xl font-bold text-gray-800 dark:text-white'>LOGIN</h3>
-      <Form schema={schema} onSubmit={handleLogin}>
+      <Form resolver={resolverLogin} onSubmit={handleLogin}>
         <div className='flex flex-col gap-4'>
           <InputGroup label='Email adress'>
             <Input name='email' placeholder='jon@doe.com' />

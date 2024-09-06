@@ -1,7 +1,7 @@
-import type { Meta } from '@storybook/react';
-import { Checkbox, Form, Input, InputGroup, PasswordInput, Submit, Switch } from '../../lib';
-import { handleSubmit, schema } from '../helpers/Handlers';
 import { Stories } from '@storybook/blocks';
+import type { Meta } from '@storybook/react';
+import { Form, Input, InputGroup, PasswordInput, Submit, Switch } from '../../lib';
+import { handleSubmit, resolverRegister } from '../helpers/Handlers';
 
 const meta = {
   title: 'reform/Examples/Register Form',
@@ -23,7 +23,7 @@ export const Default = {
   render: () => (
     <div className='max-w-sm p-6 border'>
       <h3 className='mb-4 block text-2xl font-bold text-gray-800 dark:text-white'>LOGIN</h3>
-      <Form schema={schema} onSubmit={handleSubmit}>
+      <Form resolver={resolverRegister} onSubmit={handleSubmit}>
         <div className='flex flex-col gap-4'>
           <div className='flex space-x-4'>
             <div>

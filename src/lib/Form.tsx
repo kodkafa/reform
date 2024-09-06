@@ -1,8 +1,5 @@
-import { yupResolver } from '@hookform/resolvers/yup';
 import { ReactNode, useState } from 'react';
-import { FormProvider, useForm } from 'react-hook-form';
-import * as Yup from 'yup';
-import { ObjectSchema } from 'yup';
+import { FormProvider, Resolver, useForm } from 'react-hook-form';
 
 type ReformData = {
   [p: string]:
@@ -27,7 +24,7 @@ export type ReformSubmitHandler<T> = (
   setError: ReformSetError,
 ) => Promise<boolean | void> | boolean | void;
 export type Props = {
-  schema?: ObjectSchema<object>;
+  resolver?: Resolver;
   onSubmit?: ReformSubmitHandler<any>;
   onChange?: ReformSubmitHandler<any>;
   defaultValues?: ReformData;
@@ -40,17 +37,17 @@ export type Props = {
 
 export const Form = ({
   className = '',
-  schema = Yup.object().shape({}),
   onSubmit = () => true,
   onChange,
   defaultValues,
   disabled = false,
+  resolver,
   ...props
 }: Props) => {
   const [loading, setLoading] = useState('');
 
   const methods = useForm({
-    resolver: yupResolver(schema),
+    resolver,
     defaultValues: defaultValues || {},
     reValidateMode: 'onChange',
     disabled,

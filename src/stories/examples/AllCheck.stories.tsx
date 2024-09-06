@@ -1,3 +1,4 @@
+import { Stories } from '@storybook/blocks';
 import type { Meta } from '@storybook/react';
 import React, { useState } from 'react';
 import {
@@ -13,8 +14,8 @@ import {
   Switch,
   Textarea,
 } from '../../lib';
-import { handleSubmit, schema } from '../helpers/Handlers';
-import { Stories } from '@storybook/blocks';
+import { handleSubmit, resolver } from '../helpers/Handlers';
+
 const options = [
   { label: 'Option 1', value: 'value-1' },
 
@@ -48,7 +49,7 @@ export const Default = {
         <h3 className='mb-4 block text-2xl font-bold text-gray-800 dark:text-white'>
           ALL ELEMENTS
         </h3>
-        <Form schema={schema} onSubmit={handleSubmit}>
+        <Form resolver={resolver} onSubmit={handleSubmit}>
           <div className='flex flex-col gap-4'>
             <div className='flex space-x-2'>
               <div>
@@ -275,7 +276,7 @@ export const Disabled = () => {
         <h3 className='mb-4 block text-2xl font-bold text-gray-800 dark:text-white'>
           ALL ELEMENTS (Disabled)
         </h3>
-        <Form schema={schema} onSubmit={handleSubmit} disabled={disabled}>
+        <Form resolver={resolver} onSubmit={handleSubmit} disabled={disabled}>
           <div className='flex flex-col gap-4'>
             <div className='flex space-x-2'>
               <div>

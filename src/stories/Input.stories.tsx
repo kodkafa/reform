@@ -1,3 +1,4 @@
+import { yupResolver } from '@hookform/resolvers/yup';
 import type { Meta, StoryObj } from '@storybook/react';
 import * as Yup from 'yup';
 
@@ -102,9 +103,10 @@ const schema = Yup.object().shape({
     .matches(/[0-9]+/)
     .required('Required'),
 });
+const resolver = yupResolver(schema);
 export const withError: Story = {
   render: (args: Props) => (
-    <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))} schema={schema}>
+    <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))} resolver={resolver}>
       <div>
         <Input {...args} />
       </div>
