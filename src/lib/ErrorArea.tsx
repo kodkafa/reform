@@ -15,12 +15,10 @@ export const ErrorArea = ({ name = 'root', className, ...props }: Props) => {
       ? Object.values(errors[name] as Record<string, { message: string }>)
       : (errors[name] as ReformError);
 
-  console.log(errors);
-
   return (
     <div {...props} className={`reform-errorarea ${className}`}>
       {error && (
-        <p className='reform-item-error'>
+        <div className='reform-item-error'>
           {Array.isArray(error) ? (
             <ul>
               {error.map((i, k) => (
@@ -39,7 +37,7 @@ export const ErrorArea = ({ name = 'root', className, ...props }: Props) => {
               )}
             </>
           )}
-        </p>
+        </div>
       )}
     </div>
   );
