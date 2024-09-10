@@ -1,18 +1,18 @@
 import { ReactNode, useState } from 'react';
 import { FormProvider, Resolver, useForm } from 'react-hook-form';
 
-type ReformData = {
-  [p: string]:
-    | string
-    | string[]
-    | number
-    | number[]
-    | boolean
-    | boolean[]
-    | object
-    | null
-    | undefined;
-};
+// type ReformData = {
+//   [p: string]:
+//     | string
+//     | string[]
+//     | number
+//     | number[]
+//     | boolean
+//     | boolean[]
+//     | object
+//     | null
+//     | undefined;
+// };
 export type ReformError = {
   type?: string;
   message: string;
@@ -27,7 +27,7 @@ export type Props = {
   resolver?: Resolver;
   onSubmit?: ReformSubmitHandler<any>;
   onChange?: ReformSubmitHandler<any>;
-  defaultValues?: ReformData;
+  defaultValues?: Record<string, any>;
   className?: string;
   children?: ReactNode | ReactNode[];
   autoComplete?: 'on' | 'off';
@@ -57,7 +57,7 @@ export const Form = ({
   //   if (!disabled) methods.reset(defaultValues);
   // }, [disabled]);
 
-  const handleSubmit = async (data: ReformData) => {
+  const handleSubmit = async (data: Record<string, any>) => {
     setLoading('loading');
     if (await onSubmit(data, methods.setError as ReformSetError)) methods.reset(defaultValues);
     setLoading('');

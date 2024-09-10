@@ -1,5 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import type { Meta } from '@storybook/react';
+import { Resolver } from 'react-hook-form';
 import { Props } from 'src/lib/InputGroup';
 import * as Yup from 'yup';
 import { Checkbox, Form, Input, InputGroup, Select, Submit } from '../lib';
@@ -267,7 +268,7 @@ const searchSchema = Yup.object().shape({
     .matches(/[A-z 0-9]+/)
     .required('Required'),
 });
-const searchResolver = yupResolver(searchSchema);
+const searchResolver = yupResolver(searchSchema) as unknown as Resolver;
 export const TrailingButtonAddon = {
   render: (args: Props) => (
     <div>
@@ -331,7 +332,7 @@ const schema = Yup.object().shape({
     .matches(/[0-9]+/)
     .required('Required'),
 });
-const resolver = yupResolver(schema);
+const resolver = yupResolver(schema) as unknown as Resolver;
 export const WithError = {
   render: (args: Props) => {
     return (

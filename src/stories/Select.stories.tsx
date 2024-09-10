@@ -1,5 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import type { Meta, StoryObj } from '@storybook/react';
+import { Resolver } from 'react-hook-form';
 import * as Yup from 'yup';
 import { Form, Select, Submit } from '../lib';
 import { Props } from '../lib/Select';
@@ -46,7 +47,7 @@ export const Default: Story = {
 const schema = Yup.object().shape({
   name: Yup.string().trim().matches(/asd/).required('Required'),
 });
-const resolver = yupResolver(schema);
+const resolver = yupResolver(schema) as unknown as Resolver;
 export const withError: Story = {
   render: (args: Props) => (
     <Form onSubmit={(data) => alert(JSON.stringify(data, null, 2))} resolver={resolver}>

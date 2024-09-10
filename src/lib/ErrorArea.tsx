@@ -6,23 +6,38 @@ export type Props = HTMLAttributes<HTMLDivElement> & {
   name?: string;
 };
 
-export const ErrorArea = ({ name = 'generic', className, ...props }: Props) => {
+export const ErrorArea = ({ name = 'root', className, ...props }: Props) => {
   const {
     formState: { errors },
   } = useFormContext() || {};
-  const error = errors[name] as ReformError;
+  const error =
+    name === 'root' && typeof errors[name] === 'object'
+      ? Object.values(errors[name] as Record<string, { message: string }>)
+      : (errors[name] as ReformError);
+
+  console.log(errors);
 
   return (
     <div {...props} className={`reform-errorarea ${className}`}>
       {error && (
         <p className='reform-item-error'>
-          {String(error.message)}
-          {Array.isArray(error.details) && (
+          {Array.isArray(error) ? (
             <ul>
-              {error.details.map((i, k) => (
-                <li key={k}>{i}</li>
+              {error.map((i, k) => (
+                <li key={k}>{String(i?.message)}</li>
               ))}
             </ul>
+          ) : (
+            <>
+              {String(error.message)}
+              {Array.isArray(error.details) && (
+                <ul>
+                  {error.details.map((i, k) => (
+                    <li key={k}>{i}</li>
+                  ))}
+                </ul>
+              )}
+            </>
           )}
         </p>
       )}

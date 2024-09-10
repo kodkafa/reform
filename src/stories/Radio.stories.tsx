@@ -1,5 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import type { Meta, StoryObj } from '@storybook/react';
+import { Resolver } from 'react-hook-form';
 import * as Yup from 'yup';
 
 import { Form, InputGroup, Radio, Submit } from '../lib';
@@ -35,7 +36,7 @@ const schema = Yup.object().shape({
     .matches(/[a-z]+/)
     .required('Required'),
 });
-const resolver = yupResolver(schema);
+const resolver = yupResolver(schema) as unknown as Resolver;
 export const Disabled: Story = {
   render: (args: Props) => (
     <Form onSubmit={handleSubmit}>

@@ -25,9 +25,6 @@ export const Default: Story = {
       <Submit>Submit</Submit>
     </Form>
   ),
-  args: {
-    name: 'generic',
-  },
 };
 
 export const withErrorDetails: Story = {
@@ -40,7 +37,4 @@ export const withErrorDetails: Story = {
       <Submit>Submit</Submit>
     </Form>
   ),
-  args: {
-    name: 'generic',
-  },
 };

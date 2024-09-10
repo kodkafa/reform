@@ -105,7 +105,7 @@
     "vite": "^4.5.3",
     "vite-plugin-dts": "^1.7.3",
     "vite-plugin-svgr": "^2.4.0",
-    "@hookform/resolvers": "^2.9.11",
+    "@hookform/resolvers": "^3.9.0",
     "preline": "^1.9.0",
     "yup": "^1.4.0"
   }

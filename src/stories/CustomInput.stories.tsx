@@ -1,10 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import * as Yup from 'yup';
 
 import { Form, Input, Submit } from '../lib';
 import { Props } from '../lib/Input';
 import { CustomInput } from './CustomInput.component';
-import { handleSubmit } from './helpers/Handlers';
+import { handleSubmit, handleSubmitWithError } from './helpers/Handlers';
 
 const meta = {
   title: 'reform/CustomInput',
@@ -20,7 +19,25 @@ export const Default: Story = {
   render: (args: Props) => (
     <Form onSubmit={handleSubmit}>
       <div>
-        <Input name='input' placeholder='standart input' />
+        <Input name='input' placeholder='standard input' />
+      </div>
+      <div>
+        <CustomInput {...args} />
+      </div>
+      <Submit>Submit</Submit>
+    </Form>
+  ),
+  args: {
+    name: 'customInput',
+    placeholder: 'Jon Doe',
+  },
+};
+
+export const withError: Story = {
+  render: (args: Props) => (
+    <Form onSubmit={handleSubmitWithError}>
+      <div>
+        <Input name='standard-input' placeholder='standard input' />
       </div>
       <div>
         <CustomInput {...args} />

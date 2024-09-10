@@ -1,4 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import { Resolver } from 'react-hook-form';
 import { ReformSubmitHandler } from 'reform';
 import * as Yup from 'yup';
 
@@ -19,15 +20,18 @@ export const handleAsyncSubmit: ReformSubmitHandler<{
 export const handleSubmitWithError: ReformSubmitHandler<{
   [k: string]: string | string[] | object;
 }> = (data, setError) => {
-  setError(Object.keys(data)[0], { message: 'An error ...' });
+  console.log('handleSubmitWithError', { data });
+  Object.keys(data).map((k: string) => setError(k, { message: 'An error ...' }));
+  setError('root.generic', { message: 'A generic error ...' });
   return false;
 };
 export const handleAsyncSubmitWithError: ReformSubmitHandler<{
   [k: string]: string | string[] | object;
 }> = async (data, setError) => {
+  console.log('handleAsyncSubmitWithError', { data });
   await new Promise((resolve) => setTimeout(resolve, 1000));
-  setError(Object.keys(data)[0], { message: 'An error ...' });
-  setError('generic', { message: 'A generic error ...' });
+  Object.keys(data).map((k: string) => setError(k, { message: 'An error ...' }));
+  setError('root.generic', { message: 'A generic error ...' });
   return false;
 };
 
@@ -35,12 +39,14 @@ export const handleAsyncSubmitWithErrorDetails: ReformSubmitHandler<{
   [k: string]: string | string[] | object;
 }> = async (data, setError) => {
   await new Promise((resolve) => setTimeout(resolve, 1000));
-  setError(Object.keys(data)[0], { message: 'An error ...' });
-  setError('generic', {
+  Object.keys(data).map((k: string) => setError(k, { message: 'An error ...' }));
+  setError('root.generic', {
     message: 'A generic  error...',
-    details: ['A generic error detail ...', 'Another generic error detail ...'],
   });
-  return false;
+  setError('root.generic2', {
+    message: 'Another generic  error...',
+  });
+  return true;
 };
 
 export const handleLogin: ReformSubmitHandler<{ email: string; password?: string }> = (data) => {
@@ -50,7 +56,7 @@ export const handleLogin: ReformSubmitHandler<{ email: string; password?: string
 // -------------------- VALIDATIONS -------------------------
 
 const schema = Yup.object().shape({});
-export const resolver = yupResolver(schema);
+export const resolver = yupResolver(schema) as unknown as Resolver;
 
 const schemaLogin = Yup.object().shape({
   email: Yup.string().required('Required').email('Must be a valid email'),
@@ -61,7 +67,7 @@ const schemaLogin = Yup.object().shape({
         'Password should be minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character.',
     }),
 });
-export const resolverLogin = yupResolver(schemaLogin);
+export const resolverLogin = yupResolver(schemaLogin) as unknown as Resolver;
 
 export const schemaRegister = Yup.object().shape({
   name: Yup.string()
@@ -77,4 +83,4 @@ export const schemaRegister = Yup.object().shape({
         'Password should be minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character.',
     }),
 });
-export const resolverRegister = yupResolver(schemaRegister);
+export const resolverRegister = yupResolver(schemaRegister) as unknown as Resolver;

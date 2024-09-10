@@ -1,18 +1,20 @@
-import { ErrorArea, Input, Label, useFormContext } from '../lib';
-import { MouseEvent } from 'react';
+import { MouseEvent, useEffect } from 'react';
+import { Input, Label, useFormContext } from '../lib';
 
 type Props = {
   label?: string;
   name?: string;
   className?: string;
+  defaultValue?: string | number | readonly string[] | undefined;
 };
 
 export function CustomInput({
   label = 'Custom Input',
   name = 'customInput',
   className = '',
+  defaultValue = '',
 }: Props) {
-  const { setValue, getValues } = useFormContext();
+  const { setValue, clearErrors } = useFormContext();
 
   const handleClick = (e: MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
@@ -20,8 +22,14 @@ export function CustomInput({
   };
 
   const handleReset = () => {
+    clearErrors();
     setValue(name, undefined);
   };
+
+  useEffect(() => {
+    // if (defaultValue)
+    setValue(name, defaultValue);
+  }, []);
 
   return (
     <div className={className}>
@@ -59,8 +67,8 @@ export function CustomInput({
           BLUE
         </div>
       </div>
-      <Input type='hidden' name={name} />
-      <ErrorArea name={name} />
+      <Input name={name} type='hidden' />
+      {/*<ErrorArea name={name} />*/}
       <p className='text-xs pb-4' onClick={handleReset}>
         RESET
       </p>

@@ -1,7 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { ErrorArea, Form, Input, Submit } from '../lib';
-import { handleAsyncSubmitWithError, handleSubmit } from './helpers/Handlers';
+import {
+  handleAsyncSubmit,
+  handleAsyncSubmitWithError,
+  handleSubmit,
+  handleSubmitWithError,
+} from './helpers/Handlers';
 
 // More on how to set up stories at: https://storybook.js.org/docs/7.0/react/writing-stories/introduction
 const meta = {
@@ -28,7 +33,41 @@ export const Default: Story = {
     ),
   },
 };
+export const withAsync: Story = {
+  args: {
+    onSubmit: handleAsyncSubmit,
+    children: (
+      <>
+        <div>
+          <Input name='name' className='w-full' />
+        </div>
+        <div>
+          <Input name='named' className='w-full' />
+        </div>
+        <ErrorArea />
+        <Submit>Submit </Submit>
+      </>
+    ),
+  },
+};
 export const withErrors: Story = {
+  args: {
+    onSubmit: handleSubmitWithError,
+    children: (
+      <>
+        <div>
+          <Input name='name' className='w-full' />
+        </div>
+        <div>
+          <Input name='named' className='w-full' />
+        </div>
+        <ErrorArea />
+        <Submit>Submit </Submit>
+      </>
+    ),
+  },
+};
+export const withAsyncErrors: Story = {
   args: {
     onSubmit: handleAsyncSubmitWithError,
     children: (
